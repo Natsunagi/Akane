@@ -174,6 +174,8 @@ class AKVideoPlayerViewController: AVPlayerViewController {
     }
 }
 
+// MARK: - UIGestureRecognizerDelegate.
+
 extension AKVideoPlayerViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer.isKind(of: UIPanGestureRecognizer.classForCoder()) && otherGestureRecognizer.isKind(of: UIPanGestureRecognizer.classForCoder()) {
