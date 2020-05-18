@@ -13,6 +13,7 @@
 		0CBB80952467806900A77DB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB80942467806900A77DB4 /* Assets.xcassets */; };
 		0CBB80982467806900A77DB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB80962467806900A77DB4 /* Main.storyboard */; };
 		0CBB80BA2467831F00A77DB4 /* AKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1B72464FDA9002D72B6 /* AKManager.swift */; };
+		2201680B24720EB1001DD295 /* AKCustomPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201680A24720EB1001DD295 /* AKCustomPlayerViewController.swift */; };
 		2220B148246529A700317DAF /* AKAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B147246529A700317DAF /* AKAlbumViewController.swift */; };
 		2220B14B24652A3D00317DAF /* AKLeetCodeDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B14A24652A3D00317DAF /* AKLeetCodeDebugViewController.swift */; };
 		2220B14F24652AAC00317DAF /* AKLineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B14E24652AAC00317DAF /* AKLineChartViewController.swift */; };
@@ -44,6 +45,7 @@
 		0CBB80972467806900A77DB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0CBB80992467806900A77DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CBB809A2467806900A77DB4 /* Akane_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Akane_macOS.entitlements; sourceTree = "<group>"; };
+		2201680A24720EB1001DD295 /* AKCustomPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKCustomPlayerViewController.swift; sourceTree = "<group>"; };
 		2220B147246529A700317DAF /* AKAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKAlbumViewController.swift; sourceTree = "<group>"; };
 		2220B14A24652A3D00317DAF /* AKLeetCodeDebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKLeetCodeDebugViewController.swift; sourceTree = "<group>"; };
 		2220B14E24652AAC00317DAF /* AKLineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKLineChartViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				2220B15924652CE800317DAF /* AKVideoRecordingViewController.swift */,
 				22304025246A27C700FF2472 /* AKVideoPlayerViewController.swift */,
+				2201680A24720EB1001DD295 /* AKCustomPlayerViewController.swift */,
 			);
 			name = Video;
 			path = "New Group";
@@ -419,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2201680B24720EB1001DD295 /* AKCustomPlayerViewController.swift in Sources */,
 				224EC1B82464FDA9002D72B6 /* AKManager.swift in Sources */,
 				224EC1842464F7AB002D72B6 /* AppDelegate.swift in Sources */,
 				2220B15524652C2E00317DAF /* AKScreenShotViewController.swift in Sources */,
@@ -644,7 +648,7 @@
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = B7AM928UT8;
 				INFOPLIST_FILE = Akane/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -674,7 +678,7 @@
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = B7AM928UT8;
 				INFOPLIST_FILE = Akane/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
