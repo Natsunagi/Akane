@@ -53,7 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        let navigationController: UINavigationController = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
+        let navigationController: UINavigationController = self.window!.rootViewController as! UINavigationController
         let mainViewController: UIViewController = navigationController.topViewController!
         mainViewController.performSegue(withIdentifier: "MainToFuncmodule", sender: nil)
         let funcModuleViewController: UIViewController = navigationController.topViewController!
