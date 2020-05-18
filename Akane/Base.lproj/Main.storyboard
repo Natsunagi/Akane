@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ygi-zU-YwT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -705,6 +704,22 @@
             </objects>
             <point key="canvasLocation" x="3721.739130434783" y="1541.5178571428571"/>
         </scene>
+        <!--Custom Player View Controller-->
+        <scene sceneID="Orh-1F-SKL">
+            <objects>
+                <viewController id="FBH-6f-85U" customClass="AKCustomPlayerViewController" customModule="Akane" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eyV-0K-Zte">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="K3T-7h-CSM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qp4-nu-7Td"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h8i-gK-Nki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1090" y="844"/>
+        </scene>
         <!--视频播放-->
         <scene sceneID="RRi-6S-3fk">
             <objects>
@@ -815,6 +830,31 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="9An-67-RaF" kind="show" identifier="VideoToVideoplayer" id="Jqr-u4-wKq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="94" id="lgU-DD-CQc">
+                                        <rect key="frame" x="0.0" y="216" width="414" height="94"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lgU-DD-CQc" id="YqF-7u-CdB">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="94"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 自定义视频播放器" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0S2-Er-z5F">
+                                                    <rect key="frame" x="35" y="22" width="143" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0S2-Er-z5F" firstAttribute="leading" secondItem="YqF-7u-CdB" secondAttribute="leadingMargin" constant="15" id="9v7-0b-axa"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0S2-Er-z5F" secondAttribute="bottom" constant="11" id="m5o-dq-kO4"/>
+                                                <constraint firstItem="0S2-Er-z5F" firstAttribute="top" secondItem="YqF-7u-CdB" secondAttribute="topMargin" constant="11" id="sS7-uj-Ig1"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="0S2-Er-z5F" secondAttribute="trailing" id="vGp-ns-oUw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="FBH-6f-85U" kind="show" id="tLP-VE-EPp"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
