@@ -42,19 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        let navigationController: UINavigationController = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
-        let mainViewController: UIViewController = navigationController.topViewController!
-        mainViewController.performSegue(withIdentifier: "MainToFuncmodule", sender: nil)
-        let funcModuleViewController: UIViewController = navigationController.topViewController!
-        funcModuleViewController.performSegue(withIdentifier: "FuncmoduleToVideo", sender: nil)
-        let videoViewController: UIViewController = navigationController.topViewController!
-        let videoPlayerViewController: AKVideoPlayerViewController = AKVideoPlayerViewController.init()
-        videoPlayerViewController.fileUrl = url
-        videoViewController.navigationController?.pushViewController(videoPlayerViewController, animated: true)
-        return true
-    }
 
     // MARK: - Core Data stack
 
