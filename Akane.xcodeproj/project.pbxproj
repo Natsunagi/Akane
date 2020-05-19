@@ -13,16 +13,16 @@
 		0CBB80952467806900A77DB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB80942467806900A77DB4 /* Assets.xcassets */; };
 		0CBB80982467806900A77DB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB80962467806900A77DB4 /* Main.storyboard */; };
 		0CBB80BA2467831F00A77DB4 /* AKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1B72464FDA9002D72B6 /* AKManager.swift */; };
-		2201680B24720EB1001DD295 /* AKCustomPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201680A24720EB1001DD295 /* AKCustomPlayerViewController.swift */; };
+		221A884B247375FF001F75FA /* AKVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A8848247375FF001F75FA /* AKVideoPlayerViewController.swift */; };
+		221A884C247375FF001F75FA /* AKVideoRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A8849247375FF001F75FA /* AKVideoRecordingViewController.swift */; };
+		221A884D247375FF001F75FA /* AKCustomPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A884A247375FF001F75FA /* AKCustomPlayerViewController.swift */; };
 		2220B148246529A700317DAF /* AKAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B147246529A700317DAF /* AKAlbumViewController.swift */; };
 		2220B14B24652A3D00317DAF /* AKLeetCodeDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B14A24652A3D00317DAF /* AKLeetCodeDebugViewController.swift */; };
 		2220B14F24652AAC00317DAF /* AKLineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B14E24652AAC00317DAF /* AKLineChartViewController.swift */; };
 		2220B15124652AC100317DAF /* AKPieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15024652AC100317DAF /* AKPieChartViewController.swift */; };
 		2220B15524652C2E00317DAF /* AKScreenShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15424652C2E00317DAF /* AKScreenShotViewController.swift */; };
 		2220B15724652C8000317DAF /* AKImageRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15624652C8000317DAF /* AKImageRotationViewController.swift */; };
-		2220B15A24652CE800317DAF /* AKVideoRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15924652CE800317DAF /* AKVideoRecordingViewController.swift */; };
 		2220B15F24654DAC00317DAF /* AKQRCodeScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15E24654DAC00317DAF /* AKQRCodeScanningViewController.swift */; };
-		22304026246A27C700FF2472 /* AKVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22304025246A27C700FF2472 /* AKVideoPlayerViewController.swift */; };
 		22304029246A36B800FF2472 /* AkaneTest.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22304028246A36B800FF2472 /* AkaneTest.bundle */; };
 		224EC1842464F7AB002D72B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1832464F7AB002D72B6 /* AppDelegate.swift */; };
 		224EC1862464F7AB002D72B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1852464F7AB002D72B6 /* SceneDelegate.swift */; };
@@ -45,16 +45,16 @@
 		0CBB80972467806900A77DB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0CBB80992467806900A77DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CBB809A2467806900A77DB4 /* Akane_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Akane_macOS.entitlements; sourceTree = "<group>"; };
-		2201680A24720EB1001DD295 /* AKCustomPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKCustomPlayerViewController.swift; sourceTree = "<group>"; };
+		221A8848247375FF001F75FA /* AKVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKVideoPlayerViewController.swift; path = "Akane/测试模块/功能模块/Video/AKVideoPlayerViewController.swift"; sourceTree = SOURCE_ROOT; };
+		221A8849247375FF001F75FA /* AKVideoRecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKVideoRecordingViewController.swift; path = "Akane/测试模块/功能模块/Video/AKVideoRecordingViewController.swift"; sourceTree = SOURCE_ROOT; };
+		221A884A247375FF001F75FA /* AKCustomPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKCustomPlayerViewController.swift; path = "Akane/测试模块/功能模块/Video/AKCustomPlayerViewController.swift"; sourceTree = SOURCE_ROOT; };
 		2220B147246529A700317DAF /* AKAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKAlbumViewController.swift; sourceTree = "<group>"; };
 		2220B14A24652A3D00317DAF /* AKLeetCodeDebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKLeetCodeDebugViewController.swift; sourceTree = "<group>"; };
 		2220B14E24652AAC00317DAF /* AKLineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKLineChartViewController.swift; sourceTree = "<group>"; };
 		2220B15024652AC100317DAF /* AKPieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKPieChartViewController.swift; sourceTree = "<group>"; };
 		2220B15424652C2E00317DAF /* AKScreenShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKScreenShotViewController.swift; sourceTree = "<group>"; };
 		2220B15624652C8000317DAF /* AKImageRotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKImageRotationViewController.swift; sourceTree = "<group>"; };
-		2220B15924652CE800317DAF /* AKVideoRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKVideoRecordingViewController.swift; sourceTree = "<group>"; };
 		2220B15E24654DAC00317DAF /* AKQRCodeScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKQRCodeScanningViewController.swift; sourceTree = "<group>"; };
-		22304025246A27C700FF2472 /* AKVideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKVideoPlayerViewController.swift; sourceTree = "<group>"; };
 		22304028246A36B800FF2472 /* AkaneTest.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AkaneTest.bundle; sourceTree = "<group>"; };
 		224EC1802464F7AB002D72B6 /* Akane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224EC1832464F7AB002D72B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,9 +155,9 @@
 		2220B15824652CA900317DAF /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				2220B15924652CE800317DAF /* AKVideoRecordingViewController.swift */,
-				22304025246A27C700FF2472 /* AKVideoPlayerViewController.swift */,
-				2201680A24720EB1001DD295 /* AKCustomPlayerViewController.swift */,
+				221A884A247375FF001F75FA /* AKCustomPlayerViewController.swift */,
+				221A8848247375FF001F75FA /* AKVideoPlayerViewController.swift */,
+				221A8849247375FF001F75FA /* AKVideoRecordingViewController.swift */,
 			);
 			name = Video;
 			path = "New Group";
@@ -422,18 +422,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2201680B24720EB1001DD295 /* AKCustomPlayerViewController.swift in Sources */,
+				221A884D247375FF001F75FA /* AKCustomPlayerViewController.swift in Sources */,
 				224EC1B82464FDA9002D72B6 /* AKManager.swift in Sources */,
 				224EC1842464F7AB002D72B6 /* AppDelegate.swift in Sources */,
 				2220B15524652C2E00317DAF /* AKScreenShotViewController.swift in Sources */,
-				22304026246A27C700FF2472 /* AKVideoPlayerViewController.swift in Sources */,
 				2220B14F24652AAC00317DAF /* AKLineChartViewController.swift in Sources */,
-				2220B15A24652CE800317DAF /* AKVideoRecordingViewController.swift in Sources */,
 				224EC1C0246520EB002D72B6 /* AKSetupViewController.swift in Sources */,
+				221A884C247375FF001F75FA /* AKVideoRecordingViewController.swift in Sources */,
 				2220B148246529A700317DAF /* AKAlbumViewController.swift in Sources */,
 				224EC18E2464F7AB002D72B6 /* Akane.xcdatamodeld in Sources */,
 				2220B15124652AC100317DAF /* AKPieChartViewController.swift in Sources */,
 				2220B15F24654DAC00317DAF /* AKQRCodeScanningViewController.swift in Sources */,
+				221A884B247375FF001F75FA /* AKVideoPlayerViewController.swift in Sources */,
 				2220B15724652C8000317DAF /* AKImageRotationViewController.swift in Sources */,
 				2220B14B24652A3D00317DAF /* AKLeetCodeDebugViewController.swift in Sources */,
 				224EC1BD2465026B002D72B6 /* AKAppleCloudViewController.swift in Sources */,
