@@ -22,6 +22,7 @@ class AKCustomPlayerViewController: UIViewController {
     private var tapTimeSecond: Int = 0
     
     private var panStartPoint: CGPoint = CGPoint.init()
+    private var panStartTime: Double = 0.0
     
     var fileUrl: URL!
     
@@ -236,6 +237,10 @@ class AKCustomPlayerViewController: UIViewController {
                 self.progressRemainTimeLabel.text = "\(self.formatPlayTime(seconds: self.playerItem.duration.seconds - cmTime.seconds))"
                 let progress: Double = cmTime.seconds / self.playerItem.duration.seconds
                 self.progressSlider.setValue(Float(progress), animated: false)
+                if progress == 1.0 {
+                    self.playerView.player?.pause()
+                    self.playButton.isSelected = false
+                }
             }
         }
     }
@@ -417,18 +422,20 @@ class AKCustomPlayerViewController: UIViewController {
         
         if gesture.state == .began {
             self.panStartPoint = currentPoint
-        } else if gesture.state == .changed || gesture.state == .ended  {
+            self.panStartTime = self.playerItem.currentTime().seconds
+        } else if gesture.state == .changed || gesture.state == .ended {
             let offsetPoint: CGPoint = CGPoint.init(x: currentPoint.x - self.panStartPoint.x, y: currentPoint.y - self.panStartPoint.y)
+            print(currentPoint.x - self.panStartPoint.x)
             let totalSecond: Double = CMTimeGetSeconds(self.playerView.player!.currentItem!.duration)
-            //let offset: Double = Double(offsetPoint.x / UIScreen.main.bounds.width)
-            //let second: Double = totalSecond * offset
-            let second: Double = Double(offsetPoint.x)
+            let offset: Double = Double(offsetPoint.x / self.view.frame.width)
+            let second: Double = totalSecond * offset
             var cmTime: CMTime = CMTime.init(seconds: second, preferredTimescale: 1)
-            cmTime = cmTime + self.playerItem.currentTime()
+            cmTime = cmTime + CMTime.init(seconds: self.panStartTime, preferredTimescale: 1)
             
             self.playerView.player?.seek(to: cmTime, completionHandler: { (complete) in
                 if complete {
                     self.playerView.player?.play()
+                    self.playButton.isSelected = true
                 }
             })
         }
