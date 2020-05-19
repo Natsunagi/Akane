@@ -44,7 +44,7 @@ class AKCustomPlayerViewController: UIViewController {
     private var playerItem: AVPlayerItem!
     private var playerView: AKPlayerView!
     
-    // MARK: UIViewController.
+    // MARK: - UIViewController.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -420,8 +420,9 @@ class AKCustomPlayerViewController: UIViewController {
         } else if gesture.state == .changed || gesture.state == .ended  {
             let offsetPoint: CGPoint = CGPoint.init(x: currentPoint.x - self.panStartPoint.x, y: currentPoint.y - self.panStartPoint.y)
             let totalSecond: Double = CMTimeGetSeconds(self.playerView.player!.currentItem!.duration)
-            let offset: Double = Double(offsetPoint.x / UIScreen.main.bounds.width)
-            let second: Double = totalSecond * offset
+            //let offset: Double = Double(offsetPoint.x / UIScreen.main.bounds.width)
+            //let second: Double = totalSecond * offset
+            let second: Double = Double(offsetPoint.x)
             var cmTime: CMTime = CMTime.init(seconds: second, preferredTimescale: 1)
             cmTime = cmTime + self.playerItem.currentTime()
             
