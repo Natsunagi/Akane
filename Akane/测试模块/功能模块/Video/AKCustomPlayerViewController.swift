@@ -386,19 +386,24 @@ class AKCustomPlayerViewController: UIViewController {
             // - 单击。
                 
             } else {
-                UIView.animate(withDuration: 0.5, animations: {
-                    if self.topToolsView.isHidden {
-                        self.topToolsView.isHidden = false
-                        self.bottomToolsView.isHidden = false
+                if self.topToolsView.isHidden {
+                    self.topToolsView.isHidden = false
+                    self.bottomToolsView.isHidden = false
+                    UIView.animate(withDuration: 0.5) {
                         self.topToolsView.alpha = 1.0
                         self.bottomToolsView.alpha = 1.0
-                    } else {
+                    }
+                } else {
+                    UIView.animate(withDuration: 0.5, animations: {
                         self.topToolsView.alpha = 0.0
                         self.bottomToolsView.alpha = 0.0
-                        self.topToolsView.isHidden = true
-                        self.bottomToolsView.isHidden = true
+                    }) { (complete) in
+                        if complete {
+                            self.topToolsView.isHidden = true
+                            self.bottomToolsView.isHidden = true
+                        }
                     }
-                }, completion: nil)
+                }
             }
         }
         
