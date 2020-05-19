@@ -410,6 +410,8 @@ class AKCustomPlayerViewController: UIViewController {
         self.tapTimeSecond = secondComponent
     }
     
+    // MARK: 拖动播放进度。
+    
     @objc private func panGestureHandle(gesture: UIGestureRecognizer) {
         let currentPoint: CGPoint = gesture.location(in: self.view)
         
