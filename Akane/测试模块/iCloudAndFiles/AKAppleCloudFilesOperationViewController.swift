@@ -34,7 +34,7 @@ class AKAppleCloudFilesOperationViewController: UIViewController, NSFilePresente
         
         let dictionary: NSDictionary = [
             "name": "wangyi",
-            "age": 24
+            "age": 23
         ]
         let documentPath: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         let savePath: String = documentPath.appending("/info.plist")
@@ -54,14 +54,15 @@ class AKAppleCloudFilesOperationViewController: UIViewController, NSFilePresente
         let fileCoordinator: NSFileCoordinator = NSFileCoordinator.init(filePresenter: self)
         var error: NSError? = NSError.init()
         
-        self.presentedItemOperationQueue.addOperation {
-            
-            fileCoordinator.coordinate(writingItemAt: AKManager.iCloudUrl!.appendingPathComponent("UserData"), options: .forReplacing, error: &error) { (url) in
-                dictionary.write(to: url.appendingPathComponent("info.plist"), atomically: true)
-            }
-            NSFileCoordinator.removeFilePresenter(self)
-        }
         DispatchQueue.global().async {
+            self.presentedItemOperationQueue.addOperation {
+                
+                fileCoordinator.coordinate(writingItemAt: AKManager.iCloudUrl!.appendingPathComponent("UserData"), options: .forReplacing, error: &error) { (url) in
+                    dictionary.write(to: url.appendingPathComponent("info.plist"), atomically: true)
+                }
+                NSFileCoordinator.removeFilePresenter(self)
+            }
+            
             if self.presentedItemOperationQueue.operations.first!.isReady {
                 self.presentedItemOperationQueue.waitUntilAllOperationsAreFinished()
                 self.presentedItemOperationQueue.addOperation {
@@ -76,5 +77,4 @@ class AKAppleCloudFilesOperationViewController: UIViewController, NSFilePresente
             }
         }
     }
-
 }
