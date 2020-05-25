@@ -44,6 +44,7 @@ class AKCustomPlayerViewController: UIViewController {
     
     private var playerItem: AVPlayerItem!
     private var playerView: AKPlayerView!
+    private var timeObserver: Any?
     
     // MARK: - UIViewController.
     
@@ -231,18 +232,24 @@ class AKCustomPlayerViewController: UIViewController {
         
         self.playerItem?.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
         self.playerItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
-        self.playerView.player?.addPeriodicTimeObserver(forInterval: CMTime.init(seconds: 1.0, preferredTimescale: 1), queue: nil) { (cmTime) in
-            if self.playerItem.duration.seconds >= 0.0 {
-                self.progressPlayedTimelabel.text = "\(self.formatPlayTime(seconds: cmTime.seconds))"
-                self.progressRemainTimeLabel.text = "\(self.formatPlayTime(seconds: self.playerItem.duration.seconds - cmTime.seconds))"
-                let progress: Double = cmTime.seconds / self.playerItem.duration.seconds
-                self.progressSlider.setValue(Float(progress), animated: false)
+        self.timeObserver = self.playerView.player?.addPeriodicTimeObserver(forInterval: CMTime.init(seconds: 1.0, preferredTimescale: 1), queue: nil) { [weak self] (cmTime) in
+            if self!.playerItem.duration.seconds >= 0.0 {
+                self!.progressPlayedTimelabel.text = "\(self!.formatPlayTime(seconds: cmTime.seconds))"
+                self!.progressRemainTimeLabel.text = "\(self!.formatPlayTime(seconds: self!.playerItem.duration.seconds - cmTime.seconds))"
+                let progress: Double = cmTime.seconds / self!.playerItem.duration.seconds
+                self!.progressSlider.setValue(Float(progress), animated: false)
                 if progress == 1.0 {
-                    self.playerView.player?.pause()
-                    self.playButton.isSelected = false
+                    self!.playerView.player?.pause()
+                    self!.playButton.isSelected = false
                 }
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     // MARK: - 将秒转换成 MM:ss。
@@ -300,31 +307,31 @@ class AKCustomPlayerViewController: UIViewController {
     }
     
     @objc private func progressBackButtonHandle() {
-        self.playerView.player?.seek(to: CMTime.init(seconds: self.playerItem.currentTime().seconds - 15, preferredTimescale: 1)) { (complete) in
+        self.playerView.player?.seek(to: CMTime.init(seconds: self.playerItem.currentTime().seconds - 15, preferredTimescale: 1)) { [weak self] (complete) in
             if complete {
-                self.playerView.player?.play()
-                self.playButton.isSelected = true
+                self!.playerView.player?.play()
+                self!.playButton.isSelected = true
             }
         }
     }
     
     @objc private func progressHeadButtonHandle() {
-        self.playerView.player?.seek(to: CMTime.init(seconds: self.playerItem.currentTime().seconds + 15, preferredTimescale: 1)) { (complete) in
+        self.playerView.player?.seek(to: CMTime.init(seconds: self.playerItem.currentTime().seconds + 15, preferredTimescale: 1)) { [weak self] (complete) in
             if complete {
-                self.playerView.player?.play()
-                self.playButton.isSelected = true
+                self!.playerView.player?.play()
+                self!.playButton.isSelected = true
             }
         }
     }
     
     @objc private func progressHandle(sender: UISlider) {
         let value: Float = sender.value
-        self.playerView.player?.seek(to: CMTime.init(seconds: Double(value) * self.playerItem.duration.seconds, preferredTimescale: 1)) { (complete) in
+        self.playerView.player?.seek(to: CMTime.init(seconds: Double(value) * self.playerItem.duration.seconds, preferredTimescale: 1)) { [weak self] (complete) in
             if complete {
-                self.playerView.player?.play()
-                self.progressPlayedTimelabel.text = "\(self.formatPlayTime(seconds: self.playerItem.currentTime().seconds))"
-                self.progressRemainTimeLabel.text = "\(self.formatPlayTime(seconds: self.playerItem.duration.seconds - self.playerItem.currentTime().seconds))"
-                self.playButton.isSelected = true
+                self!.playerView.player?.play()
+                self!.progressPlayedTimelabel.text = "\(self!.formatPlayTime(seconds: self!.playerItem.currentTime().seconds))"
+                self!.progressRemainTimeLabel.text = "\(self!.formatPlayTime(seconds: self!.playerItem.duration.seconds - self!.playerItem.currentTime().seconds))"
+                self!.playButton.isSelected = true
             }
         }
     }
@@ -370,20 +377,20 @@ class AKCustomPlayerViewController: UIViewController {
                 // - 双击屏幕左边部分后退 5 秒。
                     
                 } else if locationPoint.x < self.view.frame.width / 4 {
-                    self.playerView.player?.seek(to: CMTime.init(seconds: self.playerItem.currentTime().seconds - 5, preferredTimescale: 1)) { (complete) in
+                    self.playerView.player?.seek(to: CMTime.init(seconds: self.playerItem.currentTime().seconds - 5, preferredTimescale: 1)) { [weak self] (complete) in
                         if complete {
-                            self.playerView.player?.play()
-                            self.playButton.isSelected = true
+                            self!.playerView.player?.play()
+                            self!.playButton.isSelected = true
                         }
                     }
                     
                 // - 双击屏幕右边部分前进 5 秒。
                 
                 } else {
-                    self.playerView.player?.seek(to: CMTime.init(seconds: self.playerItem.currentTime().seconds + 5, preferredTimescale: 1)) { (complete) in
+                    self.playerView.player?.seek(to: CMTime.init(seconds: self.playerItem.currentTime().seconds + 5, preferredTimescale: 1)) { [weak self] (complete) in
                         if complete {
-                            self.playerView.player?.play()
-                            self.playButton.isSelected = true
+                            self!.playerView.player?.play()
+                            self!.playButton.isSelected = true
                         }
                     }
                 }
@@ -446,6 +453,8 @@ class AKCustomPlayerViewController: UIViewController {
     deinit {
         self.playerItem?.removeObserver(self, forKeyPath: "status")
         self.playerItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
+        self.playerView?.player?.removeTimeObserver(self.timeObserver!)
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
