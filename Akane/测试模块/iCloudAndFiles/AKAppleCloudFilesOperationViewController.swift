@@ -11,7 +11,7 @@ import UIKit
 class AKAppleCloudFilesOperationViewController: UIViewController, NSFilePresenter {
     var presentedItemURL: URL?
     
-    var presentedItemOperationQueue: OperationQueue = OperationQueue.main
+    var presentedItemOperationQueue: OperationQueue = OperationQueue.current!
     
 
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class AKAppleCloudFilesOperationViewController: UIViewController, NSFilePresente
         
         let dictionary: NSDictionary = [
             "name": "wangyi",
-            "age": 23
+            "age": 24
         ]
         let documentPath: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         let savePath: String = documentPath.appending("/info.plist")
@@ -48,24 +48,32 @@ class AKAppleCloudFilesOperationViewController: UIViewController, NSFilePresente
             print(error.localizedDescription)
         }
         
-        // MARK: 将文件写入到 iCloud。
+        // MARK: 将文件写入到 iCloud 并在完成后读取文件。
         
         NSFileCoordinator.addFilePresenter(self)
         let fileCoordinator: NSFileCoordinator = NSFileCoordinator.init(filePresenter: self)
         var error: NSError? = NSError.init()
-        fileCoordinator.coordinate(writingItemAt: AKManager.iCloudUrl!.appendingPathComponent("UserData"), options: .forReplacing, error: &error) { (url) in
-            dictionary.write(to: url.appendingPathComponent("info.plist"), atomically: true)
+        
+        self.presentedItemOperationQueue.addOperation {
+            
+            fileCoordinator.coordinate(writingItemAt: AKManager.iCloudUrl!.appendingPathComponent("UserData"), options: .forReplacing, error: &error) { (url) in
+                dictionary.write(to: url.appendingPathComponent("info.plist"), atomically: true)
+            }
+            NSFileCoordinator.removeFilePresenter(self)
         }
-        NSFileCoordinator.removeFilePresenter(self)
-        
-        // MARK: 读取文件。
-        
-        fileCoordinator.coordinate(readingItemAt: AKManager.iCloudUrl!.appendingPathComponent("UserData").appendingPathComponent("info.plist"), options: .withoutChanges, error: &error) { (url) in
-            let result: NSDictionary = NSDictionary.init(contentsOf: url)!
-            let name: String = result["name"] as! String
-            let age: Int = result["age"] as! Int
-            print(name)
-            print(age)
+        DispatchQueue.global().async {
+            if self.presentedItemOperationQueue.operations.first!.isReady {
+                self.presentedItemOperationQueue.waitUntilAllOperationsAreFinished()
+                self.presentedItemOperationQueue.addOperation {
+                    fileCoordinator.coordinate(readingItemAt: AKManager.iCloudUrl!.appendingPathComponent("UserData").appendingPathComponent("info.plist"), options: .withoutChanges, error: &error) { (url) in
+                        let result: NSDictionary = NSDictionary.init(contentsOf: url)!
+                        let name: String = result["name"] as! String
+                        let age: Int = result["age"] as! Int
+                        print(name)
+                        print(age)
+                    }
+                }
+            }
         }
     }
 
