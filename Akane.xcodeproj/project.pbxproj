@@ -24,6 +24,7 @@
 		2220B15724652C8000317DAF /* AKImageRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15624652C8000317DAF /* AKImageRotationViewController.swift */; };
 		2220B15F24654DAC00317DAF /* AKQRCodeScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15E24654DAC00317DAF /* AKQRCodeScanningViewController.swift */; };
 		22304029246A36B800FF2472 /* AkaneTest.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22304028246A36B800FF2472 /* AkaneTest.bundle */; };
+		2241EE12247B88230000B460 /* AKAppleCloudFilesOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241EE11247B88230000B460 /* AKAppleCloudFilesOperationViewController.swift */; };
 		224EC1842464F7AB002D72B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1832464F7AB002D72B6 /* AppDelegate.swift */; };
 		224EC1862464F7AB002D72B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1852464F7AB002D72B6 /* SceneDelegate.swift */; };
 		224EC18B2464F7AB002D72B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224EC1892464F7AB002D72B6 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		2220B15624652C8000317DAF /* AKImageRotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKImageRotationViewController.swift; sourceTree = "<group>"; };
 		2220B15E24654DAC00317DAF /* AKQRCodeScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKQRCodeScanningViewController.swift; sourceTree = "<group>"; };
 		22304028246A36B800FF2472 /* AkaneTest.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AkaneTest.bundle; sourceTree = "<group>"; };
+		2241EE11247B88230000B460 /* AKAppleCloudFilesOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKAppleCloudFilesOperationViewController.swift; sourceTree = "<group>"; };
 		224EC1802464F7AB002D72B6 /* Akane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224EC1832464F7AB002D72B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		224EC1852464F7AB002D72B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				224EC1BC2465026B002D72B6 /* AKAppleCloudViewController.swift */,
+				2241EE11247B88230000B460 /* AKAppleCloudFilesOperationViewController.swift */,
 			);
 			path = iCloudAndFiles;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				221A884D247375FF001F75FA /* AKCustomPlayerViewController.swift in Sources */,
+				2241EE12247B88230000B460 /* AKAppleCloudFilesOperationViewController.swift in Sources */,
 				224EC1B82464FDA9002D72B6 /* AKManager.swift in Sources */,
 				224EC1842464F7AB002D72B6 /* AppDelegate.swift in Sources */,
 				2220B15524652C2E00317DAF /* AKScreenShotViewController.swift in Sources */,
