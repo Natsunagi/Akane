@@ -160,6 +160,22 @@
             </objects>
             <point key="canvasLocation" x="1368.1159420289855" y="114.50892857142857"/>
         </scene>
+        <!--iCloud 文件操作-->
+        <scene sceneID="RPf-Ka-eiH">
+            <objects>
+                <viewController id="fJy-yF-W9R" customClass="AKAppleCloudFilesOperationViewController" customModule="Akane" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VO3-HB-3fq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="EUz-f0-Lkr"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="iCloud 文件操作" id="4aA-N0-5VV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o3z-IV-Khm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-964" y="-604"/>
+        </scene>
         <!--iCloud-->
         <scene sceneID="C9P-d1-nI5">
             <objects>
@@ -229,6 +245,31 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="fgQ-Md-3Xi" kind="show" id="DqU-xT-08h"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="94" id="Stx-h4-aGg">
+                                        <rect key="frame" x="0.0" y="122" width="414" height="94"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Stx-h4-aGg" id="v2g-jU-OL5">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="94"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud 文件操作" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbI-KX-SWN">
+                                                    <rect key="frame" x="35" y="22" width="123" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="EbI-KX-SWN" secondAttribute="bottom" constant="11" id="XWm-Qi-YIB"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="EbI-KX-SWN" secondAttribute="trailing" id="ezF-3q-vZr"/>
+                                                <constraint firstItem="EbI-KX-SWN" firstAttribute="top" secondItem="v2g-jU-OL5" secondAttribute="topMargin" constant="11" id="g46-s9-AYW"/>
+                                                <constraint firstItem="EbI-KX-SWN" firstAttribute="leading" secondItem="v2g-jU-OL5" secondAttribute="leadingMargin" constant="15" id="xWG-gR-1Tw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="fJy-yF-W9R" kind="show" id="Bmc-nZ-dGy"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -704,7 +745,7 @@
             </objects>
             <point key="canvasLocation" x="3721.739130434783" y="1541.5178571428571"/>
         </scene>
-        <!--Custom Player View Controller-->
+        <!--自定义视频播放器-->
         <scene sceneID="Orh-1F-SKL">
             <objects>
                 <viewController id="FBH-6f-85U" customClass="AKCustomPlayerViewController" customModule="Akane" customModuleProvider="target" sceneMemberID="viewController">
@@ -714,7 +755,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="K3T-7h-CSM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Qp4-nu-7Td"/>
+                    <navigationItem key="navigationItem" title="自定义视频播放器" id="Qp4-nu-7Td"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8i-gK-Nki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
