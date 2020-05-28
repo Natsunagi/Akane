@@ -44,19 +44,6 @@ class AKVideoPlayerViewController: AVPlayerViewController {
         
         self.playerItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
         self.playerItem.addObserver(self, forKeyPath: "status", options: .new, context: nil)
-        
-        // MARK: 播放器手势添加。
-
-        // - 双击播放与暂停。
-        
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(self.doubleTap(gesture:)))
-        tapGesture.delegate = self
-        self.view.addGestureRecognizer(tapGesture)
-        
-        // - 拖动进度。
-        
-        let panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer.init(target: self, action: #selector(self.pan(gesture:)))
-        self.view.addGestureRecognizer(panGesture)
     }
     
     // MARK: - 将秒转换成 MM:ss。
@@ -95,74 +82,6 @@ class AKVideoPlayerViewController: AVPlayerViewController {
             } else if keyPath == "loadedTimeRanges" {
                 let _ = self.availableDurationWithplayerItem()
             }
-        }
-    }
-    
-    // MARK: - 播放器手势。
-    
-    // MARK: 双击屏幕播放与暂停。
-    
-    @objc private func doubleTap(gesture: UIGestureRecognizer) {
-        
-        // - 是第一次点击。
-        
-        if self.doubleTapTime.first == 0 {
-            
-            // - 记录当前点击时间。
-            
-            let currentDate: Date = Date.init()
-            let calendar: Calendar = Calendar.current
-            let secondComponent: Int = calendar.component(.second, from: currentDate)
-            self.doubleTapTime.first = secondComponent
-            
-        // - 是第二次点击。
-            
-        } else {
-            
-            // - 记录当前点击时间。
-            
-            let currentDate: Date = Date.init()
-            let calendar: Calendar = Calendar.current
-            let secondComponent: Int = calendar.component(.second, from: currentDate)
-            self.doubleTapTime.second = secondComponent
-            
-            // - 判断两次点击时间间隔。
-            
-            if self.doubleTapTime.second - self.doubleTapTime.first < 1 || self.doubleTapTime.first == self.doubleTapTime.second {
-                
-                // - 改变播放状态。
-                
-                if self.isPlaying {
-                    self.player?.pause()
-                    self.isPlaying = false
-                } else {
-                    self.player?.play()
-                    self.isPlaying = true
-                }
-            }
-        }
-    }
-    
-    // MARK: 拖动进度条。
-    
-    @objc private func pan(gesture: UIGestureRecognizer) {
-        let currentPoint: CGPoint = gesture.location(in: self.view)
-        
-        if gesture.state == .began {
-            self.panStartPoint = currentPoint
-        } else if gesture.state == .changed || gesture.state == .ended  {
-            let offsetPoint: CGPoint = CGPoint.init(x: currentPoint.x - self.panStartPoint.x, y: currentPoint.y - self.panStartPoint.y)
-            let totalSecond: Double = CMTimeGetSeconds(self.player!.currentItem!.duration)
-            let offset: Double = Double(offsetPoint.x / UIScreen.main.bounds.width)
-            let second: Double = totalSecond * offset
-            var cmTime: CMTime = CMTime.init(seconds: second, preferredTimescale: 1)
-            cmTime = cmTime + self.playerItem.currentTime()
-            
-            self.player?.seek(to: cmTime, completionHandler: { (complete) in
-                if complete {
-                    self.player?.play()
-                }
-            })
         }
     }
     
