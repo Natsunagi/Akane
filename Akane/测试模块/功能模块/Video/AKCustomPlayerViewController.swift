@@ -432,19 +432,20 @@ class AKCustomPlayerViewController: UIViewController {
             self.panStartTime = self.playerItem.currentTime().seconds
         } else if gesture.state == .changed || gesture.state == .ended {
             let offsetPoint: CGPoint = CGPoint.init(x: currentPoint.x - self.panStartPoint.x, y: currentPoint.y - self.panStartPoint.y)
-            print(currentPoint.x - self.panStartPoint.x)
-            let totalSecond: Double = CMTimeGetSeconds(self.playerView.player!.currentItem!.duration)
-            let offset: Double = Double(offsetPoint.x / self.view.frame.width)
-            let second: Double = totalSecond * offset
-            var cmTime: CMTime = CMTime.init(seconds: second, preferredTimescale: 1)
-            cmTime = cmTime + CMTime.init(seconds: self.panStartTime, preferredTimescale: 1)
-            
-            self.playerView.player?.seek(to: cmTime, completionHandler: { (complete) in
-                if complete {
-                    self.playerView.player?.play()
-                    self.playButton.isSelected = true
-                }
-            })
+            if abs(offsetPoint.y) > abs(offsetPoint.x) {
+                let totalSecond: Double = CMTimeGetSeconds(self.playerView.player!.currentItem!.duration)
+                let offset: Double = Double(offsetPoint.x / self.view.frame.width)
+                let second: Double = totalSecond * offset
+                var cmTime: CMTime = CMTime.init(seconds: second, preferredTimescale: 1)
+                cmTime = cmTime + CMTime.init(seconds: self.panStartTime, preferredTimescale: 1)
+                
+                self.playerView.player?.seek(to: cmTime, completionHandler: { [weak self] (complete) in
+                    if complete {
+                        self!.playerView.player?.play()
+                        self!.playButton.isSelected = true
+                    }
+                })
+            }
         }
     }
     
