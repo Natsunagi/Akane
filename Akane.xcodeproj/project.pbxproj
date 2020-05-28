@@ -34,6 +34,7 @@
 		224EC1B82464FDA9002D72B6 /* AKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1B72464FDA9002D72B6 /* AKManager.swift */; };
 		224EC1BD2465026B002D72B6 /* AKAppleCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1BC2465026B002D72B6 /* AKAppleCloudViewController.swift */; };
 		224EC1C0246520EB002D72B6 /* AKSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1BF246520EB002D72B6 /* AKSetupViewController.swift */; };
+		22E96916247DEC49004CA927 /* AKMetaDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */; };
 		40B644BCEEEA926B6BB9C23A /* Pods_Akane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD44D70D426A6B60613673CA /* Pods_Akane.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		224EC1B72464FDA9002D72B6 /* AKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKManager.swift; sourceTree = "<group>"; };
 		224EC1BC2465026B002D72B6 /* AKAppleCloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKAppleCloudViewController.swift; sourceTree = "<group>"; };
 		224EC1BF246520EB002D72B6 /* AKSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKSetupViewController.swift; sourceTree = "<group>"; };
+		22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKMetaDataViewController.swift; sourceTree = "<group>"; };
 		38FCD18364F040D0BE5FF945 /* Pods_AkaneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AkaneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7A65A7FBDC4E45DA493524 /* Pods_Akane_AkaneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_AkaneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBC0D467DB58E284BA3EDE3 /* Pods-Akane.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane.debug.xcconfig"; path = "Target Support Files/Pods-Akane/Pods-Akane.debug.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				224EC1BC2465026B002D72B6 /* AKAppleCloudViewController.swift */,
 				2241EE11247B88230000B460 /* AKAppleCloudFilesOperationViewController.swift */,
+				22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */,
 			);
 			path = iCloudAndFiles;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				2220B148246529A700317DAF /* AKAlbumViewController.swift in Sources */,
 				224EC18E2464F7AB002D72B6 /* Akane.xcdatamodeld in Sources */,
 				2220B15124652AC100317DAF /* AKPieChartViewController.swift in Sources */,
+				22E96916247DEC49004CA927 /* AKMetaDataViewController.swift in Sources */,
 				2220B15F24654DAC00317DAF /* AKQRCodeScanningViewController.swift in Sources */,
 				221A884B247375FF001F75FA /* AKVideoPlayerViewController.swift in Sources */,
 				2220B15724652C8000317DAF /* AKImageRotationViewController.swift in Sources */,
