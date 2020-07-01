@@ -13,6 +13,7 @@
 		0CBB80952467806900A77DB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB80942467806900A77DB4 /* Assets.xcassets */; };
 		0CBB80982467806900A77DB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB80962467806900A77DB4 /* Main.storyboard */; };
 		0CBB80BA2467831F00A77DB4 /* AKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1B72464FDA9002D72B6 /* AKManager.swift */; };
+		13F1A4A9955ECF8A34A08A49 /* Pods_Akane_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E84907EB1CD0CF4D3F63882 /* Pods_Akane_macOS.framework */; };
 		221A884B247375FF001F75FA /* AKVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A8848247375FF001F75FA /* AKVideoPlayerViewController.swift */; };
 		221A884C247375FF001F75FA /* AKVideoRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A8849247375FF001F75FA /* AKVideoRecordingViewController.swift */; };
 		221A884D247375FF001F75FA /* AKCustomPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A884A247375FF001F75FA /* AKCustomPlayerViewController.swift */; };
@@ -35,6 +36,7 @@
 		224EC1BD2465026B002D72B6 /* AKAppleCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1BC2465026B002D72B6 /* AKAppleCloudViewController.swift */; };
 		224EC1C0246520EB002D72B6 /* AKSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1BF246520EB002D72B6 /* AKSetupViewController.swift */; };
 		22E96916247DEC49004CA927 /* AKMetaDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */; };
+		22EBEEDF24AC184200923A09 /* AKSqliteSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBEEDE24AC184200923A09 /* AKSqliteSwiftViewController.swift */; };
 		40B644BCEEEA926B6BB9C23A /* Pods_Akane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD44D70D426A6B60613673CA /* Pods_Akane.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,11 +74,15 @@
 		224EC1BC2465026B002D72B6 /* AKAppleCloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKAppleCloudViewController.swift; sourceTree = "<group>"; };
 		224EC1BF246520EB002D72B6 /* AKSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKSetupViewController.swift; sourceTree = "<group>"; };
 		22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKMetaDataViewController.swift; sourceTree = "<group>"; };
+		22EBEEDE24AC184200923A09 /* AKSqliteSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKSqliteSwiftViewController.swift; sourceTree = "<group>"; };
 		38FCD18364F040D0BE5FF945 /* Pods_AkaneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AkaneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7A65A7FBDC4E45DA493524 /* Pods_Akane_AkaneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_AkaneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E84907EB1CD0CF4D3F63882 /* Pods_Akane_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBC0D467DB58E284BA3EDE3 /* Pods-Akane.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane.debug.xcconfig"; path = "Target Support Files/Pods-Akane/Pods-Akane.debug.xcconfig"; sourceTree = "<group>"; };
 		8DEFAC896C2CFB5290E263F9 /* Pods-Akane.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane.release.xcconfig"; path = "Target Support Files/Pods-Akane/Pods-Akane.release.xcconfig"; sourceTree = "<group>"; };
+		A556499CC9FB27FEA4F4ABAC /* Pods-Akane_macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_macOS.debug.xcconfig"; path = "Target Support Files/Pods-Akane_macOS/Pods-Akane_macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AD44D70D426A6B60613673CA /* Pods_Akane.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8805BAE150A5CB618F25CCC /* Pods-Akane_macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_macOS.release.xcconfig"; path = "Target Support Files/Pods-Akane_macOS/Pods-Akane_macOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F1A4A9955ECF8A34A08A49 /* Pods_Akane_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +130,7 @@
 		2220B14C24652A4E00317DAF /* 第三方框架 */ = {
 			isa = PBXGroup;
 			children = (
+				22EBEEDD24AC177C00923A09 /* SqliteSwift */,
 				2220B14D24652A8400317DAF /* Charts */,
 			);
 			path = "第三方框架";
@@ -252,11 +260,21 @@
 			path = "设置";
 			sourceTree = "<group>";
 		};
+		22EBEEDD24AC177C00923A09 /* SqliteSwift */ = {
+			isa = PBXGroup;
+			children = (
+				22EBEEDE24AC184200923A09 /* AKSqliteSwiftViewController.swift */,
+			);
+			path = SqliteSwift;
+			sourceTree = "<group>";
+		};
 		4061B54523CA5B843CE55838 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				5FBC0D467DB58E284BA3EDE3 /* Pods-Akane.debug.xcconfig */,
 				8DEFAC896C2CFB5290E263F9 /* Pods-Akane.release.xcconfig */,
+				A556499CC9FB27FEA4F4ABAC /* Pods-Akane_macOS.debug.xcconfig */,
+				E8805BAE150A5CB618F25CCC /* Pods-Akane_macOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -267,6 +285,7 @@
 				AD44D70D426A6B60613673CA /* Pods_Akane.framework */,
 				4C7A65A7FBDC4E45DA493524 /* Pods_Akane_AkaneUITests.framework */,
 				38FCD18364F040D0BE5FF945 /* Pods_AkaneTests.framework */,
+				4E84907EB1CD0CF4D3F63882 /* Pods_Akane_macOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -278,6 +297,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CBB80B12467806900A77DB4 /* Build configuration list for PBXNativeTarget "Akane_macOS" */;
 			buildPhases = (
+				DE3C784DA0292BF14706EB06 /* [CP] Check Pods Manifest.lock */,
 				0CBB80872467806900A77DB4 /* Sources */,
 				0CBB80882467806900A77DB4 /* Frameworks */,
 				0CBB80892467806900A77DB4 /* Resources */,
@@ -299,7 +319,7 @@
 				224EC17C2464F7AB002D72B6 /* Sources */,
 				224EC17D2464F7AB002D72B6 /* Frameworks */,
 				224EC17E2464F7AB002D72B6 /* Resources */,
-				0814BB995A3411F369D2E66B /* [CP] Embed Pods Frameworks */,
+				A026AB92A63B2886F7B1A37D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -371,23 +391,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0814BB995A3411F369D2E66B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		64ACAC2A9483FEF8B4E720F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,6 +407,45 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Akane-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A026AB92A63B2886F7B1A37D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE3C784DA0292BF14706EB06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Akane_macOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -428,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EBEEDF24AC184200923A09 /* AKSqliteSwiftViewController.swift in Sources */,
 				221A884D247375FF001F75FA /* AKCustomPlayerViewController.swift in Sources */,
 				2241EE12247B88230000B460 /* AKAppleCloudFilesOperationViewController.swift in Sources */,
 				224EC1B82464FDA9002D72B6 /* AKManager.swift in Sources */,
@@ -481,6 +524,7 @@
 /* Begin XCBuildConfiguration section */
 		0CBB80B22467806900A77DB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A556499CC9FB27FEA4F4ABAC /* Pods-Akane_macOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
@@ -506,6 +550,7 @@
 		};
 		0CBB80B32467806900A77DB4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8805BAE150A5CB618F25CCC /* Pods-Akane_macOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;

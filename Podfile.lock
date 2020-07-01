@@ -1,22 +1,28 @@
 PODS:
-  - Charts (3.4.0):
-    - Charts/Core (= 3.4.0)
-  - Charts/Core (3.4.0)
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
   - Masonry (1.1.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
 
 DEPENDENCIES:
   - Charts
   - Masonry
+  - SQLite.swift
 
 SPEC REPOS:
   trunk:
     - Charts
     - Masonry
+    - SQLite.swift
 
 SPEC CHECKSUMS:
-  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
 
-PODFILE CHECKSUM: f27fa5047c28d0990fcccecfa08b815fc5dad0a7
+PODFILE CHECKSUM: 1164c733272952805c35a7238578ea1a7da46f98
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

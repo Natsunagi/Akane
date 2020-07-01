@@ -8,6 +8,7 @@ target 'Akane' do
   # Pods for Akane
   pod 'Masonry'
   pod 'Charts'
+  pod 'SQLite.swift'
 end
 
 target 'Akane_macOS' do
