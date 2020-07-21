@@ -609,6 +609,31 @@
                                             <segue destination="e2F-Vk-xNO" kind="show" id="UkL-rm-oIF"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="94" id="NlE-U5-WDO">
+                                        <rect key="frame" x="0.0" y="310" width="414" height="94"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NlE-U5-WDO" id="INS-AY-Zs6">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="94"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地图" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8G-vb-uMp">
+                                                    <rect key="frame" x="35" y="22" width="35" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="c8G-vb-uMp" firstAttribute="leading" secondItem="INS-AY-Zs6" secondAttribute="leadingMargin" constant="15" id="gvS-pP-QWL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="c8G-vb-uMp" secondAttribute="bottom" constant="11" id="j7l-WZ-X1y"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="c8G-vb-uMp" secondAttribute="trailing" id="mPY-3c-oxV"/>
+                                                <constraint firstItem="c8G-vb-uMp" firstAttribute="top" secondItem="INS-AY-Zs6" secondAttribute="topMargin" constant="11" id="nEu-kM-g3e"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="j2f-xj-2pe" kind="show" id="HZY-Yq-Tj6"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -741,6 +766,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dx7-0u-UgW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2154" y="1542"/>
+        </scene>
+        <!--地图-->
+        <scene sceneID="ELs-gV-Z8L">
+            <objects>
+                <viewController id="j2f-xj-2pe" customClass="AKMapViewController" customModule="Akane" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p03-Yg-XoC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2cT-Fh-5Dg"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="地图" id="5lw-IF-euF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wK8-0i-4TI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1367" y="1542"/>
         </scene>
         <!--截屏-->
         <scene sceneID="KhG-cs-ZJY">
