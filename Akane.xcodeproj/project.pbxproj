@@ -35,6 +35,7 @@
 		224EC1B82464FDA9002D72B6 /* AKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1B72464FDA9002D72B6 /* AKManager.swift */; };
 		224EC1BD2465026B002D72B6 /* AKAppleCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1BC2465026B002D72B6 /* AKAppleCloudViewController.swift */; };
 		224EC1C0246520EB002D72B6 /* AKSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1BF246520EB002D72B6 /* AKSetupViewController.swift */; };
+		22B15C6A24C52BD2007491EC /* AKMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B15C6924C52BD2007491EC /* AKMapViewController.swift */; };
 		22E96916247DEC49004CA927 /* AKMetaDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */; };
 		22EBEEDF24AC184200923A09 /* AKSqliteSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBEEDE24AC184200923A09 /* AKSqliteSwiftViewController.swift */; };
 		40B644BCEEEA926B6BB9C23A /* Pods_Akane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD44D70D426A6B60613673CA /* Pods_Akane.framework */; };
@@ -73,6 +74,7 @@
 		224EC1B72464FDA9002D72B6 /* AKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKManager.swift; sourceTree = "<group>"; };
 		224EC1BC2465026B002D72B6 /* AKAppleCloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKAppleCloudViewController.swift; sourceTree = "<group>"; };
 		224EC1BF246520EB002D72B6 /* AKSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKSetupViewController.swift; sourceTree = "<group>"; };
+		22B15C6924C52BD2007491EC /* AKMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKMapViewController.swift; sourceTree = "<group>"; };
 		22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKMetaDataViewController.swift; sourceTree = "<group>"; };
 		22EBEEDE24AC184200923A09 /* AKSqliteSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKSqliteSwiftViewController.swift; sourceTree = "<group>"; };
 		38FCD18364F040D0BE5FF945 /* Pods_AkaneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AkaneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 				2220B15B24652D0B00317DAF /* QR Code */,
 				2220B15824652CA900317DAF /* Video */,
 				2220B15324652BDF00317DAF /* Image */,
+				22B15C6924C52BD2007491EC /* AKMapViewController.swift */,
 			);
 			path = "功能模块";
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				2220B14F24652AAC00317DAF /* AKLineChartViewController.swift in Sources */,
 				224EC1C0246520EB002D72B6 /* AKSetupViewController.swift in Sources */,
 				221A884C247375FF001F75FA /* AKVideoRecordingViewController.swift in Sources */,
+				22B15C6A24C52BD2007491EC /* AKMapViewController.swift in Sources */,
 				2220B148246529A700317DAF /* AKAlbumViewController.swift in Sources */,
 				224EC18E2464F7AB002D72B6 /* Akane.xcdatamodeld in Sources */,
 				2220B15124652AC100317DAF /* AKPieChartViewController.swift in Sources */,
