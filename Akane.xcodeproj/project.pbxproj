@@ -35,6 +35,7 @@
 		224EC1B82464FDA9002D72B6 /* AKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1B72464FDA9002D72B6 /* AKManager.swift */; };
 		224EC1BD2465026B002D72B6 /* AKAppleCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1BC2465026B002D72B6 /* AKAppleCloudViewController.swift */; };
 		224EC1C0246520EB002D72B6 /* AKSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1BF246520EB002D72B6 /* AKSetupViewController.swift */; };
+		22AFBDC924D2B0520072784B /* AKImageGestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFBDC824D2B0520072784B /* AKImageGestureViewController.swift */; };
 		22B15C6A24C52BD2007491EC /* AKMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B15C6924C52BD2007491EC /* AKMapViewController.swift */; };
 		22E96916247DEC49004CA927 /* AKMetaDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */; };
 		22EBEEDF24AC184200923A09 /* AKSqliteSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBEEDE24AC184200923A09 /* AKSqliteSwiftViewController.swift */; };
@@ -74,6 +75,7 @@
 		224EC1B72464FDA9002D72B6 /* AKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKManager.swift; sourceTree = "<group>"; };
 		224EC1BC2465026B002D72B6 /* AKAppleCloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKAppleCloudViewController.swift; sourceTree = "<group>"; };
 		224EC1BF246520EB002D72B6 /* AKSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKSetupViewController.swift; sourceTree = "<group>"; };
+		22AFBDC824D2B0520072784B /* AKImageGestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKImageGestureViewController.swift; sourceTree = "<group>"; };
 		22B15C6924C52BD2007491EC /* AKMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKMapViewController.swift; sourceTree = "<group>"; };
 		22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKMetaDataViewController.swift; sourceTree = "<group>"; };
 		22EBEEDE24AC184200923A09 /* AKSqliteSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKSqliteSwiftViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				2220B15424652C2E00317DAF /* AKScreenShotViewController.swift */,
 				2220B15624652C8000317DAF /* AKImageRotationViewController.swift */,
+				22AFBDC824D2B0520072784B /* AKImageGestureViewController.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				2220B15124652AC100317DAF /* AKPieChartViewController.swift in Sources */,
 				22E96916247DEC49004CA927 /* AKMetaDataViewController.swift in Sources */,
 				2220B15F24654DAC00317DAF /* AKQRCodeScanningViewController.swift in Sources */,
+				22AFBDC924D2B0520072784B /* AKImageGestureViewController.swift in Sources */,
 				221A884B247375FF001F75FA /* AKVideoPlayerViewController.swift in Sources */,
 				2220B15724652C8000317DAF /* AKImageRotationViewController.swift in Sources */,
 				2220B14B24652A3D00317DAF /* AKLeetCodeDebugViewController.swift in Sources */,
