@@ -109,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C1655C024D6A7E2005099A2 /* 地图 */ = {
+			isa = PBXGroup;
+			children = (
+				22B15C6924C52BD2007491EC /* AKMapViewController.swift */,
+			);
+			path = "地图";
+			sourceTree = "<group>";
+		};
 		0CBB808C2467806900A77DB4 /* Akane_macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +163,6 @@
 				2220B15B24652D0B00317DAF /* QR Code */,
 				2220B15824652CA900317DAF /* Video */,
 				2220B15324652BDF00317DAF /* Image */,
-				22B15C6924C52BD2007491EC /* AKMapViewController.swift */,
 			);
 			path = "功能模块";
 			sourceTree = "<group>";
@@ -249,6 +256,7 @@
 		224EC1BB2465022E002D72B6 /* 测试模块 */ = {
 			isa = PBXGroup;
 			children = (
+				0C1655C024D6A7E2005099A2 /* 地图 */,
 				2220B15224652BC500317DAF /* 功能模块 */,
 				2220B14C24652A4E00317DAF /* 第三方框架 */,
 				2220B149246529EF00317DAF /* Foundation */,
