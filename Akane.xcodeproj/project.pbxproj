@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CBB808E2467806900A77DB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB808D2467806900A77DB4 /* AppDelegate.swift */; };
-		0CBB80902467806900A77DB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB808F2467806900A77DB4 /* ViewController.swift */; };
-		0CBB80932467806900A77DB4 /* Akane_macOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB80912467806900A77DB4 /* Akane_macOS.xcdatamodeld */; };
-		0CBB80952467806900A77DB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB80942467806900A77DB4 /* Assets.xcassets */; };
-		0CBB80982467806900A77DB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB80962467806900A77DB4 /* Main.storyboard */; };
-		0CBB80BA2467831F00A77DB4 /* AKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1B72464FDA9002D72B6 /* AKManager.swift */; };
-		13F1A4A9955ECF8A34A08A49 /* Pods_Akane_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E84907EB1CD0CF4D3F63882 /* Pods_Akane_macOS.framework */; };
 		221A884B247375FF001F75FA /* AKVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A8848247375FF001F75FA /* AKVideoPlayerViewController.swift */; };
 		221A884C247375FF001F75FA /* AKVideoRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A8849247375FF001F75FA /* AKVideoRecordingViewController.swift */; };
 		221A884D247375FF001F75FA /* AKCustomPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A884A247375FF001F75FA /* AKCustomPlayerViewController.swift */; };
@@ -43,14 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CBB808B2467806900A77DB4 /* Akane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CBB808D2467806900A77DB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0CBB808F2467806900A77DB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0CBB80922467806900A77DB4 /* Akane_macOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Akane_macOS.xcdatamodel; sourceTree = "<group>"; };
-		0CBB80942467806900A77DB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0CBB80972467806900A77DB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0CBB80992467806900A77DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CBB809A2467806900A77DB4 /* Akane_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Akane_macOS.entitlements; sourceTree = "<group>"; };
 		221A8848247375FF001F75FA /* AKVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKVideoPlayerViewController.swift; path = "Akane/测试模块/功能模块/Video/AKVideoPlayerViewController.swift"; sourceTree = SOURCE_ROOT; };
 		221A8849247375FF001F75FA /* AKVideoRecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKVideoRecordingViewController.swift; path = "Akane/测试模块/功能模块/Video/AKVideoRecordingViewController.swift"; sourceTree = SOURCE_ROOT; };
 		221A884A247375FF001F75FA /* AKCustomPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKCustomPlayerViewController.swift; path = "Akane/测试模块/功能模块/Video/AKCustomPlayerViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -90,14 +75,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0CBB80882467806900A77DB4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				13F1A4A9955ECF8A34A08A49 /* Pods_Akane_macOS.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		224EC17D2464F7AB002D72B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,20 +92,6 @@
 				22B15C6924C52BD2007491EC /* AKMapViewController.swift */,
 			);
 			path = "地图";
-			sourceTree = "<group>";
-		};
-		0CBB808C2467806900A77DB4 /* Akane_macOS */ = {
-			isa = PBXGroup;
-			children = (
-				0CBB808D2467806900A77DB4 /* AppDelegate.swift */,
-				0CBB808F2467806900A77DB4 /* ViewController.swift */,
-				0CBB80942467806900A77DB4 /* Assets.xcassets */,
-				0CBB80962467806900A77DB4 /* Main.storyboard */,
-				0CBB80992467806900A77DB4 /* Info.plist */,
-				0CBB809A2467806900A77DB4 /* Akane_macOS.entitlements */,
-				0CBB80912467806900A77DB4 /* Akane_macOS.xcdatamodeld */,
-			);
-			path = Akane_macOS;
 			sourceTree = "<group>";
 		};
 		2220B149246529EF00317DAF /* Foundation */ = {
@@ -201,7 +164,6 @@
 			children = (
 				224EC1B92464FDB3002D72B6 /* AKManager */,
 				224EC1822464F7AB002D72B6 /* Akane */,
-				0CBB808C2467806900A77DB4 /* Akane_macOS */,
 				224EC1812464F7AB002D72B6 /* Products */,
 				4061B54523CA5B843CE55838 /* Pods */,
 				A9C958CEF0FBCD5608BBFBFA /* Frameworks */,
@@ -212,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				224EC1802464F7AB002D72B6 /* Akane.app */,
-				0CBB808B2467806900A77DB4 /* Akane.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -307,24 +268,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0CBB808A2467806900A77DB4 /* Akane_macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0CBB80B12467806900A77DB4 /* Build configuration list for PBXNativeTarget "Akane_macOS" */;
-			buildPhases = (
-				DE3C784DA0292BF14706EB06 /* [CP] Check Pods Manifest.lock */,
-				0CBB80872467806900A77DB4 /* Sources */,
-				0CBB80882467806900A77DB4 /* Frameworks */,
-				0CBB80892467806900A77DB4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Akane_macOS;
-			productName = Akane_macOS;
-			productReference = 0CBB808B2467806900A77DB4 /* Akane.app */;
-			productType = "com.apple.product-type.application";
-		};
 		224EC17F2464F7AB002D72B6 /* Akane */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 224EC1AD2464F7D7002D72B6 /* Build configuration list for PBXNativeTarget "Akane" */;
@@ -354,9 +297,6 @@
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Grass Plainson";
 				TargetAttributes = {
-					0CBB808A2467806900A77DB4 = {
-						CreatedOnToolsVersion = 11.4.1;
-					};
 					224EC17F2464F7AB002D72B6 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
@@ -376,21 +316,11 @@
 			projectRoot = "";
 			targets = (
 				224EC17F2464F7AB002D72B6 /* Akane */,
-				0CBB808A2467806900A77DB4 /* Akane_macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0CBB80892467806900A77DB4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CBB80952467806900A77DB4 /* Assets.xcassets in Resources */,
-				0CBB80982467806900A77DB4 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		224EC17E2464F7AB002D72B6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,42 +374,9 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DE3C784DA0292BF14706EB06 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Akane_macOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0CBB80872467806900A77DB4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CBB80902467806900A77DB4 /* ViewController.swift in Sources */,
-				0CBB80BA2467831F00A77DB4 /* AKManager.swift in Sources */,
-				0CBB80932467806900A77DB4 /* Akane_macOS.xcdatamodeld in Sources */,
-				0CBB808E2467806900A77DB4 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		224EC17C2464F7AB002D72B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -511,14 +408,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0CBB80962467806900A77DB4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0CBB80972467806900A77DB4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		224EC1892464F7AB002D72B6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -538,58 +427,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0CBB80B22467806900A77DB4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A556499CC9FB27FEA4F4ABAC /* Pods-Akane_macOS.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = B7AM928UT8;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = Akane_macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0.8;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Grass.Akane-macOS";
-				PRODUCT_NAME = Akane;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		0CBB80B32467806900A77DB4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8805BAE150A5CB618F25CCC /* Pods-Akane_macOS.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = B7AM928UT8;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = Akane_macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0.8;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Grass.Akane-macOS";
-				PRODUCT_NAME = Akane;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		224EC1AB2464F7D7002D72B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -730,7 +567,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -760,7 +597,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -769,15 +606,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0CBB80B12467806900A77DB4 /* Build configuration list for PBXNativeTarget "Akane_macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0CBB80B22467806900A77DB4 /* Debug */,
-				0CBB80B32467806900A77DB4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		224EC17B2464F7AA002D72B6 /* Build configuration list for PBXProject "Akane" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -799,16 +627,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		0CBB80912467806900A77DB4 /* Akane_macOS.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0CBB80922467806900A77DB4 /* Akane_macOS.xcdatamodel */,
-			);
-			currentVersion = 0CBB80922467806900A77DB4 /* Akane_macOS.xcdatamodel */;
-			path = Akane_macOS.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		224EC18C2464F7AB002D72B6 /* Akane.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
