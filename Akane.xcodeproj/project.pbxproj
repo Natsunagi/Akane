@@ -162,7 +162,6 @@
 		224EC1772464F7AA002D72B6 = {
 			isa = PBXGroup;
 			children = (
-				224EC1B92464FDB3002D72B6 /* AKManager */,
 				224EC1822464F7AB002D72B6 /* Akane */,
 				224EC1812464F7AB002D72B6 /* Products */,
 				4061B54523CA5B843CE55838 /* Pods */,
@@ -181,6 +180,7 @@
 		224EC1822464F7AB002D72B6 /* Akane */ = {
 			isa = PBXGroup;
 			children = (
+				224EC1B92464FDB3002D72B6 /* AKManager */,
 				224EC1BE2465200B002D72B6 /* 设置 */,
 				224EC1BB2465022E002D72B6 /* 测试模块 */,
 				224EC1832464F7AB002D72B6 /* AppDelegate.swift */,
