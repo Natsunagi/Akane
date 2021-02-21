@@ -17,6 +17,18 @@
 		2220B15524652C2E00317DAF /* AKScreenShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15424652C2E00317DAF /* AKScreenShotViewController.swift */; };
 		2220B15724652C8000317DAF /* AKImageRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15624652C8000317DAF /* AKImageRotationViewController.swift */; };
 		2220B15F24654DAC00317DAF /* AKQRCodeScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15E24654DAC00317DAF /* AKQRCodeScanningViewController.swift */; };
+		2225507925E2078400B801E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225507825E2078400B801E6 /* AppDelegate.swift */; };
+		2225507B25E2078400B801E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225507A25E2078400B801E6 /* SceneDelegate.swift */; };
+		2225508025E2078400B801E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2225507E25E2078400B801E6 /* Main.storyboard */; };
+		2225508225E207C200B801E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2225508125E207C200B801E6 /* Assets.xcassets */; };
+		2225508525E207C200B801E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2225508325E207C200B801E6 /* LaunchScreen.storyboard */; };
+		2225508E25E20CED00B801E6 /* AKCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225508D25E20CED00B801E6 /* AKCalendarViewController.swift */; };
+		2225509525E20DB100B801E6 /* AKCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225509425E20DB100B801E6 /* AKCalendarView.swift */; };
+		222550D525E2344D00B801E6 /* AKCalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222550D425E2344D00B801E6 /* AKCalendarViewDelegate.swift */; };
+		2225510D25E2487000B801E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225510C25E2487000B801E6 /* AppDelegate.swift */; };
+		2225510F25E2487000B801E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225510E25E2487000B801E6 /* ViewController.swift */; };
+		2225511125E2488900B801E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2225511025E2488900B801E6 /* Assets.xcassets */; };
+		2225511425E2488900B801E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2225511225E2488900B801E6 /* Main.storyboard */; };
 		22304029246A36B800FF2472 /* AkaneTest.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22304028246A36B800FF2472 /* AkaneTest.bundle */; };
 		2241EE12247B88230000B460 /* AKAppleCloudFilesOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241EE11247B88230000B460 /* AKAppleCloudFilesOperationViewController.swift */; };
 		224EC1842464F7AB002D72B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1832464F7AB002D72B6 /* AppDelegate.swift */; };
@@ -32,7 +44,8 @@
 		22B15C6A24C52BD2007491EC /* AKMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B15C6924C52BD2007491EC /* AKMapViewController.swift */; };
 		22E96916247DEC49004CA927 /* AKMetaDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */; };
 		22EBEEDF24AC184200923A09 /* AKSqliteSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBEEDE24AC184200923A09 /* AKSqliteSwiftViewController.swift */; };
-		40B644BCEEEA926B6BB9C23A /* Pods_Akane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD44D70D426A6B60613673CA /* Pods_Akane.framework */; };
+		80682DAB3531687944B5D380 /* Pods_Akane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F4A9F9BC46A92099D704AD /* Pods_Akane.framework */; };
+		872179ED2544BE10E8FB6E07 /* Pods_Akane_module.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57C814E3DB2EC64FFDDE9DDE /* Pods_Akane_module.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +59,23 @@
 		2220B15424652C2E00317DAF /* AKScreenShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKScreenShotViewController.swift; sourceTree = "<group>"; };
 		2220B15624652C8000317DAF /* AKImageRotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKImageRotationViewController.swift; sourceTree = "<group>"; };
 		2220B15E24654DAC00317DAF /* AKQRCodeScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKQRCodeScanningViewController.swift; sourceTree = "<group>"; };
+		2225507625E2078400B801E6 /* Akane_module.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane_module.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2225507825E2078400B801E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2225507A25E2078400B801E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2225507F25E2078400B801E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2225508125E207C200B801E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2225508425E207C200B801E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2225508625E207C200B801E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2225508D25E20CED00B801E6 /* AKCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKCalendarViewController.swift; sourceTree = "<group>"; };
+		2225509425E20DB100B801E6 /* AKCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKCalendarView.swift; sourceTree = "<group>"; };
+		222550D425E2344D00B801E6 /* AKCalendarViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKCalendarViewDelegate.swift; sourceTree = "<group>"; };
+		2225510A25E2487000B801E6 /* Akane_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2225510C25E2487000B801E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2225510E25E2487000B801E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2225511025E2488900B801E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2225511325E2488900B801E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2225511525E2488900B801E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2225511625E2488900B801E6 /* Akane_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Akane_macOS.entitlements; sourceTree = "<group>"; };
 		22304028246A36B800FF2472 /* AkaneTest.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AkaneTest.bundle; sourceTree = "<group>"; };
 		2241EE11247B88230000B460 /* AKAppleCloudFilesOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKAppleCloudFilesOperationViewController.swift; sourceTree = "<group>"; };
 		224EC1802464F7AB002D72B6 /* Akane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,22 +94,35 @@
 		22B15C6924C52BD2007491EC /* AKMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKMapViewController.swift; sourceTree = "<group>"; };
 		22E96915247DEC49004CA927 /* AKMetaDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKMetaDataViewController.swift; sourceTree = "<group>"; };
 		22EBEEDE24AC184200923A09 /* AKSqliteSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKSqliteSwiftViewController.swift; sourceTree = "<group>"; };
-		38FCD18364F040D0BE5FF945 /* Pods_AkaneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AkaneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C7A65A7FBDC4E45DA493524 /* Pods_Akane_AkaneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_AkaneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E84907EB1CD0CF4D3F63882 /* Pods_Akane_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2390911308C112DBC967B86C /* Pods-Akane_module.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_module.debug.xcconfig"; path = "Target Support Files/Pods-Akane_module/Pods-Akane_module.debug.xcconfig"; sourceTree = "<group>"; };
+		56F4A9F9BC46A92099D704AD /* Pods_Akane.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57C814E3DB2EC64FFDDE9DDE /* Pods_Akane_module.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_module.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBC0D467DB58E284BA3EDE3 /* Pods-Akane.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane.debug.xcconfig"; path = "Target Support Files/Pods-Akane/Pods-Akane.debug.xcconfig"; sourceTree = "<group>"; };
 		8DEFAC896C2CFB5290E263F9 /* Pods-Akane.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane.release.xcconfig"; path = "Target Support Files/Pods-Akane/Pods-Akane.release.xcconfig"; sourceTree = "<group>"; };
-		A556499CC9FB27FEA4F4ABAC /* Pods-Akane_macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_macOS.debug.xcconfig"; path = "Target Support Files/Pods-Akane_macOS/Pods-Akane_macOS.debug.xcconfig"; sourceTree = "<group>"; };
-		AD44D70D426A6B60613673CA /* Pods_Akane.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8805BAE150A5CB618F25CCC /* Pods-Akane_macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_macOS.release.xcconfig"; path = "Target Support Files/Pods-Akane_macOS/Pods-Akane_macOS.release.xcconfig"; sourceTree = "<group>"; };
+		FA367669399E823D380A2034 /* Pods-Akane_module.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_module.release.xcconfig"; path = "Target Support Files/Pods-Akane_module/Pods-Akane_module.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2225507325E2078400B801E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				872179ED2544BE10E8FB6E07 /* Pods_Akane_module.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2225510725E2487000B801E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		224EC17D2464F7AB002D72B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40B644BCEEEA926B6BB9C23A /* Pods_Akane.framework in Frameworks */,
+				80682DAB3531687944B5D380 /* Pods_Akane.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,10 +202,57 @@
 			path = "QR Code";
 			sourceTree = "<group>";
 		};
+		2225507725E2078400B801E6 /* Akane_module */ = {
+			isa = PBXGroup;
+			children = (
+				2225508C25E20CA000B801E6 /* Main */,
+				2225509125E20D8200B801E6 /* AKCalendar */,
+				2225507825E2078400B801E6 /* AppDelegate.swift */,
+				2225507A25E2078400B801E6 /* SceneDelegate.swift */,
+				2225507E25E2078400B801E6 /* Main.storyboard */,
+				2225508125E207C200B801E6 /* Assets.xcassets */,
+				2225508325E207C200B801E6 /* LaunchScreen.storyboard */,
+				2225508625E207C200B801E6 /* Info.plist */,
+			);
+			path = Akane_module;
+			sourceTree = "<group>";
+		};
+		2225508C25E20CA000B801E6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2225508D25E20CED00B801E6 /* AKCalendarViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2225509125E20D8200B801E6 /* AKCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				2225509425E20DB100B801E6 /* AKCalendarView.swift */,
+				222550D425E2344D00B801E6 /* AKCalendarViewDelegate.swift */,
+			);
+			path = AKCalendar;
+			sourceTree = "<group>";
+		};
+		2225510B25E2487000B801E6 /* Akane_macOS */ = {
+			isa = PBXGroup;
+			children = (
+				2225510C25E2487000B801E6 /* AppDelegate.swift */,
+				2225510E25E2487000B801E6 /* ViewController.swift */,
+				2225511025E2488900B801E6 /* Assets.xcassets */,
+				2225511225E2488900B801E6 /* Main.storyboard */,
+				2225511525E2488900B801E6 /* Info.plist */,
+				2225511625E2488900B801E6 /* Akane_macOS.entitlements */,
+			);
+			path = Akane_macOS;
+			sourceTree = "<group>";
+		};
 		224EC1772464F7AA002D72B6 = {
 			isa = PBXGroup;
 			children = (
 				224EC1822464F7AB002D72B6 /* Akane */,
+				2225507725E2078400B801E6 /* Akane_module */,
+				2225510B25E2487000B801E6 /* Akane_macOS */,
 				224EC1812464F7AB002D72B6 /* Products */,
 				4061B54523CA5B843CE55838 /* Pods */,
 				A9C958CEF0FBCD5608BBFBFA /* Frameworks */,
@@ -173,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				224EC1802464F7AB002D72B6 /* Akane.app */,
+				2225507625E2078400B801E6 /* Akane_module.app */,
+				2225510A25E2487000B801E6 /* Akane_macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,8 +340,8 @@
 			children = (
 				5FBC0D467DB58E284BA3EDE3 /* Pods-Akane.debug.xcconfig */,
 				8DEFAC896C2CFB5290E263F9 /* Pods-Akane.release.xcconfig */,
-				A556499CC9FB27FEA4F4ABAC /* Pods-Akane_macOS.debug.xcconfig */,
-				E8805BAE150A5CB618F25CCC /* Pods-Akane_macOS.release.xcconfig */,
+				2390911308C112DBC967B86C /* Pods-Akane_module.debug.xcconfig */,
+				FA367669399E823D380A2034 /* Pods-Akane_module.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -257,10 +349,8 @@
 		A9C958CEF0FBCD5608BBFBFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AD44D70D426A6B60613673CA /* Pods_Akane.framework */,
-				4C7A65A7FBDC4E45DA493524 /* Pods_Akane_AkaneUITests.framework */,
-				38FCD18364F040D0BE5FF945 /* Pods_AkaneTests.framework */,
-				4E84907EB1CD0CF4D3F63882 /* Pods_Akane_macOS.framework */,
+				57C814E3DB2EC64FFDDE9DDE /* Pods_Akane_module.framework */,
+				56F4A9F9BC46A92099D704AD /* Pods_Akane.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -268,6 +358,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2225507525E2078400B801E6 /* Akane_module */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2225508925E207C300B801E6 /* Build configuration list for PBXNativeTarget "Akane_module" */;
+			buildPhases = (
+				4A1BEFAE865A105378B5B3B4 /* [CP] Check Pods Manifest.lock */,
+				2225507225E2078400B801E6 /* Sources */,
+				2225507325E2078400B801E6 /* Frameworks */,
+				2225507425E2078400B801E6 /* Resources */,
+				1C54512B9104C47EC8E2B821 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Akane_module;
+			productName = Akane_module;
+			productReference = 2225507625E2078400B801E6 /* Akane_module.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2225510925E2487000B801E6 /* Akane_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2225511725E2488A00B801E6 /* Build configuration list for PBXNativeTarget "Akane_macOS" */;
+			buildPhases = (
+				2225510625E2487000B801E6 /* Sources */,
+				2225510725E2487000B801E6 /* Frameworks */,
+				2225510825E2487000B801E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Akane_macOS;
+			productName = Akane_macOS;
+			productReference = 2225510A25E2487000B801E6 /* Akane_macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		224EC17F2464F7AB002D72B6 /* Akane */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 224EC1AD2464F7D7002D72B6 /* Build configuration list for PBXNativeTarget "Akane" */;
@@ -276,7 +402,7 @@
 				224EC17C2464F7AB002D72B6 /* Sources */,
 				224EC17D2464F7AB002D72B6 /* Frameworks */,
 				224EC17E2464F7AB002D72B6 /* Resources */,
-				A026AB92A63B2886F7B1A37D /* [CP] Embed Pods Frameworks */,
+				E772F362159E880B39E951FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -293,10 +419,16 @@
 		224EC1782464F7AA002D72B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Grass Plainson";
 				TargetAttributes = {
+					2225507525E2078400B801E6 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					2225510925E2487000B801E6 = {
+						CreatedOnToolsVersion = 12.2;
+					};
 					224EC17F2464F7AB002D72B6 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
@@ -316,11 +448,32 @@
 			projectRoot = "";
 			targets = (
 				224EC17F2464F7AB002D72B6 /* Akane */,
+				2225507525E2078400B801E6 /* Akane_module */,
+				2225510925E2487000B801E6 /* Akane_macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2225507425E2078400B801E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2225508525E207C200B801E6 /* LaunchScreen.storyboard in Resources */,
+				2225508225E207C200B801E6 /* Assets.xcassets in Resources */,
+				2225508025E2078400B801E6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2225510825E2487000B801E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2225511125E2488900B801E6 /* Assets.xcassets in Resources */,
+				2225511425E2488900B801E6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		224EC17E2464F7AB002D72B6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -335,6 +488,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1C54512B9104C47EC8E2B821 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Akane_module/Pods-Akane_module-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Akane_module/Pods-Akane_module-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane_module/Pods-Akane_module-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A1BEFAE865A105378B5B3B4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Akane_module-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		64ACAC2A9483FEF8B4E720F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -357,7 +549,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A026AB92A63B2886F7B1A37D /* [CP] Embed Pods Frameworks */ = {
+		E772F362159E880B39E951FB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -377,6 +569,27 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2225507225E2078400B801E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2225509525E20DB100B801E6 /* AKCalendarView.swift in Sources */,
+				2225508E25E20CED00B801E6 /* AKCalendarViewController.swift in Sources */,
+				2225507925E2078400B801E6 /* AppDelegate.swift in Sources */,
+				2225507B25E2078400B801E6 /* SceneDelegate.swift in Sources */,
+				222550D525E2344D00B801E6 /* AKCalendarViewDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2225510625E2487000B801E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2225510F25E2487000B801E6 /* ViewController.swift in Sources */,
+				2225510D25E2487000B801E6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		224EC17C2464F7AB002D72B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,6 +621,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		2225507E25E2078400B801E6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2225507F25E2078400B801E6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2225508325E207C200B801E6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2225508425E207C200B801E6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2225511225E2488900B801E6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2225511325E2488900B801E6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		224EC1892464F7AB002D72B6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -427,6 +664,96 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2225508725E207C200B801E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2390911308C112DBC967B86C /* Pods-Akane_module.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B7AM928UT8;
+				INFOPLIST_FILE = Akane_module/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.netvox.Akane-module";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2225508825E207C200B801E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA367669399E823D380A2034 /* Pods-Akane_module.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B7AM928UT8;
+				INFOPLIST_FILE = Akane_module/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.netvox.Akane-module";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2225511825E2488A00B801E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = B7AM928UT8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Akane_macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.netvox.Akane-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2225511925E2488A00B801E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = B7AM928UT8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Akane_macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.netvox.Akane-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		224EC1AB2464F7D7002D72B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -553,7 +880,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = B7AM928UT8;
 				INFOPLIST_FILE = Akane/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -561,13 +888,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Grass.Akane;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -583,7 +910,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = B7AM928UT8;
 				INFOPLIST_FILE = Akane/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -591,13 +918,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Grass.Akane;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -606,6 +933,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2225508925E207C300B801E6 /* Build configuration list for PBXNativeTarget "Akane_module" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2225508725E207C200B801E6 /* Debug */,
+				2225508825E207C200B801E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2225511725E2488A00B801E6 /* Build configuration list for PBXNativeTarget "Akane_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2225511825E2488A00B801E6 /* Debug */,
+				2225511925E2488A00B801E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		224EC17B2464F7AA002D72B6 /* Build configuration list for PBXProject "Akane" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

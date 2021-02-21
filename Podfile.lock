@@ -1,7 +1,7 @@
 PODS:
-  - Charts (3.5.0):
-    - Charts/Core (= 3.5.0)
-  - Charts/Core (3.5.0)
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - Masonry (1.1.0)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
@@ -19,10 +19,10 @@ SPEC REPOS:
     - SQLite.swift
 
 SPEC CHECKSUMS:
-  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
 
-PODFILE CHECKSUM: 1164c733272952805c35a7238578ea1a7da46f98
+PODFILE CHECKSUM: 753c1e50e3a5c95c8f8332a417d74eb6f6678b02
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
