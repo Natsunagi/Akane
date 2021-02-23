@@ -8,9 +8,9 @@ target 'Akane' do
   use_frameworks!
 
   # Pods for Akane
-  pod 'Masonry'
-  pod 'Charts'
-  pod 'SQLite.swift'
+  #pod 'Masonry'
+  #pod 'Charts'
+  #pod 'SQLite.swift'
 end
 
 target 'Akane_module' do
@@ -18,9 +18,9 @@ target 'Akane_module' do
   use_frameworks!
 
   # Pods for Akane
-  pod 'Masonry'
-  pod 'Charts'
-  pod 'SQLite.swift'
+  #pod 'Masonry'
+  #pod 'Charts'
+  #pod 'SQLite.swift'
 end
 
 post_install do |installer|
