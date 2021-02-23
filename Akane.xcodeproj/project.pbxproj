@@ -67,7 +67,7 @@
 		2225508D25E20CED00B801E6 /* AKCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKCalendarViewController.swift; sourceTree = "<group>"; };
 		2225509425E20DB100B801E6 /* AKCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKCalendarView.swift; sourceTree = "<group>"; };
 		222550D425E2344D00B801E6 /* AKCalendarViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKCalendarViewDelegate.swift; sourceTree = "<group>"; };
-		2225510A25E2487000B801E6 /* Akane_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2225510A25E2487000B801E6 /* Akane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2225510C25E2487000B801E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2225510E25E2487000B801E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2225511025E2488900B801E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 			children = (
 				224EC1802464F7AB002D72B6 /* Akane.app */,
 				2225507625E2078400B801E6 /* Akane_module.app */,
-				2225510A25E2487000B801E6 /* Akane_macOS.app */,
+				2225510A25E2487000B801E6 /* Akane.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -366,7 +366,6 @@
 				2225507225E2078400B801E6 /* Sources */,
 				2225507325E2078400B801E6 /* Frameworks */,
 				2225507425E2078400B801E6 /* Resources */,
-				1C54512B9104C47EC8E2B821 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -391,7 +390,7 @@
 			);
 			name = Akane_macOS;
 			productName = Akane_macOS;
-			productReference = 2225510A25E2487000B801E6 /* Akane_macOS.app */;
+			productReference = 2225510A25E2487000B801E6 /* Akane.app */;
 			productType = "com.apple.product-type.application";
 		};
 		224EC17F2464F7AB002D72B6 /* Akane */ = {
@@ -402,7 +401,6 @@
 				224EC17C2464F7AB002D72B6 /* Sources */,
 				224EC17D2464F7AB002D72B6 /* Frameworks */,
 				224EC17E2464F7AB002D72B6 /* Resources */,
-				E772F362159E880B39E951FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -488,23 +486,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1C54512B9104C47EC8E2B821 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane_module/Pods-Akane_module-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane_module/Pods-Akane_module-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane_module/Pods-Akane_module-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4A1BEFAE865A105378B5B3B4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,23 +528,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E772F362159E880B39E951FB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -713,10 +677,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = B7AM928UT8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Akane_macOS/Info.plist;
@@ -727,8 +691,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.netvox.Akane-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Akane_development_mac;
+				PRODUCT_NAME = Akane;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -743,7 +707,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = B7AM928UT8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Akane_macOS/Info.plist;
@@ -754,7 +718,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.netvox.Akane-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Akane;
 				PROVISIONING_PROFILE_SPECIFIER = "Akane-Distribution-macOS";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
