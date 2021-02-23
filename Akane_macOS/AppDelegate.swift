@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         DispatchQueue.global().async {
             AKManager.iCloudUrl = FileManager.default.url(forUbiquityContainerIdentifier: nil)!
+            try! FileManager.default.createDirectory(at: AKManager.iCloudDocumentUrl!.appendingPathComponent("test"), withIntermediateDirectories: true, attributes: nil)
         }
     }
 
