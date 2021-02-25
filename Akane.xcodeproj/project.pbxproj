@@ -883,11 +883,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Akane/Akane.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CODE_SIGN_IDENTITY = "iPhone Developer: WEI DAI (8ATYUX3MV2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEI DAI (8ATYUX3MV2)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = B7AM928UT8;
 				INFOPLIST_FILE = Akane/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -895,12 +894,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Grass.Akane;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane-Development-iOS";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane-Development-iOS";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -913,11 +911,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Akane/Akane.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: NETVOX TECHNOLOGY CO.,LTD.(XIAMEN) (B7AM928UT8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NETVOX TECHNOLOGY CO.,LTD.(XIAMEN) (B7AM928UT8)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = B7AM928UT8;
 				INFOPLIST_FILE = Akane/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -925,12 +922,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Grass.Akane;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane-Distribution-iOS";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane-Distribution-iOS";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

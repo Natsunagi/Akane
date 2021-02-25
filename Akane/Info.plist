@@ -210,7 +210,7 @@
 	<string>Akane 想要访问你的相册，是否允许？</string>
 	<key>NSUbiquitousContainers</key>
 	<dict>
-		<key>iCloud.com.Grass.Akane</key>
+		<key>iCloud.com.grass.Akane1.2</key>
 		<dict>
 			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
 			<true/>
