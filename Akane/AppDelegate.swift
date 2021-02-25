@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DispatchQueue.global().async {
             AKManager.iCloudUrl = FileManager.default.url(forUbiquityContainerIdentifier: nil)
         }
+        
         return true
     }
     
