@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Akane_iPadOS/Pods-Akane_iPadOS-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Masonry-iOS/Masonry.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage-iOS/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SQLite.swift-iOS/SQLite.framework

@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Akane_macOS/Pods-Akane_macOS-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Masonry-macOS/Masonry.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage-macOS/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SQLite.swift-macOS/SQLite.framework
