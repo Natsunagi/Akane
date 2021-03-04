@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Akane
 //
-//  Created by Grass Plainson on 2020/5/8.
+//  Created by Grass Plainson on 2020/5/11.
 //  Copyright © 2020 Grass Plainson. All rights reserved.
 //
 
@@ -13,23 +13,20 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        AKWaitingView.show()
         DispatchQueue.global().async {
-            AKManager.iCloudUrl = FileManager.default.url(forUbiquityContainerIdentifier: nil)
-            #if Release
-            var url: URL = AKManager.iCloudDocumentUrl!
-            url = url.appendingPathComponent("test")
-            try! FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
-            #endif
+            while AKConstant.iCloudURL == nil {
+                if let iCloudURL = FileManager.default.url(forUbiquityContainerIdentifier: nil) {
+                    AKConstant.iCloudURL = iCloudURL
+                    AKWaitingView.dismiss()
+                }
+            }
         }
         
-        return true
-    }
-    
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         return true
     }
 

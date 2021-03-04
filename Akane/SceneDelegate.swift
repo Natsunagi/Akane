@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Akane
 //
-//  Created by Grass Plainson on 2020/5/8.
+//  Created by Grass Plainson on 2020/5/11.
 //  Copyright © 2020 Grass Plainson. All rights reserved.
 //
 
@@ -18,6 +18,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        #if iPadOS
+        let splitViewController: UISplitViewController = self.window?.rootViewController as! UISplitViewController
+        splitViewController.preferredDisplayMode = .allVisible
+        splitViewController.preferredPrimaryColumnWidthFraction = 0.3
+        AKManager.splitViewController = splitViewController
+        let leftNavigationController: AKUINavigationController = splitViewController.viewControllers[0] as! AKUINavigationController
+        AKManager.leftNavigationController = leftNavigationController
+        let rightNavigationController: AKUINavigationController = splitViewController.viewControllers[1] as! AKUINavigationController
+        AKManager.rightNavigationController = rightNavigationController
+        let detailViewController: AKDetailViewController = rightNavigationController.viewControllers[0] as! AKDetailViewController
+        detailViewController.files = AKManager.getAppleCloudMovies()
+        detailViewController.listType = .iCloud
+        detailViewController.playlistIndex = -1
+        detailViewController.playlist = AKPlaylist.init(uuid: "iCloud", name: "iCloud")
+        #endif
+        
+        #if iOS
+        let navigationController: AKUINavigationController = self.window?.rootViewController as! AKUINavigationController
+        navigationController.navigationBar.shadowImage = UIImage.init()
+        #endif
+        
+        if AKManager.location == .iCloud {
+            guard let _ = AKConstant.iCloudURL else {
+                return
+            }
+        }
+        
+        AKManager.playlists = AKManager.getAllPlaylists(location: AKManager.location)
+        
+        AKFileOperation.shared.customAction()
+        AKFileOperation.shared.clearTrash()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -52,7 +84,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-
+//        let url: URL = URLContexts.first!.url
+//        let name: String = url.lastPathComponent.components(separatedBy: ".").first!
+//        let movie: AKMovie = AKMovie.init(name: name, fileURL: url, fileLocation: .outsideContainer)
+//        let playerViewController: AKPlayerViewController = AKPlayerViewController.init()
+//        playerViewController.movie = movie
+//        let navigationController: AKUINavigationController = self.window?.rootViewController as! AKUINavigationController
+//        playerViewController.modalPresentationStyle = .fullScreen
+//        navigationController.topViewController?.present(playerViewController, animated: true, completion: nil)
     }
 
 }

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jgb-bj-JlT">
+    <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail View Controller-->
+        <scene sceneID="0f2-Se-7gS">
+            <objects>
+                <viewController id="NV3-0i-IsD" customClass="AKDetailViewController" customModule="Akane" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Al9-re-eve">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1144"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="OmP-vd-pux"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xmu-Dy-WiB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HmV-Vh-SAO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="793.4673366834171" y="142.44604316546764"/>
+        </scene>
+        <!--浏览-->
+        <scene sceneID="gMv-7p-HD2">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Atw-5h-hjZ" customClass="AKRootViewController" customModule="Akane" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="SXf-d1-Q7n" customClass="AKUITableView" customModule="Akane" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1144"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScanCell" id="Y2Z-V7-7kC">
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y2Z-V7-7kC" id="mUt-lI-5ul">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Atw-5h-hjZ" id="aWj-2S-wzU"/>
+                            <outlet property="delegate" destination="Atw-5h-hjZ" id="VQi-8I-JbZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="浏览" id="Vab-nx-G5i"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wjk-2E-UfP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="-506"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wL4-69-N8d">
+            <objects>
+                <navigationController id="iY4-Lv-qbq" customClass="AKUINavigationController" customModule="Akane" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="7s0-yY-Rbx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Atw-5h-hjZ" kind="relationship" relationship="rootViewController" id="Fhv-vU-2x6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0PK-A0-2xt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86" y="-506"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="GZL-8c-TW4">
+            <objects>
+                <splitViewController id="jgb-bj-JlT" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="iY4-Lv-qbq" kind="relationship" relationship="masterViewController" id="dfG-Uk-1W4"/>
+                        <segue destination="B1H-zK-guV" kind="relationship" relationship="detailViewController" id="COj-fr-J6X"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KhJ-Vh-5zb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-833" y="-181"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hZA-jV-pB2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B1H-zK-guV" customClass="AKUINavigationController" customModule="Akane" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ZXj-1u-me7">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NV3-0i-IsD" kind="relationship" relationship="rootViewController" id="Aj4-z7-IYJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y4p-du-bD0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85.929648241206024" y="142.44604316546764"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
