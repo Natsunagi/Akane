@@ -14,9 +14,11 @@ public class AKCalendarView: UIView {
     // MARK: - Property.
     
     private var dateDisplayLabel: UILabel!
-    private var dateView: UICollectionView!
+    private var mainCollectionView: UICollectionView!
     
     public var delegate: AKCalendarViewDelegate?
+    
+    public var fillWithLastAndNextMonthDay: Bool = true  // 当月日期多余的位置是否填充上个月和下个月的日期，默认填充。
     
     private var _defaultItemSize: CGSize = CGSize.init()
     private var _calendarViewHeight: CGFloat = 0
@@ -51,27 +53,19 @@ public class AKCalendarView: UIView {
             view!.top.equalTo()(self.mas_top)?.offset()(10)
         }
         
-        let dateViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
-        dateViewLayout.sectionInset.top = 5
-        dateViewLayout.sectionInset.bottom = 0
-        dateViewLayout.sectionInset.left = 5
-        dateViewLayout.sectionInset.right = 5
-        dateViewLayout.minimumInteritemSpacing = 2
-        dateViewLayout.minimumLineSpacing = 5
-        if let delegate = self.delegate {
-            dateViewLayout.itemSize = delegate.calendarView!(itemSizeForCalendarView: self)
-        } else {
-            dateViewLayout.itemSize = self._defaultItemSize
-        }
-        self.dateView = UICollectionView.init(frame: CGRect.init(), collectionViewLayout: dateViewLayout)
-        self.dateView.backgroundColor = .white
-        self.dateView.isScrollEnabled = false
-        self.dateView.allowsMultipleSelection = false
-        self.dateView.delegate = self
-        self.dateView.dataSource = self
-        self.dateView.register(CalenderCell.self, forCellWithReuseIdentifier: "Cell")
-        self.addSubview(self.dateView)
-        self.dateView.mas_makeConstraints { (view) in
+        let mainCollectionViewFlowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
+        mainCollectionViewFlowLayout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        mainCollectionViewFlowLayout.itemSize = self.frame.size
+        mainCollectionViewFlowLayout.scrollDirection = .horizontal
+        self.mainCollectionView = UICollectionView.init(frame: CGRect.init(), collectionViewLayout: mainCollectionViewFlowLayout)
+        self.mainCollectionView.backgroundColor = self.backgroundColor
+        self.mainCollectionView.isScrollEnabled = true
+        self.mainCollectionView.allowsMultipleSelection = false
+        self.mainCollectionView.register(AKCalendarDateCell.self, forCellWithReuseIdentifier: "DateCell")
+        self.mainCollectionView.delegate = self
+        self.mainCollectionView.dataSource = self
+        self.addSubview(self.mainCollectionView)
+        self.mainCollectionView.mas_makeConstraints { (view) in
             view!.left.right()?.offset()
             view!.top.equalTo()(self.dateDisplayLabel.mas_bottom)?.offset()(10)
             view!.width.equalTo()(self.frame.width)
@@ -91,39 +85,10 @@ extension AKCalendarView: UICollectionViewDelegate {
 extension AKCalendarView: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 42
+        return 10
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return CalenderCell.init()
-    }
-}
-
-// MARK: - CalenderCell.
-
-class CalenderCell: UICollectionViewCell {
-    var date: String = "9"
-    var label: UILabel!
-    var year: Int?
-    var month: Int?
-    var day: Int?
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
         
-        self.label = UILabel.init()
-        self.label.textAlignment = .center
-        self.label.textColor = .black
-        self.contentView.addSubview(self.label)
-        self.label.mas_makeConstraints { (view) in
-            view!.left.offset()(5)
-            view!.top.offset()(5)
-            view!.bottom.offset()(-5)
-            view!.right.offset()(-5)
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

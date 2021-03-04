@@ -14,6 +14,7 @@
 		2220B15524652C2E00317DAF /* AKScreenShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15424652C2E00317DAF /* AKScreenShotViewController.swift */; };
 		2220B15724652C8000317DAF /* AKImageRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15624652C8000317DAF /* AKImageRotationViewController.swift */; };
 		2220B15F24654DAC00317DAF /* AKQRCodeScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220B15E24654DAC00317DAF /* AKQRCodeScanningViewController.swift */; };
+		2222304625ECDB6E00F2DC09 /* AKCalendarDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222304525ECDB6E00F2DC09 /* AKCalendarDateCell.swift */; };
 		2225507925E2078400B801E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225507825E2078400B801E6 /* AppDelegate.swift */; };
 		2225507B25E2078400B801E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225507A25E2078400B801E6 /* SceneDelegate.swift */; };
 		2225508025E2078400B801E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2225507E25E2078400B801E6 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		2220B15424652C2E00317DAF /* AKScreenShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKScreenShotViewController.swift; sourceTree = "<group>"; };
 		2220B15624652C8000317DAF /* AKImageRotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKImageRotationViewController.swift; sourceTree = "<group>"; };
 		2220B15E24654DAC00317DAF /* AKQRCodeScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKQRCodeScanningViewController.swift; sourceTree = "<group>"; };
+		2222304525ECDB6E00F2DC09 /* AKCalendarDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKCalendarDateCell.swift; sourceTree = "<group>"; };
 		2225507625E2078400B801E6 /* Akane_module.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane_module.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2225507825E2078400B801E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2225507A25E2078400B801E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				2225509425E20DB100B801E6 /* AKCalendarView.swift */,
 				222550D425E2344D00B801E6 /* AKCalendarViewDelegate.swift */,
+				2222304525ECDB6E00F2DC09 /* AKCalendarDateCell.swift */,
 			);
 			path = AKCalendar;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				2225509525E20DB100B801E6 /* AKCalendarView.swift in Sources */,
 				2225508E25E20CED00B801E6 /* AKCalendarViewController.swift in Sources */,
 				2225507925E2078400B801E6 /* AppDelegate.swift in Sources */,
+				2222304625ECDB6E00F2DC09 /* AKCalendarDateCell.swift in Sources */,
 				2225507B25E2078400B801E6 /* SceneDelegate.swift in Sources */,
 				222550D525E2344D00B801E6 /* AKCalendarViewDelegate.swift in Sources */,
 			);
@@ -714,10 +718,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = B7AM928UT8;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Akane_macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -886,7 +890,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: WEI DAI (8ATYUX3MV2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEI DAI (8ATYUX3MV2)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = B7AM928UT8;
 				INFOPLIST_FILE = Akane/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -895,11 +899,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Grass.Akane;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grass.shizuku.Akane;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Akane-Development-iOS";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane-Development-iOS";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane Development iOS";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane Development iOS";
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Debug";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -914,7 +919,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: NETVOX TECHNOLOGY CO.,LTD.(XIAMEN) (B7AM928UT8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NETVOX TECHNOLOGY CO.,LTD.(XIAMEN) (B7AM928UT8)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = B7AM928UT8;
 				INFOPLIST_FILE = Akane/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -923,11 +928,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Grass.Akane;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grass.shizuku.Akane;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Akane-Distribution-iOS";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane-Distribution-iOS";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane Distribution iOS";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane Distribution iOS";
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = Release;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

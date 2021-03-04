@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DispatchQueue.global().async {
             AKManager.iCloudUrl = FileManager.default.url(forUbiquityContainerIdentifier: nil)
+            #if Release
+            var url: URL = AKManager.iCloudDocumentUrl!
+            url = url.appendingPathComponent("test")
+            try! FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+            #endif
         }
         
         return true
@@ -30,14 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: UISceneSession Lifecycle
 
-    @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
-    @available(iOS 13.0, *)
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
@@ -46,7 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data stack
 
-    @available(iOS 13.0, *)
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         /*
          The persistent container for the application. This implementation
@@ -76,7 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data Saving support
 
-    @available(iOS 13.0, *)
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
