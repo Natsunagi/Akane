@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "224EC17F2464F7AB002D72B6"
-               BuildableName = "Akane.app"
-               BlueprintName = "Akane"
-               ReferencedContainer = "container:Akane.xcodeproj">
+               BlueprintIdentifier = "358FBCDF6AB8B8319E3FF540240FC8F5"
+               BuildableName = "Masonry.framework"
+               BlueprintName = "Masonry-iOS"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,16 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "224EC17F2464F7AB002D72B6"
-            BuildableName = "Akane.app"
-            BlueprintName = "Akane"
-            ReferencedContainer = "container:Akane.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,16 +47,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "224EC17F2464F7AB002D72B6"
-            BuildableName = "Akane.app"
-            BlueprintName = "Akane"
-            ReferencedContainer = "container:Akane.xcodeproj">
+            BlueprintIdentifier = "358FBCDF6AB8B8319E3FF540240FC8F5"
+            BuildableName = "Masonry.framework"
+            BlueprintName = "Masonry-iOS"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

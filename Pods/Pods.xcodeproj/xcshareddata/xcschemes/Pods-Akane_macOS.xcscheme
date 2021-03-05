@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "224EC17F2464F7AB002D72B6"
-               BuildableName = "Akane.app"
-               BlueprintName = "Akane"
-               ReferencedContainer = "container:Akane.xcodeproj">
+               BlueprintIdentifier = "1D2E4B5E1CD00195AB4486806EE64A66"
+               BuildableName = "Pods_Akane_macOS.framework"
+               BlueprintName = "Pods-Akane_macOS"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,16 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "224EC17F2464F7AB002D72B6"
-            BuildableName = "Akane.app"
-            BlueprintName = "Akane"
-            ReferencedContainer = "container:Akane.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,16 +47,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "224EC17F2464F7AB002D72B6"
-            BuildableName = "Akane.app"
-            BlueprintName = "Akane"
-            ReferencedContainer = "container:Akane.xcodeproj">
+            BlueprintIdentifier = "1D2E4B5E1CD00195AB4486806EE64A66"
+            BuildableName = "Pods_Akane_macOS.framework"
+            BlueprintName = "Pods-Akane_macOS"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
