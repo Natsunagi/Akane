@@ -13,6 +13,7 @@ class AKRootViewController: AKUITableViewController {
     // MARK: - Property.
     
     var dataActivityIndicatorView: AKUIActivityIndicatorView?
+    var refreshActivityIndicatorView: AKUIActivityIndicatorView?
     
     private var groupLabel: Array<String> = [internationalization(text: "资料库"), internationalization(text: "位置"), internationalization(text: "播放列表")]
     
@@ -67,6 +68,15 @@ class AKRootViewController: AKUITableViewController {
         self.dataActivityIndicatorView!.addGestureRecognizer(tapGesture)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: self.dataActivityIndicatorView!)
         
+        self.refreshActivityIndicatorView = AKUIActivityIndicatorView.init()
+        self.refreshActivityIndicatorView?.style = .medium
+        self.refreshActivityIndicatorView?.hidesWhenStopped = false
+        self.view.addSubview(self.refreshActivityIndicatorView!)
+        self.refreshActivityIndicatorView?.mas_makeConstraints({ (view) in
+            view!.centerX.equalTo()(self.view.mas_centerX)?.offset()
+            view!.bottom.equalTo()(self.view.mas_top)?.offset()(-30)
+        })
+        
         // MARK: Update data.
         
         self.updateData()
@@ -83,26 +93,6 @@ class AKRootViewController: AKUITableViewController {
         self.dataActivityIndicatorView!.startAnimating()
 
         self.updateDataOperationQueue.addOperation {
-            
-            // MARK: 扫描本地视频，且若该视频在数据库中不存在，则将该视频插入数据库。
-            
-//            var addedMovies: Array<AKMovie> = Array<AKMovie>.init()
-//            let movies: Array<AKMovie> = AKFileOperation.shared.getLocalDocumetMovies(path: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!)
-//            let tuple: (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) = AKManager.getAllMoviesExceptAppleCloud(location: .iCloud)
-//            let databaseLocalMovies: Array<AKMovie> = tuple.localDocument
-//            for localMovie in movies {
-//                if !databaseLocalMovies.contains(where: { (model) -> Bool in
-//                    if model.name == localMovie.name && model.uuid != localMovie.uuid {
-//                        return true
-//                    } else {
-//                        return false
-//                    }
-//                }) {
-//                    AKManager.addMovie(movie: localMovie, icon: nil, location: .iCloud)
-//                    addedMovies.append(localMovie)
-//                }
-//            }
-//            NotificationCenter.default.post(name: AKConstant.AKNotification.movieDidAdd, object: addedMovies)
             
             // MARK: 扫描存储视频缩略图的文件夹，看是否有文件存在但是还未下载。
             
@@ -140,6 +130,14 @@ class AKRootViewController: AKUITableViewController {
                 }
             } catch {
                 print(error.localizedDescription)
+            }
+            
+            // MARK: 扫描 iCloud 中是否存在数据库文件但是未下载。
+            
+            if AKManager.location == .iCloud {
+                if databaseAlreadyExistsInAppleCloudButDidNotDownloaded() {
+                    try? FileManager.default.startDownloadingUbiquitousItem(at: AKConstant.iCloudDatabaseSaveURL!)
+                }
             }
             
             // MARK: 隐藏活动指示器。
@@ -201,133 +199,63 @@ class AKRootViewController: AKUITableViewController {
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                if let activityIndicatorView = self.refreshActivityIndicatorView {
+                    if activityIndicatorView.isAnimating {
+                        activityIndicatorView.stopAnimating()
+                        self.tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+                    }
+                }
             }
         }
     }
     
     @objc private func handleMetadataQueryDidUpdate(notification: Notification) {
-//        DispatchQueue.global().async {
-//            self.updateDataOperationQueue.waitUntilAllOperationsAreFinished()
-//            self.updateDataOperationQueue.addOperation {
-//
-//                //let query: NSMetadataQuery = notification.object as! NSMetadataQuery
-//
-//                let receiveAddedUpdate: Array<NSMetadataItem>? = notification.userInfo?["kMDQueryUpdateAddedItems"] as? Array<NSMetadataItem>
-//                let receiveChangedUpdate: Array<NSMetadataItem>? = notification.userInfo?["kMDQueryUpdateChangedItems"] as? Array<NSMetadataItem>
-//                let receiveRemovedUpdate: Array<NSMetadataItem>? = notification.userInfo?["kMDQueryUpdateRemovedItems"] as? Array<NSMetadataItem>
-//
-//                guard let addedUpdate = receiveAddedUpdate, let changedUpdate = receiveChangedUpdate, let removedUpdate = receiveRemovedUpdate else {
-//                    AKFileOperation.shared.fileQueryEnableUpdates()
-//                    return
-//                }
-//
-//                print("更新数据。")
-//
-//                var iCloudAddedMovies: Array<AKMovie> = Array<AKMovie>.init()
-//
-//                for item in addedUpdate {
-//                    let status: String = item.value(forAttribute: NSMetadataUbiquitousItemDownloadingStatusKey) as! String
-//                    let url: URL = item.value(forAttribute: NSMetadataItemURLKey) as! URL
-//                    if status == NSMetadataUbiquitousItemDownloadingStatusDownloaded || status == NSMetadataUbiquitousItemDownloadingStatusCurrent {
-//                        if url.path.contains(".mp4") || url.path.contains(".mov") {
-//                            let model: AKMovie = AKMovie.init(name: url.lastPathComponent.components(separatedBy: ".").first!, fileURL: url, fileLocation: .iCloud)
-//                            iCloudAddedMovies.append(model)
-//                        } else if url.path.contains("UserData/Movies") && url.path.contains(".png") {
-//                            let name: String = url.lastPathComponent.components(separatedBy: ".").first!
-//                            let image: UIImage = UIImage.init(contentsOfFile: url.path)!
-//                            AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
-//                            NotificationCenter.default.post(name: AKConstant.AKNotification.movieIconImageDidChange, object: image, userInfo: ["name": name])
-//                        } else if url.path.contains("UserData/Playlist") && url.path.contains(".png") {
-//                            let name: String = url.lastPathComponent.components(separatedBy: ".").first!
-//                            let image: UIImage = UIImage.init(contentsOfFile: url.path)!
-//                            AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
-//                            NotificationCenter.default.post(name: AKConstant.AKNotification.playlistIconImageDidChange, object: image, userInfo: ["name": name])
-//                        } else if url.path.contains("iCloud.png") {
-//                            let name: String = "iCloud"
-//                            let image: UIImage = UIImage.init(contentsOfFile: url.path)!
-//                            NotificationCenter.default.post(name: AKConstant.AKNotification.iCloudIconDidChange, object: image, userInfo: ["name": name])
-//                        } else if url.path.contains("Akane.db") {
-//
-//                        }
-//                    }
-//                }
-//
-//                var hasChangeAppleCloudMovies: Bool = false
-//                for item in changedUpdate {
-//                    let status: String = item.value(forAttribute: NSMetadataUbiquitousItemDownloadingStatusKey) as! String
-//                    let url: URL = item.value(forAttribute: NSMetadataItemURLKey) as! URL
-//                    if status == NSMetadataUbiquitousItemDownloadingStatusDownloaded || status == NSMetadataUbiquitousItemDownloadingStatusCurrent {
-//                        if url.path.contains(".mp4") || url.path.contains(".mov") {
-//                            AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
-//                            var iCloudMovies: Array<AKMovie> = AKManager.getAppleCloudMovies()
-//                            for (index, movie) in iCloudMovies.enumerated() {
-//                                if movie.name == url.lastPathComponent.components(separatedBy: ".").first! {
-//                                    iCloudMovies[index] = AKMovie.init(name: url.lastPathComponent.components(separatedBy: ".").first!, fileURL: url, fileLocation: .iCloud)
-//                                    hasChangeAppleCloudMovies = true
-//                                    break
-//                                }
-//                            }
-//                        } else if url.path.contains("UserData/Movies") && url.path.contains(".png") {
-//                            let name: String = url.lastPathComponent.components(separatedBy: ".").first!
-//                            let image: UIImage = UIImage.init(contentsOfFile: url.path)!
-//                            AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
-//                            NotificationCenter.default.post(name: AKConstant.AKNotification.movieIconImageDidChange, object: image, userInfo: ["name": name])
-//                        } else if url.path.contains("UserData/Playlist") && url.path.contains(".png") {
-//                            let name: String = url.lastPathComponent.components(separatedBy: ".").first!
-//                            let image: UIImage = UIImage.init(contentsOfFile: url.path)!
-//                            AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
-//                            NotificationCenter.default.post(name: AKConstant.AKNotification.playlistIconImageDidChange, object: image, userInfo: ["name": name])
-//                        } else if url.path.contains("iCloud.png") {
-//                            let name: String = "iCloud"
-//                            let image: UIImage = UIImage.init(contentsOfFile: url.path)!
-//                            NotificationCenter.default.post(name: AKConstant.AKNotification.iCloudIconDidChange, object: image, userInfo: ["name": name])
-//                        }
-//                    }
-//                }
-//
-//                var hasRemoveAppleCloudMovies: Bool = false
-//                for item in removedUpdate {
-//                    let status: String = item.value(forAttribute: NSMetadataUbiquitousItemDownloadingStatusKey) as! String
-//                    let url: URL = item.value(forAttribute: NSMetadataItemURLKey) as! URL
-//                    if status == NSMetadataUbiquitousItemDownloadingStatusDownloaded || status == NSMetadataUbiquitousItemDownloadingStatusCurrent {
-//                        if url.path.contains(".mp4") || url.path.contains(".mov") {
-//                            AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
-//                            var iCloudMovies: Array<AKMovie> = AKManager.getAppleCloudMovies()
-//                            for (index, movie) in iCloudMovies.enumerated() {
-//                                if movie.name == url.lastPathComponent.components(separatedBy: ".").first! {
-//                                    iCloudMovies.remove(at: index)
-//                                    hasRemoveAppleCloudMovies = true
-//                                    break
-//                                }
-//                            }
-//                        } else if url.path.contains("UserData/Movies") && url.path.contains(".png") {
-//                            let name: String = url.lastPathComponent.components(separatedBy: ".").first!
-//                            let image: UIImage = UIImage.init(named: "MovieIconTest")!
-//                            AKFileOperation.shared.presentedItemOperationQueue.waitUntilAllOperationsAreFinished()
-//                            NotificationCenter.default.post(name: AKConstant.AKNotification.movieIconImageDidChange, object: image, userInfo: ["name": name])
-//                        } else if url.path.contains("UserData/Playlist") && url.path.contains(".png") {
-//                            let name: String = url.lastPathComponent.components(separatedBy: ".").first!
-//                            let image: UIImage = UIImage.init(named: "PlaylistIconTest")!
-//                            AKFileOperation.shared.presentedItemOperationQueue.waitUntilAllOperationsAreFinished()
-//                            NotificationCenter.default.post(name: AKConstant.AKNotification.movieIconImageDidChange, object: image, userInfo: ["name": name])
-//                        } else if url.path.contains("iCloud.png") {
-//                            let name: String = "iCloud"
-//                            let image: UIImage = UIImage.init(named: "PlaylistIconTest")!
-//                            AKFileOperation.shared.presentedItemOperationQueue.waitUntilAllOperationsAreFinished()
-//                            NotificationCenter.default.post(name: AKConstant.AKNotification.movieIconImageDidChange, object: image, userInfo: ["name": name])
-//                        }
-//                    }
-//                }
-//
-//                if iCloudAddedMovies.count > 0 || hasChangeAppleCloudMovies || hasRemoveAppleCloudMovies {
-//                    AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
-//                    NotificationCenter.default.post(name: AKConstant.AKNotification.iCloudMoviesDidUpdate, object: AKManager.getAppleCloudMovies() + iCloudAddedMovies)
-//                    NotificationCenter.default.post(name: AKConstant.AKNotification.iCloudFileslistDidLoad, object: nil, userInfo: nil)
-//                }
-//
-//                AKFileOperation.shared.fileQueryEnableUpdates()
-//            }
-//        }
+        DispatchQueue.global().async {
+            self.updateDataOperationQueue.waitUntilAllOperationsAreFinished()
+            self.updateDataOperationQueue.addOperation {
+
+                //let query: NSMetadataQuery = notification.object as! NSMetadataQuery
+
+                let receiveAddedUpdate: Array<NSMetadataItem>? = notification.userInfo?["kMDQueryUpdateAddedItems"] as? Array<NSMetadataItem>
+                let receiveChangedUpdate: Array<NSMetadataItem>? = notification.userInfo?["kMDQueryUpdateChangedItems"] as? Array<NSMetadataItem>
+                let receiveRemovedUpdate: Array<NSMetadataItem>? = notification.userInfo?["kMDQueryUpdateRemovedItems"] as? Array<NSMetadataItem>
+
+                guard let addedUpdate = receiveAddedUpdate, let changedUpdate = receiveChangedUpdate, let removedUpdate = receiveRemovedUpdate else {
+                    return
+                }
+
+                print("更新数据。")
+                
+                // MARK: iCloud 增加项目。
+                
+                for item in addedUpdate {
+                    let status: String = item.value(forAttribute: NSMetadataUbiquitousItemDownloadingStatusKey) as! String
+                    let url: URL = item.value(forAttribute: NSMetadataItemURLKey) as! URL
+                    if status == NSMetadataUbiquitousItemDownloadingStatusDownloaded || status == NSMetadataUbiquitousItemDownloadingStatusCurrent {
+                        
+                        // - 更新数据库。
+                        
+                        if url.path.contains("Akane.db") {
+                            AKDataBase.shared = AKDataBase.init(location: AKManager.location)
+                            AKManager.playlists = AKManager.getAllPlaylists(location: AKManager.location)
+                            self.handlePlaylistsDidUpdate(notification: Notification.init(name: Notification.Name(rawValue: "")))
+                        }
+                    }
+                }
+                
+                // MARK: iCloud 改变项目。
+                
+                for _ in changedUpdate {
+                    
+                }
+                
+                // MARK: iCloud 删除项目。
+                
+                for _ in removedUpdate {
+                    
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source.
@@ -611,4 +539,27 @@ extension AKRootViewController: UIDocumentPickerDelegate {
         }
         urls.first?.stopAccessingSecurityScopedResource()
     }
+}
+
+extension AKRootViewController {
+    
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.refreshControl?.attributedTitle = NSAttributedString.init(string: "下拉刷新")
+    }
+    
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        self.refreshControl?.attributedTitle = NSAttributedString.init(string: "刷新中...")
+        self.refreshControl?.endRefreshing()
+        if self.tableView.contentOffset.y <= -50 {
+            UIView.animate(withDuration: 0.5) {
+                self.tableView.contentInset = UIEdgeInsets.init(top: 50, left: 0, bottom: 0, right: 0)
+            }
+            self.refreshActivityIndicatorView?.startAnimating()
+            AKDataBase.shared = AKDataBase.init(location: AKManager.location)
+            AKManager.playlists = AKManager.getAllPlaylists(location: AKManager.location)
+            self.handlePlaylistsDidUpdate(notification: Notification.init(name: Notification.Name(rawValue: "")))
+        }
+    }
+    
+    
 }
