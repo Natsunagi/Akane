@@ -69,6 +69,10 @@ class AKDataBase {
             guard let iCloudDatabaseSaveURL = AKConstant.iCloudDatabaseSaveURL else {
                 return
             }
+            if databaseAlreadyExistsInAppleCloudButDidNotDownloaded() {
+                try? FileManager.default.startDownloadingUbiquitousItem(at: AKConstant.iCloudDatabaseSaveURL!)
+                return
+            }
             do {
                 self.db = try Connection.init(iCloudDatabaseSaveURL.path)
                 self.location = .iCloud
