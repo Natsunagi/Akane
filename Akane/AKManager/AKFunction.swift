@@ -162,7 +162,6 @@ func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat, loc
 
 // MARK: - 判断文件是否存在于 iCloud 中但是未下载。
 
-#if iOS || iPadOS
 func iconFileExistsAtAppleCloudButDidNotDownload(movieOrPlaylist: String, iCloudFileName: String) -> (success: Bool, url: URL) {
     var filePath: String = iCloudFileName
     if movieOrPlaylist == "movie" {
@@ -177,10 +176,24 @@ func iconFileExistsAtAppleCloudButDidNotDownload(movieOrPlaylist: String, iCloud
         return (false, url)
     }
 }
-#endif
 
 // MARK: - UUID.
 
 func uuid() -> String {
     return UUID.init().uuidString
+}
+
+// MARK: - iCloud 中是否已经有数据库文件。
+
+func databaseAlreadyExistsInAppleCloudButDidNotDownloaded() -> Bool {
+    if let iCloudURL = AKConstant.iCloudURL {
+        let dbPath: String = iCloudURL.appendingPathComponent("UserData").appendingPathComponent(".Akane.db.icloud").path
+        if FileManager.default.fileExists(atPath: dbPath) {
+            return true
+        } else {
+            return false
+        }
+    } else {
+        return false
+    }
 }
