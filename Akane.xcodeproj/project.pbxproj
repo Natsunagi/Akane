@@ -94,7 +94,6 @@
 		22C3F62325F0A2190090A739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224EC1912464F7D7002D72B6 /* LaunchScreen.storyboard */; };
 		22C3F62425F0A2190090A739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224EC18F2464F7D7002D72B6 /* Assets.xcassets */; };
 		22C3F62525F0A2190090A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F55925F09F7B0090A739 /* Main.storyboard */; };
-		22C3F63625F0A23D0090A739 /* Info_iPadOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F63525F0A23D0090A739 /* Info_iPadOS.plist */; };
 		22C3F63B25F0A24B0090A739 /* Main_iPadOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F63A25F0A24B0090A739 /* Main_iPadOS.storyboard */; };
 		6EA034B838F7EFA230A65702 /* Pods_Akane_iPadOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BE363FB3E4E6A6ED674E5E /* Pods_Akane_iPadOS.framework */; };
 		80682DAB3531687944B5D380 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -515,7 +514,6 @@
 				22C3F63B25F0A24B0090A739 /* Main_iPadOS.storyboard in Resources */,
 				22C3F62325F0A2190090A739 /* LaunchScreen.storyboard in Resources */,
 				22C3F62425F0A2190090A739 /* Assets.xcassets in Resources */,
-				22C3F63625F0A23D0090A739 /* Info_iPadOS.plist in Resources */,
 				22C3F62525F0A2190090A739 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -956,7 +954,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Debug iOS";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -985,7 +983,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Release iOS";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1014,7 +1012,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Debug iPadOS";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -1043,7 +1041,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Release iPadOS";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
