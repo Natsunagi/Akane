@@ -212,7 +212,7 @@
 	<string>NSApplication</string>
 	<key>NSUbiquitousContainers</key>
 	<dict>
-		<key>iCloud.com.Grass.Akane</key>
+		<key>iCloud.cn.com.grass.shizuku.Akane</key>
 		<dict>
 			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
 			<true/>

@@ -456,7 +456,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Grass Plainson";
 				TargetAttributes = {
 					2225510925E2487000B801E6 = {
@@ -762,11 +762,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Development: Xiaoling Wang (358YVC7LH8)";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YK6G2Z3K97;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Akane_macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -775,9 +775,9 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.netvox.Akane-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.grass.shizuku.Akane-macOS";
 				PRODUCT_NAME = Akane;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane macOS Development Profile";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG macOS Debug";
 				SWIFT_VERSION = 5.0;
@@ -791,11 +791,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Xiaoling Wang (YK6G2Z3K97)";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = B7AM928UT8;
+				DEVELOPMENT_TEAM = YK6G2Z3K97;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Akane_macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -804,9 +804,9 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.netvox.Akane-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.grass.shizuku.Akane-macOS";
 				PRODUCT_NAME = Akane;
-				PROVISIONING_PROFILE_SPECIFIER = "Akane-Distribution-macOS";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane macOS Distribution Profile";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "macOS Release";
 				SWIFT_VERSION = 5.0;
@@ -935,11 +935,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Akane/Akane.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEI DAI (8ATYUX3MV2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEI DAI (8ATYUX3MV2)";
+				CODE_SIGN_IDENTITY = "Apple Development: Xiaoling Wang (358YVC7LH8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Xiaoling Wang (358YVC7LH8)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = B7AM928UT8;
+				DEVELOPMENT_TEAM = YK6G2Z3K97;
 				INFOPLIST_FILE = Akane/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -947,10 +947,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.grass.shizuku.Akane;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.grass.shizuku.Akane;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Akane Development iOS";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane Development iOS";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Development Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane iOS Development Profile";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Debug iOS";
 				SWIFT_VERSION = 5.0;
@@ -964,11 +964,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Akane/Akane.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: NETVOX TECHNOLOGY CO.,LTD.(XIAMEN) (B7AM928UT8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NETVOX TECHNOLOGY CO.,LTD.(XIAMEN) (B7AM928UT8)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: Xiaoling Wang (YK6G2Z3K97)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Xiaoling Wang (YK6G2Z3K97)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = B7AM928UT8;
+				DEVELOPMENT_TEAM = YK6G2Z3K97;
 				INFOPLIST_FILE = Akane/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -976,10 +976,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.grass.shizuku.Akane;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.grass.shizuku.Akane;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Akane Distribution iOS";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane Distribution iOS";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Distribution Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane iOS Distribution Profile";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Release iOS";
 				SWIFT_VERSION = 5.0;
@@ -993,11 +993,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Akane/Akane.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEI DAI (8ATYUX3MV2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEI DAI (8ATYUX3MV2)";
+				CODE_SIGN_IDENTITY = "Apple Development: Xiaoling Wang (358YVC7LH8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Xiaoling Wang (358YVC7LH8)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = B7AM928UT8;
+				DEVELOPMENT_TEAM = YK6G2Z3K97;
 				INFOPLIST_FILE = Akane/Info_iPadOS.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1005,10 +1005,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.grass.shizuku.Akane;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.grass.shizuku.Akane;
 				PRODUCT_NAME = Akane;
-				PROVISIONING_PROFILE_SPECIFIER = "Akane Development iOS";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane Development iOS";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Development Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane iOS Development Profile";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Debug iPadOS";
 				SWIFT_VERSION = 5.0;
@@ -1022,11 +1022,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Akane/Akane.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: NETVOX TECHNOLOGY CO.,LTD.(XIAMEN) (B7AM928UT8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NETVOX TECHNOLOGY CO.,LTD.(XIAMEN) (B7AM928UT8)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: Xiaoling Wang (YK6G2Z3K97)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Xiaoling Wang (YK6G2Z3K97)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = B7AM928UT8;
+				DEVELOPMENT_TEAM = YK6G2Z3K97;
 				INFOPLIST_FILE = Akane/Info_iPadOS.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1034,10 +1034,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.grass.shizuku.Akane;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.grass.shizuku.Akane;
 				PRODUCT_NAME = Akane;
-				PROVISIONING_PROFILE_SPECIFIER = "Akane Distribution iOS";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane Distribution iOS";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Distribution Profile";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane iOS Distribution Profile";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Release iPadOS";
 				SWIFT_VERSION = 5.0;

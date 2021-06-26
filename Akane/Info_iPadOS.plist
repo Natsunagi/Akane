@@ -37,7 +37,7 @@
 	<true/>
 	<key>NSUbiquitousContainers</key>
 	<dict>
-		<key>iCloud.com.grass.shizuku.Akane</key>
+		<key>iCloud.cn.com.grass.shizuku.Akane</key>
 		<dict>
 			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
 			<true/>
