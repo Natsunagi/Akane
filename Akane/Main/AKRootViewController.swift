@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AKRootViewController: AKUITableViewController {
     
@@ -558,6 +559,7 @@ extension AKRootViewController {
             AKDataBase.shared = AKDataBase.init(location: AKManager.location)
             AKManager.playlists = AKManager.getAllPlaylists(location: AKManager.location)
             self.handlePlaylistsDidUpdate(notification: Notification.init(name: Notification.Name(rawValue: "")))
+            SDImageCache.shared.clearMemory()
         }
     }
     
