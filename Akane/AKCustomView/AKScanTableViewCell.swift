@@ -83,7 +83,7 @@ class AKScanTableViewCell: UITableViewCell {
     }
     
     func setIcon(iconURL: URL?) {
-        self.iconImageView.sd_setImage(with: iconURL, placeholderImage: UIImage.init(named: AKConstant.defaultPlaylistIconName), options: .refreshCached, completed: nil)
+        self.iconImageView.sd_setImage(with: iconURL, placeholderImage: UIImage.init(named: AKConstant.defaultPlaylistIconName), options: [.refreshCached, .queryMemoryData], completed: nil)
     }
     
     func setTitle(title: String) {
