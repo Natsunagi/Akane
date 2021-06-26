@@ -212,6 +212,8 @@ class AKMovieDetailViewController: AKUIViewController {
 
     // MARK: - Tap gesture handle.
     
+    // MARK: 更改影片缩略图点击动作。
+    
     @objc private func handleTap() {
         let imagePickerController: UIImagePickerController = UIImagePickerController.init()
         imagePickerController.delegate = self
