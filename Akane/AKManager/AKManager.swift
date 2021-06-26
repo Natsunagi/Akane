@@ -196,7 +196,6 @@ class AKManager {
     // MARK: - Delete movies.
     
     static func deleteMovies(movies: Array<AKMovie>, location: AKFileOperation.Location) {
-        AKFileOperation.shared.deleteMovies(array: movies)
         for movie in movies {
             AKFileOperation.shared.deleteMovieIcon(uuid: movie.uuid, location: location)
             AKDataBase.shared?.deleteMovie(movie: movie)

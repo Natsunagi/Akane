@@ -340,9 +340,8 @@ class AKDetailViewController: AKUIViewController {
                     DispatchQueue.global().async {
                         AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
                         AKManager.fileOperationQueue.addOperation {
-                            AKManager.deleteMovies(movies: array, location: .iCloud)
+                            AKManager.deleteMovies(movies: array, location: AKManager.location)
                             if self!.listType == .playList {
-                                AKManager.deleteMovies(movies: array, location: AKManager.location)
                                 AKManager.deleteMovieFromPlaylist(movies: array, playlist: self!.playlist, location: AKManager.location)
                             }
                         }
