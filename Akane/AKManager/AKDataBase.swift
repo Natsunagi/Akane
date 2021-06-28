@@ -7,13 +7,13 @@
 //
 
 import Foundation
-import SQLite.Swift
+import FMDB
 
 class AKDataBase {
     
     // MARK: - Property.
     
-    var db: Connection?
+    var db: FMDatabase?
     var location: AKFileOperation.Location?
     
     static var shared: AKDataBase? = AKDataBase.init(location: AKManager.location)
@@ -29,37 +29,39 @@ class AKDataBase {
         
         // - Creat two table.
         
-        let allPlaylistsTable: Table = Table.init("Playlists")
-        let allMoviesTable: Table = Table.init("Movies")
-        let uuid: Expression<String> = Expression<String>.init("UUID")
-        let name: Expression<String> = Expression<String>.init("Name")
-        let filePath: Expression<String> = Expression<String>.init("FilePath")
-        let fileLocation: Expression<String> = Expression<String>.init("Location")
-        
-        do {
-            // - Creat a table that records all playlists information.
+        if self.db!.open() {
             
-            try self.db?.run(allPlaylistsTable.create(temporary: false, ifNotExists: true, withoutRowid: true, block: { (table) in
-                table.column(uuid)
-                table.column(name)
-                table.primaryKey(uuid)
-                table.unique(uuid)
-                table.unique(name)
-            }))
+            // Creat table which save all playlists.
             
-            // - Creat a table that records all movies information.
+            if !self.db!.tableExists("Playlists") {
+                var creatAllPlaylistsTableSQL: String = ""
+                creatAllPlaylistsTableSQL += "CREAT TABLE IF NOT EXISTS 'Playlists'"
+                creatAllPlaylistsTableSQL += "("
+                creatAllPlaylistsTableSQL += "UUID TEXT DEFAULT '',"
+                creatAllPlaylistsTableSQL += "Name TEXT DEFAULT '',"
+                creatAllPlaylistsTableSQL += "PRIMARY KEY (UUID)"
+                creatAllPlaylistsTableSQL += ")"
+                self.db!.executeStatements(creatAllPlaylistsTableSQL)
+            }
             
-            try self.db?.run(allMoviesTable.create(temporary: false, ifNotExists: true, withoutRowid: true, block: { (table) in
-                table.column(uuid)
-                table.column(name)
-                table.column(filePath)
-                table.column(fileLocation)
-                table.primaryKey(uuid)
-                table.unique(uuid)
-            }))
-        } catch {
-            print(error.localizedDescription)
+            // Creat table which save all movies.
+            
+            if !self.db!.tableExists("Movies") {
+                var creatAllMoviesTableSQL: String = ""
+                creatAllMoviesTableSQL += "CREAT TABLE IF NOT EXISTS 'Movies'"
+                creatAllMoviesTableSQL += "("
+                creatAllMoviesTableSQL += "UUID TEXT DEFAULT '',"
+                creatAllMoviesTableSQL += "Name TEXT DEFAULT '',"
+                creatAllMoviesTableSQL += "FilePath TEXT DEFAULT '',"
+                creatAllMoviesTableSQL += "Location TEXT DEFAULT '',"
+                creatAllMoviesTableSQL += "Playlists TEXT DEFAULT ''"
+                creatAllMoviesTableSQL += "PRIMARY KEY (UUID)"
+                creatAllMoviesTableSQL += ")"
+                self.db!.executeStatements(creatAllMoviesTableSQL)
+            }
         }
+        
+        self.db?.close()
     }
     
     // MARK: - Connect database.
@@ -73,19 +75,11 @@ class AKDataBase {
                 try? FileManager.default.startDownloadingUbiquitousItem(at: AKConstant.iCloudDatabaseSaveURL!)
                 return
             }
-            do {
-                self.db = try Connection.init(iCloudDatabaseSaveURL.path)
-                self.location = .iCloud
-            } catch {
-                print(error.localizedDescription)
-            }
+            self.db = FMDatabase.init(url: iCloudDatabaseSaveURL)
+            self.location = .iCloud
         } else if location == .local && self.db == nil {
-            do {
-                self.db = try Connection.init(AKConstant.localDatabaseSaveURL.path)
-                self.location = .local
-            } catch {
-                print(error.localizedDescription)
-            }
+            self.db = FMDatabase.init(url: AKConstant.localDatabaseSaveURL)
+            self.location = .local
         }
     }
 }
@@ -98,22 +92,27 @@ extension AKDataBase {
     
     func getAllPlaylists() -> Array<AKPlaylist> {
         var allPlaylists: Array<AKPlaylist> = Array<AKPlaylist>.init()
-        let allPlaylistsTable: Table = Table.init("Playlists")
-        let uuid: Expression<String> = Expression<String>.init("UUID")
-        let name: Expression<String> = Expression<String>.init("Name")
         
         guard let db = self.db else {
             return allPlaylists
         }
+        
+        guard db.open() else {
+            return allPlaylists
+        }
+        
         do {
-            for row in try db.prepare(allPlaylistsTable.order(name.asc)) {
-                let name: String = row[name]
-                let uuid: String = row[uuid]
-                allPlaylists.append(AKPlaylist.init(uuid: uuid, name: name))
+            let set: FMResultSet = try db.executeQuery("SELECT * FROM Playlists ORDER BY Name ASC", values: nil)
+            while set.next() {
+                if let name = set.string(forColumn: "Name"), let uuid = set.string(forColumn: "UUID") {
+                    allPlaylists.append(AKPlaylist.init(uuid: uuid, name: name))
+                }
             }
         } catch {
             print(error.localizedDescription)
         }
+        
+        db.close()
         
         return allPlaylists
     }
@@ -122,28 +121,28 @@ extension AKDataBase {
     
     func getPlaylistMovies(playlist: AKPlaylist) -> Array<AKMovie> {
         var movies: Array<AKMovie> = Array<AKMovie>.init()
-        let playlistTable: Table = Table.init(playlist.name)
-        let uuid: Expression<String> = Expression<String>.init("UUID")
-        let name: Expression<String> = Expression<String>.init("Name")
-        let filePath: Expression<String> = Expression<String>.init("FilePath")
-        let fileLocation: Expression<String> = Expression<String>.init("Location")
         
         guard let db = self.db else {
             return movies
         }
         
+        guard db.open() else {
+            return movies
+        }
+        
         do {
-            for row in try db.prepare(playlistTable.order(name.asc)) {
-                let uuid: String = row[uuid]
-                let name: String = row[name]
-                let fileURL: URL = URL.init(fileURLWithPath: row[filePath])
-                let fileLocation: AKMovie.Location = AKMovie.Location.getLocation(location: row[fileLocation])
-                let movie: AKMovie = AKMovie.init(uuid: uuid, name: name, fileURL: fileURL, fileLocation: fileLocation)
-                movies.append(movie)
+            let set: FMResultSet = try db.executeQuery("SELECT * FROM '\(playlist.name)' ORDER BY Name ASC", values: nil)
+            while set.next() {
+                if let uuid = set.string(forColumn: "UUID"), let name = set.string(forColumn: "Name"), let filePath = set.string(forColumn: "FilePath"), let fileLocation = set.string(forColumn: "Location") {
+                    let movie: AKMovie = AKMovie.init(uuid: uuid, name: name, fileURL: URL.init(fileURLWithPath: filePath), fileLocation: AKMovie.Location.getLocation(location: fileLocation))
+                    movies.append(movie)
+                }
             }
         } catch {
             print(error.localizedDescription)
         }
+        
+        db.close()
         
         return movies
     }
@@ -151,124 +150,179 @@ extension AKDataBase {
     // MARK: Insert a playlist to data base (creat a new table).
     
     func insertNewPlaylist(playlist: AKPlaylist) {
-        let allPlaylistsTable: Table = Table.init("Playlists")
-        let playlistTable: Table = Table.init(playlist.name)
-        let uuid: Expression<String> = Expression<String>.init("UUID")
-        let name: Expression<String> = Expression<String>.init("Name")
-        let filePath: Expression<String> = Expression<String>.init("FilePath")
-        let fileLocation: Expression<String> = Expression<String>.init("Location")
-        
-        do {
-            // - Updata all playlists table.
-            
-            try self.db?.run(allPlaylistsTable.insert(uuid <- playlist.uuid, name <- playlist.name))
-            
-            // - Creat new table.
-            
-            try self.db?.run(playlistTable.create(temporary: false, ifNotExists: true, withoutRowid: false, block: { (table) in
-                table.column(uuid)
-                table.column(name)
-                table.column(filePath)
-                table.column(fileLocation)
-                table.primaryKey(uuid)
-                table.unique(uuid)
-            }))
-            
-            // - Insert all movies.
-            
-            for movie in playlist.movies {
-                let setters: Array<Setter> = [
-                    uuid <- movie.uuid,
-                    name <- movie.name,
-                    filePath <- movie.fileURL.path,
-                    fileLocation <- movie.fileLocation.label
-                ]
-                try self.db?.run(playlistTable.insert(setters))
-            }
-        } catch {
-            print(error.localizedDescription)
+        guard let db = self.db else {
+            return
         }
+        
+        guard db.open() else {
+            return
+        }
+        
+        // - Updata all playlists table.
+        
+        db.executeStatements("INSERT INTO Playlists VALUES (\(playlist.uuid!),\(playlist.name))")
+        
+        // - Creat new table.
+        
+        var creatTableSQL: String = ""
+        creatTableSQL += "CREAT TABLE IF NOT EXISTS '\(playlist.name)'"
+        creatTableSQL += "("
+        creatTableSQL += "UUID TEXT DEFAULT '',"
+        creatTableSQL += "Name TEXT DEFAULT '',"
+        creatTableSQL += "FilePath TEXT DEFAULT '',"
+        creatTableSQL += "Location TEXT DEFAULT '',"
+        creatTableSQL += "PRIMARY KEY (UUID)"
+        creatTableSQL += ")"
+        db.executeStatements(creatTableSQL)
+        
+        // - Insert all movies.
+        
+        for movie in playlist.movies {
+            var sql: String = ""
+            sql += "INSERT INTO '\(playlist.name)' VALUES ("
+            sql += "\(movie.uuid!),"
+            sql += "\(movie.name),"
+            sql += "\(movie.fileURL.path),"
+            sql += "\(movie.fileLocation.label)"
+            sql += ")"
+            db.executeStatements(sql)
+        }
+        
+        db.close()
     }
     
     // MARK: Insert a movie to playlist.
     
     func insertMovieToPlaylist(movie: AKMovie, playlist: AKPlaylist) {
-        let playlistTable: Table = Table.init(playlist.name)
-        let allPlaylistsTable: Table = Table.init("Playlists")
-        let uuid: Expression<String> = Expression<String>.init("UUID")
-        let name: Expression<String> = Expression<String>.init("Name")
-        let filePath: Expression<String> = Expression<String>.init("FilePath")
-        let fileLocation: Expression<String> = Expression<String>.init("Location")
-        
         guard let db = self.db else {
             return
         }
         
+        guard db.open() else {
+            return
+        }
+        
+        // - Update movie playlists.
+        
+        var playlistsString: String = ""
+        for playlistTemp in movie.playlists {
+            playlistsString = playlistsString + playlistTemp
+            playlistsString = playlistsString + ";"
+        }
+        playlistsString = playlistsString + movie.uuid + ";"
+        
         do {
             // - Query whether the playlist already exists in data base.
             
-            let count: Int = try db.scalar(allPlaylistsTable.filter(name == playlist.name).count)
-            
-            // - Insert.
-            
-            if count <= 0 {
-                self.insertNewPlaylist(playlist: playlist)
+            if db.tableExists(playlist.name) {
+                var sql: String = ""
+                sql += "INSERT INTO '\(playlist.name)' VALUES ("
+                sql += "\(movie.uuid!),"
+                sql += "\(movie.name),"
+                sql += "\(movie.fileURL.path),"
+                sql += "\(movie.fileLocation.label)"
+                sql += ")"
+                db.executeStatements(sql)
             } else {
-                let setters: Array<Setter> = [
-                    uuid <- movie.uuid,
-                    name <- movie.name,
-                    filePath <- movie.fileURL.path,
-                    fileLocation <- movie.fileLocation.label
-                ]
-                try db.run(playlistTable.insert(setters))
+                self.insertNewPlaylist(playlist: playlist)
             }
+            
+            // - Update movie data. Update movie's playlist data.
+            
+            try db.executeUpdate("UPDATE Movies SET Playlists = '\(playlistsString)' WHERE UUID = '\(movie.uuid!)'", values: nil)
+            
         } catch {
             print(error.localizedDescription)
         }
+        
+        db.close()
     }
     
     // MARK: Delete a movie from playlist.
     
     func deleteMovieFromPlaylist(movie: AKMovie, playlist: AKPlaylist) {
-        let playlistTable: Table = Table.init(playlist.name)
-        let uuid: Expression<String> = Expression<String>.init("UUID")
+        guard let db = self.db else {
+            return
+        }
+        
+        guard db.open() else {
+            return
+        }
+        
+        // - Update movie playlists.
+        
+        var playlistsString: String = ""
+        for playlistTemp in movie.playlists {
+            if playlistTemp != playlist.uuid {
+                playlistsString = playlistsString + playlistTemp
+                playlistsString = playlistsString + ";"
+            }
+        }
         
         do {
-            try self.db?.run(playlistTable.filter(uuid == movie.uuid).delete())
+            db.executeStatements("DELETE FROM '\(playlist.name)' WHERE UUID = '\(movie.uuid!)'")
+            
+            // - Update movie data. Update movie's playlists.
+
+            try db.executeUpdate("UPDATE Movies SET Playlists = '\(playlistsString)' WHERE UUID = '\(movie.uuid!)'", values: nil)
+            
         } catch {
             print(error.localizedDescription)
         }
+        
+        db.close()
     }
     
     // MARK: Delete a playlist.
     
     func deletePlaylist(playlist: AKPlaylist) {
-        let allPlaylistsTable: Table = Table.init("Playlists")
-        let playlistTable: Table = Table.init(playlist.name)
-        let name: Expression<String> = Expression<String>.init("Name")
+        guard let db = self.db else {
+            return
+        }
+        
+        guard db.open() else {
+            return
+        }
         
         do {
-            try self.db?.run(allPlaylistsTable.filter(name == playlist.name).delete())
-            try self.db?.run(playlistTable.drop())
+            // - Update movie playlists.
+            
+            for movie in playlist.movies {
+                var playlistsString: String = ""
+                let strs: Array<String> = self.getMoviePlaylists(db: db, movie: movie)
+                for str in strs {
+                    if str != playlist.uuid {
+                        playlistsString.append(str)
+                        playlistsString.append(";")
+                    }
+                }
+                try db.executeUpdate("UPDATE Movies SET Playlists = '\(playlistsString)' WHERE UUID = '\(playlist.uuid!)'", values: nil)
+            }
+            
+            db.executeStatements("DELETE FROM Playlists WHERE UUID = '\(playlist.uuid!)'")
+            db.executeStatements("DROP TABLE \(playlist.name)")
         } catch {
             print(error.localizedDescription)
         }
+        
+        db.close()
     }
     
     // MARK: Rename a playlist.
     
     func renamePlaylist(oldName: String, newName: String) {
-        let allPlaylistTable: Table = Table.init("Playlists")
-        let oldPlaylistTable: Table = Table.init(oldName)
-        let newPlaylistTable: Table = Table.init(newName)
-        let name: Expression<String> = Expression<String>.init("Name")
-        
-        do {
-            try self.db?.run(allPlaylistTable.filter(name == oldName).update(name <- newName))
-            try self.db?.run(oldPlaylistTable.rename(newPlaylistTable))
-        } catch {
-            print(error.localizedDescription)
+        guard let db = self.db else {
+            return
         }
+        
+        guard db.open() else {
+            return
+        }
+        
+        db.executeStatements("UPDATE Playlists SET Name = '\(newName)' WHERE Name = '\(oldName)'")
+        db.executeStatements("ALTER TABLE '\(oldName)' RENAME TO '\(newName)'")
+        
+        db.close()
     }
 }
 
@@ -277,72 +331,104 @@ extension AKDataBase {
 extension AKDataBase {
     
     // MARK: Get all movies except iCloud.
-    
-    func getAllMoviesExceptAppleCloud() -> (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) {
-        var localDocumentMovies: Array<AKMovie> = Array<AKMovie>.init()
-        var outsideContainerMovies: Array<AKMovie> = Array<AKMovie>.init()
-        let moviesTable: Table = Table.init("Movies")
-        let uuid: Expression<String> = Expression<String>.init("UUID")
-        let name: Expression<String> = Expression<String>.init("Name")
-        let filePath: Expression<String> = Expression<String>.init("FilePath")
-        let fileLocation: Expression<String> = Expression<String>.init("Location")
+        
+    func getAllMovies() -> Array<AKMovie> {
+        var allMovies: Array<AKMovie> = Array<AKMovie>.init()
         
         guard let db = self.db else {
-            return (localDocumentMovies, outsideContainerMovies)
+            return allMovies
+        }
+        
+        guard db.open() else {
+            return allMovies
         }
         
         do {
-            for row in try db.prepare(moviesTable.order(name.asc)) {
-                let uuid: String = row[uuid]
-                let name: String = row[name]
-                let fileURL: URL = URL.init(fileURLWithPath: row[filePath])
-                let fileLocation: AKMovie.Location = AKMovie.Location.getLocation(location: row[fileLocation])
-                let movie: AKMovie = AKMovie.init(uuid: uuid, name: name, fileURL: fileURL, fileLocation: fileLocation)
-                if fileLocation == .localDocument {
-                    localDocumentMovies.append(movie)
-                } else {
-                    outsideContainerMovies.append(movie)
+            let set: FMResultSet = try db.executeQuery("SELECT * FROM Movies ORDER BY Name ASC", values: nil)
+            while set.next() {
+                if let uuid = set.string(forColumn: "UUID"),
+                   let name = set.string(forColumn: "Name"),
+                   let filePath = set.string(forColumn: "FilePath"),
+                   let fileLocation = set.string(forColumn: "Location") {
+                    let playlists: String? = set.string(forColumn: "Playlists")
+                    let movie: AKMovie = AKMovie.init(uuid: uuid, name: name, fileURL: URL.init(fileURLWithPath: filePath), fileLocation: AKMovie.Location.getLocation(location: fileLocation))
+                    if playlists != nil {
+                        movie.playlists = self.getMoviePlaylists(str: playlists!)
+                    }
+                    allMovies.append(movie)
                 }
             }
         } catch {
             print(error.localizedDescription)
         }
         
-        return (localDocumentMovies, outsideContainerMovies)
+        db.close()
+        
+        return allMovies
     }
     
     // MARK: Insert movie.
     
     func insertMovie(movie: AKMovie) {
-        let moviesTable: Table = Table.init("Movies")
-        let uuid: Expression<String> = Expression<String>.init("UUID")
-        let name: Expression<String> = Expression<String>.init("Name")
-        let fileLocation: Expression<String> = Expression<String>.init("Location")
-        let filePath: Expression<String> = Expression<String>.init("FilePath")
-        
-        do {
-            let setters: Array<Setter> = [
-                uuid <- movie.uuid,
-                name <- movie.name,
-                fileLocation <- movie.fileLocation.label,
-                filePath <- movie.fileURL.path
-            ]
-            try self.db?.run(moviesTable.insert(setters))
-        } catch {
-            print(error.localizedDescription)
+        guard let db = self.db else {
+            return
         }
+        
+        guard db.open() else {
+            return
+        }
+        
+        var sql: String = ""
+        sql += "INSERT INTO Movies VALUES("
+        sql += "'\(movie.uuid!)','\(movie.name)','\(movie.fileURL.path)','\(movie.fileLocation.label)','\(movie.playlists)'"
+        db.executeStatements(sql)
+        
+        db.close()
     }
     
     // MARK: Delete movie.
     
     func deleteMovie(movie: AKMovie) {
-        let moviesTable: Table = Table.init("Movies")
-        let uuid: Expression<String> = Expression<String>.init("UUID")
+        guard let db = self.db else {
+            return
+        }
         
+        guard db.open() else {
+            return
+        }
+        
+        db.executeStatements("DELETE FROM Movies WHERE UUID = '\(movie.uuid!)'")
+        
+        db.close()
+    }
+}
+
+// MARK: - Other.
+
+extension AKDataBase {
+    
+    // MARK: - 获取影片的播放列表字符串，并转换为数组形式。
+    
+    private func getMoviePlaylists(db: FMDatabase, movie: AKMovie) -> Array<String> {
+        var resultStr: String = ""
+        var result: Array<String> = Array<String>.init()
         do {
-            try self.db?.run(moviesTable.filter(uuid == movie.uuid).delete())
+            let set: FMResultSet = try db.executeQuery("SELECT * FROM Movies WHERE UUID = '\(movie.uuid!)'", values: nil)
+            while set.next() {
+                if let str = set.string(forColumn: "Playlists") {
+                    resultStr = str
+                    result = resultStr.components(separatedBy: ";")
+                }
+            }
         } catch {
             print(error.localizedDescription)
         }
+        return result
+    }
+    
+    // MARK: - 将播放列表字符串转变为播放列表数组输出。
+    
+    private func getMoviePlaylists(str: String) -> Array<String> {
+        return str.components(separatedBy: ";")
     }
 }

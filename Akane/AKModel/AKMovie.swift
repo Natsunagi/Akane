@@ -79,6 +79,7 @@ class AKMovie {
     var name: String = ""
     var fileURL: URL!
     var fileLocation: AKMovie.Location!
+    var playlists: Array<String> = Array<String>.init()
     
     var iconURL: URL? {
         if let iCloudMoviesIconImageSaveURL = AKConstant.iCloudMoviesIconImageSaveURL {

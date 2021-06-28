@@ -399,8 +399,8 @@ class AKRootViewController: AKUITableViewController {
             case 0:
                 AKWaitingView.show()
                 DispatchQueue.global().async {
-                    let tuple: (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) = AKManager.getAllMoviesExceptAppleCloud(location: .iCloud)
-                    detailViewController.files = AKManager.getAppleCloudMovies() + tuple.localDocument + tuple.outsideContainer
+                    let movies: Array<AKMovie> = AKManager.getAllMovies(location: AKManager.location)
+                    detailViewController.files = AKManager.getAppleCloudMovies() + movies
                     detailViewController.listType = .all
                     detailViewController.playlist = AKPlaylist.init(uuid: "all", name: "all")
                     DispatchQueue.main.async {

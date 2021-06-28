@@ -146,24 +146,41 @@ class AKManager {
     
     // MARK: - Get all movies except iCloud.
     
-    static func getAllMoviesExceptAppleCloud(location: AKFileOperation.Location) -> (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) {
-        var localDocumentMovies: Array<AKMovie> = Array<AKMovie>.init()
-        var outsideContainerMovies: Array<AKMovie> = Array<AKMovie>.init()
+//    static func getAllMoviesExceptAppleCloud(location: AKFileOperation.Location) -> (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) {
+//        var localDocumentMovies: Array<AKMovie> = Array<AKMovie>.init()
+//        var outsideContainerMovies: Array<AKMovie> = Array<AKMovie>.init()
+//        guard let db = AKDataBase.shared else {
+//            return (localDocumentMovies, outsideContainerMovies)
+//        }
+//        if location == .iCloud {
+//            AKFileOperation.shared.fileCoordinator.coordinate(readingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .withoutChanges, error: &AKFileOperation.shared.error) { (url) in
+//                let tuple: (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) = db.getAllMoviesExceptAppleCloud()
+//                localDocumentMovies = tuple.localDocument
+//                outsideContainerMovies = tuple.outsideContainer
+//            }
+//        } else {
+//            let tuple: (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) = db.getAllMoviesExceptAppleCloud()
+//            localDocumentMovies = tuple.localDocument
+//            outsideContainerMovies = tuple.outsideContainer
+//        }
+//        return (localDocumentMovies, outsideContainerMovies)
+//    }
+    
+    // MARK: - Get all movies.
+    
+    static func getAllMovies(location: AKFileOperation.Location) -> Array<AKMovie> {
+        var allMovies: Array<AKMovie> = Array<AKMovie>.init()
         guard let db = AKDataBase.shared else {
-            return (localDocumentMovies, outsideContainerMovies)
+            return allMovies
         }
         if location == .iCloud {
             AKFileOperation.shared.fileCoordinator.coordinate(readingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .withoutChanges, error: &AKFileOperation.shared.error) { (url) in
-                let tuple: (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) = db.getAllMoviesExceptAppleCloud()
-                localDocumentMovies = tuple.localDocument
-                outsideContainerMovies = tuple.outsideContainer
+                allMovies = db.getAllMovies()
             }
         } else {
-            let tuple: (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) = db.getAllMoviesExceptAppleCloud()
-            localDocumentMovies = tuple.localDocument
-            outsideContainerMovies = tuple.outsideContainer
+            allMovies = db.getAllMovies()
         }
-        return (localDocumentMovies, outsideContainerMovies)
+        return allMovies
     }
     
     // MARK: - Save playlist icon.

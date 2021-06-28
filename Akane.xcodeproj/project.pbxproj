@@ -96,12 +96,14 @@
 		22C3F62525F0A2190090A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F55925F09F7B0090A739 /* Main.storyboard */; };
 		22C3F63B25F0A24B0090A739 /* Main_iPadOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F63A25F0A24B0090A739 /* Main_iPadOS.storyboard */; };
 		6EA034B838F7EFA230A65702 /* Pods_Akane_iPadOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BE363FB3E4E6A6ED674E5E /* Pods_Akane_iPadOS.framework */; };
-		80682DAB3531687944B5D380 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		80682DAB3531687944B5D380 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		8FDBE78DCD74C97B533E9C9C /* Pods_Akane_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2730C28D933F2293011DC0D /* Pods_Akane_macOS.framework */; };
+		AD2F638CE99AEAA529E6357E /* Pods_Akane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F233401BC4E131BF7E675FC /* Pods_Akane.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0FDFC5D0B2B2736232DA8BCC /* Pods-Akane_iPadOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_iPadOS.release.xcconfig"; path = "Target Support Files/Pods-Akane_iPadOS/Pods-Akane_iPadOS.release.xcconfig"; sourceTree = "<group>"; };
+		1F233401BC4E131BF7E675FC /* Pods_Akane.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BE363FB3E4E6A6ED674E5E /* Pods_Akane_iPadOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_iPadOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2225510A25E2487000B801E6 /* Akane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2225510C25E2487000B801E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,7 +188,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80682DAB3531687944B5D380 /* (null) in Frameworks */,
+				80682DAB3531687944B5D380 /* BuildFile in Frameworks */,
+				AD2F638CE99AEAA529E6357E /* Pods_Akane.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +388,7 @@
 				57C814E3DB2EC64FFDDE9DDE /* Pods_Akane_module.framework */,
 				20BE363FB3E4E6A6ED674E5E /* Pods_Akane_iPadOS.framework */,
 				B2730C28D933F2293011DC0D /* Pods_Akane_macOS.framework */,
+				1F233401BC4E131BF7E675FC /* Pods_Akane.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
