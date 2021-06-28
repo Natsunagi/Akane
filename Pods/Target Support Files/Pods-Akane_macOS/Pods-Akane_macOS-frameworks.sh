@@ -175,14 +175,14 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/FMDB-macOS/FMDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry-macOS/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage-macOS/SDWebImage.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SQLite.swift-macOS/SQLite.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/FMDB-macOS/FMDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry-macOS/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage-macOS/SDWebImage.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SQLite.swift-macOS/SQLite.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

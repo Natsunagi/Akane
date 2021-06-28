@@ -9,8 +9,8 @@ target 'Akane' do
 
   # Pods for Akane
   pod 'Masonry'
-  pod 'SQLite.swift'
   pod 'SDWebImage'
+  pod 'FMDB'
 
 end
 
@@ -20,8 +20,8 @@ target 'Akane_iPadOS' do
 
   # Pods for Akane_iPadOS
   pod 'Masonry'
-  pod 'SQLite.swift'
   pod 'SDWebImage'
+  pod 'FMDB'
 
 end
 
@@ -31,8 +31,8 @@ target 'Akane_macOS' do
 
   # Pods for Akane_macOS
   pod 'Masonry'
-  pod 'SQLite.swift'
   pod 'SDWebImage'
+  pod 'FMDB'
 
 end
 

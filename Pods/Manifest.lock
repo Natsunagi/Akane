@@ -1,28 +1,28 @@
 PODS:
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - Masonry (1.1.0)
-  - SDWebImage (5.10.4):
-    - SDWebImage/Core (= 5.10.4)
-  - SDWebImage/Core (5.10.4)
-  - SQLite.swift (0.12.2):
-    - SQLite.swift/standard (= 0.12.2)
-  - SQLite.swift/standard (0.12.2)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
 
 DEPENDENCIES:
+  - FMDB
   - Masonry
   - SDWebImage
-  - SQLite.swift
 
 SPEC REPOS:
   trunk:
+    - FMDB
     - Masonry
     - SDWebImage
-    - SQLite.swift
 
 SPEC CHECKSUMS:
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
-  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: 68c9a79bbde30973d419e5b13980e1da00f12bc9
+PODFILE CHECKSUM: 636cd8ca4a108bcabbdfab886eef0512a3ed47b9
 
 COCOAPODS: 1.10.1
