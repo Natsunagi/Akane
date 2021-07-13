@@ -35,10 +35,11 @@ class AKDataBase {
             
             if !self.db!.tableExists("Playlists") {
                 var creatAllPlaylistsTableSQL: String = ""
-                creatAllPlaylistsTableSQL += "CREAT TABLE IF NOT EXISTS 'Playlists'"
+                creatAllPlaylistsTableSQL += "CREATE TABLE IF NOT EXISTS 'Playlists'"
                 creatAllPlaylistsTableSQL += "("
                 creatAllPlaylistsTableSQL += "UUID TEXT DEFAULT '',"
                 creatAllPlaylistsTableSQL += "Name TEXT DEFAULT '',"
+                creatAllPlaylistsTableSQL += "IconUUID TEXT DEFAULT '',"
                 creatAllPlaylistsTableSQL += "PRIMARY KEY (UUID)"
                 creatAllPlaylistsTableSQL += ")"
                 self.db!.executeStatements(creatAllPlaylistsTableSQL)
@@ -48,13 +49,14 @@ class AKDataBase {
             
             if !self.db!.tableExists("Movies") {
                 var creatAllMoviesTableSQL: String = ""
-                creatAllMoviesTableSQL += "CREAT TABLE IF NOT EXISTS 'Movies'"
+                creatAllMoviesTableSQL += "CREATE TABLE IF NOT EXISTS 'Movies'"
                 creatAllMoviesTableSQL += "("
                 creatAllMoviesTableSQL += "UUID TEXT DEFAULT '',"
                 creatAllMoviesTableSQL += "Name TEXT DEFAULT '',"
                 creatAllMoviesTableSQL += "FilePath TEXT DEFAULT '',"
                 creatAllMoviesTableSQL += "Location TEXT DEFAULT '',"
-                creatAllMoviesTableSQL += "Playlists TEXT DEFAULT ''"
+                creatAllMoviesTableSQL += "Playlists TEXT DEFAULT '',"
+                creatAllMoviesTableSQL += "IconUUID TEXT DEFAULT '',"
                 creatAllMoviesTableSQL += "PRIMARY KEY (UUID)"
                 creatAllMoviesTableSQL += ")"
                 self.db!.executeStatements(creatAllMoviesTableSQL)
@@ -104,8 +106,10 @@ extension AKDataBase {
         do {
             let set: FMResultSet = try db.executeQuery("SELECT * FROM Playlists ORDER BY Name ASC", values: nil)
             while set.next() {
-                if let name = set.string(forColumn: "Name"), let uuid = set.string(forColumn: "UUID") {
-                    allPlaylists.append(AKPlaylist.init(uuid: uuid, name: name))
+                if let name = set.string(forColumn: "Name"), let uuid = set.string(forColumn: "UUID"), let iconUUID = set.string(forColumn: "IconUUID") {
+                    let playlist: AKPlaylist = AKPlaylist.init(uuid: uuid, name: name)
+                    playlist.iconUUID = iconUUID
+                    allPlaylists.append(playlist)
                 }
             }
         } catch {
@@ -135,6 +139,7 @@ extension AKDataBase {
             while set.next() {
                 if let uuid = set.string(forColumn: "UUID"), let name = set.string(forColumn: "Name"), let filePath = set.string(forColumn: "FilePath"), let fileLocation = set.string(forColumn: "Location") {
                     let movie: AKMovie = AKMovie.init(uuid: uuid, name: name, fileURL: URL.init(fileURLWithPath: filePath), fileLocation: AKMovie.Location.getLocation(location: fileLocation))
+                    movie.iconUUID = self.getIconUUIDFromMovies(uuid: uuid)
                     movies.append(movie)
                 }
             }
@@ -160,12 +165,13 @@ extension AKDataBase {
         
         // - Updata all playlists table.
         
-        db.executeStatements("INSERT INTO Playlists VALUES (\(playlist.uuid!),\(playlist.name))")
+        let uuid: String = AKUUID()
+        db.executeStatements("INSERT INTO Playlists VALUES ('\(playlist.uuid!)','\(playlist.name)','\(uuid)')")
         
         // - Creat new table.
         
         var creatTableSQL: String = ""
-        creatTableSQL += "CREAT TABLE IF NOT EXISTS '\(playlist.name)'"
+        creatTableSQL += "CREATE TABLE IF NOT EXISTS '\(playlist.name)'"
         creatTableSQL += "("
         creatTableSQL += "UUID TEXT DEFAULT '',"
         creatTableSQL += "Name TEXT DEFAULT '',"
@@ -204,27 +210,24 @@ extension AKDataBase {
         
         // - Update movie playlists.
         
-        var playlistsString: String = ""
-        for playlistTemp in movie.playlists {
-            playlistsString = playlistsString + playlistTemp
-            playlistsString = playlistsString + ";"
-        }
-        playlistsString = playlistsString + movie.uuid + ";"
+        movie.playlists[playlist.uuid] = playlist.name
+        let playlistsString: String = self.getMoviePlaylistsString(dic: movie.playlists)
         
         do {
             // - Query whether the playlist already exists in data base.
             
+            var sql: String = ""
+            sql += "INSERT INTO '\(playlist.name)' VALUES ("
+            sql += "'\(movie.uuid!)',"
+            sql += "'\(movie.name)',"
+            sql += "'\(movie.fileURL.path)',"
+            sql += "'\(movie.fileLocation.label)'"
+            sql += ")"
             if db.tableExists(playlist.name) {
-                var sql: String = ""
-                sql += "INSERT INTO '\(playlist.name)' VALUES ("
-                sql += "\(movie.uuid!),"
-                sql += "\(movie.name),"
-                sql += "\(movie.fileURL.path),"
-                sql += "\(movie.fileLocation.label)"
-                sql += ")"
                 db.executeStatements(sql)
             } else {
                 self.insertNewPlaylist(playlist: playlist)
+                db.executeStatements(sql)
             }
             
             // - Update movie data. Update movie's playlist data.
@@ -251,13 +254,8 @@ extension AKDataBase {
         
         // - Update movie playlists.
         
-        var playlistsString: String = ""
-        for playlistTemp in movie.playlists {
-            if playlistTemp != playlist.uuid {
-                playlistsString = playlistsString + playlistTemp
-                playlistsString = playlistsString + ";"
-            }
-        }
+        movie.playlists[playlist.uuid] = nil
+        let playlistsString = self.getMoviePlaylistsString(dic: movie.playlists)
         
         do {
             db.executeStatements("DELETE FROM '\(playlist.name)' WHERE UUID = '\(movie.uuid!)'")
@@ -288,15 +286,9 @@ extension AKDataBase {
             // - Update movie playlists.
             
             for movie in playlist.movies {
-                var playlistsString: String = ""
-                let strs: Array<String> = self.getMoviePlaylists(db: db, movie: movie)
-                for str in strs {
-                    if str != playlist.uuid {
-                        playlistsString.append(str)
-                        playlistsString.append(";")
-                    }
-                }
-                try db.executeUpdate("UPDATE Movies SET Playlists = '\(playlistsString)' WHERE UUID = '\(playlist.uuid!)'", values: nil)
+                var playlistDic: Dictionary<String, String> = movie.playlists
+                playlistDic[playlist.uuid] = nil
+                try db.executeUpdate("UPDATE Movies SET Playlists = '\(self.getMoviePlaylistsString(dic: playlistDic))' WHERE UUID = '\(movie.uuid!)'", values: nil)
             }
             
             db.executeStatements("DELETE FROM Playlists WHERE UUID = '\(playlist.uuid!)'")
@@ -321,6 +313,26 @@ extension AKDataBase {
         
         db.executeStatements("UPDATE Playlists SET Name = '\(newName)' WHERE Name = '\(oldName)'")
         db.executeStatements("ALTER TABLE '\(oldName)' RENAME TO '\(newName)'")
+        
+        db.close()
+    }
+    
+    // MARK: Update playlist icon.
+    
+    func updatePlaylistIcon(playlist: AKPlaylist) {
+        guard let db = self.db else {
+            return
+        }
+        
+        guard db.open() else {
+            return
+        }
+        
+        do {
+            try db.executeUpdate("UPDATE Playlists SET IconUUID = '\(playlist.iconUUID)' WHERE UUID = '\(playlist.uuid!)'", values: nil)
+        } catch {
+            print(error.localizedDescription)
+        }
         
         db.close()
     }
@@ -349,12 +361,12 @@ extension AKDataBase {
                 if let uuid = set.string(forColumn: "UUID"),
                    let name = set.string(forColumn: "Name"),
                    let filePath = set.string(forColumn: "FilePath"),
-                   let fileLocation = set.string(forColumn: "Location") {
-                    let playlists: String? = set.string(forColumn: "Playlists")
+                   let fileLocation = set.string(forColumn: "Location"),
+                   let iconUUID = set.string(forColumn: "IconUUID"),
+                   let playlists = set.string(forColumn: "Playlists") {
                     let movie: AKMovie = AKMovie.init(uuid: uuid, name: name, fileURL: URL.init(fileURLWithPath: filePath), fileLocation: AKMovie.Location.getLocation(location: fileLocation))
-                    if playlists != nil {
-                        movie.playlists = self.getMoviePlaylists(str: playlists!)
-                    }
+                    movie.iconUUID = iconUUID
+                    movie.playlists = self.getMoviePlaylists(str: playlists)
                     allMovies.append(movie)
                 }
             }
@@ -380,7 +392,8 @@ extension AKDataBase {
         
         var sql: String = ""
         sql += "INSERT INTO Movies VALUES("
-        sql += "'\(movie.uuid!)','\(movie.name)','\(movie.fileURL.path)','\(movie.fileLocation.label)','\(movie.playlists)'"
+        sql += "'\(movie.uuid!)','\(movie.name)','\(movie.fileURL.path)','\(movie.fileLocation.label)','','\(AKUUID())'"
+        sql += ")"
         db.executeStatements(sql)
         
         db.close()
@@ -401,34 +414,66 @@ extension AKDataBase {
         
         db.close()
     }
+    
+    // MARK: - Update movie icon.
+    
+    func updateMovieIcon(movie: AKMovie) {
+        guard let db = self.db else {
+            return
+        }
+        
+        guard db.open() else {
+            return
+        }
+        
+        do {
+            try db.executeUpdate("UPDATE Movies SET IconUUID = '\(movie.iconUUID)' WHERE UUID = '\(movie.uuid!)'", values: nil)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        db.close()
+    }
 }
 
 // MARK: - Other.
 
 extension AKDataBase {
     
-    // MARK: - 获取影片的播放列表字符串，并转换为数组形式。
+    // MARK: 将播放列表字符串转变为播放列表字典输出。
     
-    private func getMoviePlaylists(db: FMDatabase, movie: AKMovie) -> Array<String> {
-        var resultStr: String = ""
-        var result: Array<String> = Array<String>.init()
-        do {
-            let set: FMResultSet = try db.executeQuery("SELECT * FROM Movies WHERE UUID = '\(movie.uuid!)'", values: nil)
-            while set.next() {
-                if let str = set.string(forColumn: "Playlists") {
-                    resultStr = str
-                    result = resultStr.components(separatedBy: ";")
-                }
-            }
-        } catch {
-            print(error.localizedDescription)
+    private func getMoviePlaylists(str: String) -> Dictionary<String, String> {
+        let data: Data = str.data(using: .utf8)!
+        let dic: Dictionary<String, String>? = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? Dictionary<String, String>
+        if dic != nil {
+            return dic!
+        } else {
+            return Dictionary<String, String>.init()
         }
-        return result
     }
     
-    // MARK: - 将播放列表字符串转变为播放列表数组输出。
+    // MARK: 将播放列表字典转换为字符串输出。
     
-    private func getMoviePlaylists(str: String) -> Array<String> {
-        return str.components(separatedBy: ";")
+    private func getMoviePlaylistsString(dic: Dictionary<String, String>) -> String {
+        let data: Data? = try? JSONSerialization.data(withJSONObject: dic, options: .fragmentsAllowed)
+        if data != nil {
+            return String.init(data: data!, encoding: .utf8)!
+        } else {
+            return ""
+        }
+    }
+    
+    // MARK: 从 Movies 表中找到影片 iconUUID。
+    
+    private func getIconUUIDFromMovies(uuid: String) -> String {
+        var result: String = ""
+        let sql: String = "SELECT IconUUID FROM Movies WHERE UUID = '\(uuid)'"
+        let set: FMResultSet? = try? self.db?.executeQuery(sql, values: nil)
+        if set != nil {
+            while set!.next() {
+                result = set!.string(forColumn: "IconUUID")!
+            }
+        }
+        return result
     }
 }

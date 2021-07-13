@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         detailViewController.playlist = AKPlaylist.init(uuid: "iCloud", name: "iCloud")
         #endif
         
-        #if iOS
+        #if iPhoneOS
         let navigationController: AKUINavigationController = self.window?.rootViewController as! AKUINavigationController
         navigationController.navigationBar.shadowImage = UIImage.init()
         #endif

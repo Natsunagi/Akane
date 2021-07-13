@@ -18,6 +18,7 @@ class AKMovieDetailViewController: AKUIViewController {
     
     var playlistIndex: Int?
     var playlist: AKPlaylist?
+    var placeholderImage: UIImage?
     
     private var backgroundTableView: AKUITableView!
     private var viewCell: UITableViewCell!
@@ -109,7 +110,7 @@ class AKMovieDetailViewController: AKUIViewController {
         // MARK: Movie icon image.
         
         self.iconImageView = UIImageView.init()
-        self.iconImageView.sd_setImage(with: self.movie.iconURL, placeholderImage: UIImage.init(named: AKConstant.defaultMovieIconName), options: .refreshCached, completed: nil)
+        self.iconImageView.sd_setImage(with: self.movie.iconURL, placeholderImage: self.placeholderImage, options: .refreshCached, completed: nil)
         self.iconImageView.layer.cornerRadius = 25
         self.iconImageView.layer.masksToBounds = true
         self.iconImageView.isUserInteractionEnabled = true
@@ -315,7 +316,7 @@ extension AKMovieDetailViewController: UIImagePickerControllerDelegate, UINaviga
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image: UIImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
         self.iconImageView.image = image
-        NotificationCenter.default.post(name: AKConstant.AKNotification.movieIconImageDidChange, object: image, userInfo: ["uuid": self.movie.uuid!, "name": self.movie.name])
+        NotificationCenter.default.post(name: AKConstant.AKNotification.movieIconImageDidChange, object: image, userInfo: ["movie": self.movie!])
         picker.dismiss(animated: true, completion: nil)
     }
 }

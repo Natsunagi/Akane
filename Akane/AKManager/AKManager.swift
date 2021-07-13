@@ -8,7 +8,7 @@
 
 import Foundation
 
-#if iOS || iPadOS
+#if iPhoneOS || iPadOS
 import UIKit
 #elseif masOS
 import Cocoa
@@ -19,6 +19,9 @@ class AKManager {
     static var playlists: Array<AKPlaylist> = Array<AKPlaylist>.init()
     
     static var fileOperationQueue: OperationQueue = AKFileOperation.shared.presentedItemOperationQueue
+    
+    // 这里 prefetch 标记缩略图是否已经完成预加载。
+    static var playlistImages: Array<(image: UIImage, prefetch: Bool)> = Array<(image: UIImage, prefetch: Bool)>.init()
     
     // - Settings.
     
@@ -49,14 +52,6 @@ class AKManager {
         return playlists
     }
     
-    // MARK: - Get playlist icon.
-    
-    #if iOS || iPadOS
-    static func getPlaylistIcon(playlist: AKPlaylist, location: AKFileOperation.Location) -> UIImage? {
-        return AKFileOperation.shared.getPlaylistIcon(playlist: playlist, location: location)
-    }
-    #endif
-    
     // MARK: - Insert a new playlist.
     
     static func insertNewPlaylist(playlist: AKPlaylist, location: AKFileOperation.Location) {
@@ -75,6 +70,8 @@ class AKManager {
         if location == .iCloud {
             AKFileOperation.shared.fileCoordinator.coordinate(writingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .forMoving, writingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .forReplacing, error: &AKFileOperation.shared.error) { (originURL, targetURL) in
                 AKDataBase.shared?.deletePlaylist(playlist: playlist)
+            }
+            AKFileOperation.shared.fileCoordinator.coordinate(writingItemAt: AKConstant.iCloudPlaylistIconImageSaveURL!, options: .forMoving, writingItemAt: AKConstant.iCloudPlaylistIconImageSaveURL!, options: .forReplacing, error: &AKFileOperation.shared.error) { (originURL, targetURL) in
                 AKFileOperation.shared.deletePlaylistIcon(playlist: playlist, location: location)
             }
         } else {
@@ -144,28 +141,6 @@ class AKManager {
         }
     }
     
-    // MARK: - Get all movies except iCloud.
-    
-//    static func getAllMoviesExceptAppleCloud(location: AKFileOperation.Location) -> (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) {
-//        var localDocumentMovies: Array<AKMovie> = Array<AKMovie>.init()
-//        var outsideContainerMovies: Array<AKMovie> = Array<AKMovie>.init()
-//        guard let db = AKDataBase.shared else {
-//            return (localDocumentMovies, outsideContainerMovies)
-//        }
-//        if location == .iCloud {
-//            AKFileOperation.shared.fileCoordinator.coordinate(readingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .withoutChanges, error: &AKFileOperation.shared.error) { (url) in
-//                let tuple: (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) = db.getAllMoviesExceptAppleCloud()
-//                localDocumentMovies = tuple.localDocument
-//                outsideContainerMovies = tuple.outsideContainer
-//            }
-//        } else {
-//            let tuple: (localDocument: Array<AKMovie>, outsideContainer: Array<AKMovie>) = db.getAllMoviesExceptAppleCloud()
-//            localDocumentMovies = tuple.localDocument
-//            outsideContainerMovies = tuple.outsideContainer
-//        }
-//        return (localDocumentMovies, outsideContainerMovies)
-//    }
-    
     // MARK: - Get all movies.
     
     static func getAllMovies(location: AKFileOperation.Location) -> Array<AKMovie> {
@@ -185,27 +160,62 @@ class AKManager {
     
     // MARK: - Save playlist icon.
     
-    #if iOS || iPadOS
+    #if iPhoneOS || iPadOS
     static func savePlaylistIcon(playlist: AKPlaylist, icon: UIImage, location: AKFileOperation.Location) {
-        AKFileOperation.shared.savePlaylistIcon(playlist: playlist, image: icon, location: location)
+        if location == .iCloud {
+            AKFileOperation.shared.fileCoordinator.coordinate(writingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .forMoving, writingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .forReplacing, error: &AKFileOperation.shared.error) { (originURL, targetURL) in
+                AKDataBase.shared?.updatePlaylistIcon(playlist: playlist)
+            }
+            AKFileOperation.shared.savePlaylistIcon(playlist: playlist, image: icon, location: location)
+        } else {
+            AKFileOperation.shared.savePlaylistIcon(playlist: playlist, image: icon, location: location)
+            AKDataBase.shared?.updatePlaylistIcon(playlist: playlist)
+        }
+    }
+    #endif
+    
+    // MARK: - Delete playlist icon.
+    
+    #if iPhoneOS || iPadOS
+    static func deletePlaylistIcon(playlist: AKPlaylist, location: AKFileOperation.Location) {
+        AKFileOperation.shared.deletePlaylistIcon(playlist: playlist, location: location)
     }
     #endif
     
     // MARK: - Save movie icon.
     
-    #if iOS || iPadOS
-    static func saveMovieIcon(uuid: String, icon: UIImage, location: AKFileOperation.Location) {
-        AKFileOperation.shared.saveMovieIcon(uuid: uuid, image: icon, location: location)
+    #if iPhoneOS || iPadOS
+    static func saveMovieIcon(movie: AKMovie, icon: UIImage, location: AKFileOperation.Location) {
+        if location == .iCloud {
+            AKFileOperation.shared.fileCoordinator.coordinate(writingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .forMoving, writingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .forReplacing, error: &AKFileOperation.shared.error) { (originURL, targetURL) in
+                AKDataBase.shared?.updateMovieIcon(movie: movie)
+            }
+            AKFileOperation.shared.saveMovieIcon(movie: movie, image: icon, location: location)
+        } else {
+            AKFileOperation.shared.saveMovieIcon(movie: movie, image: icon, location: location)
+            AKDataBase.shared?.updateMovieIcon(movie: movie)
+        }
+    }
+    #endif
+    
+    // MARK: - Delete movie icon.
+    
+    #if iPhoneOS || iPadOS
+    static func deleteMovieIcon(movie: AKMovie, location: AKFileOperation.Location) {
+        AKFileOperation.shared.deleteMovieIcon(movie: movie, location: location)
     }
     #endif
     
     // MARK: - Add movie.
     
-    #if iOS || iPadOS
-    static func addMovie(movie: AKMovie, icon: UIImage?, location: AKFileOperation.Location) {
-        AKDataBase.shared?.insertMovie(movie: movie)
-        if icon != nil {
-            AKFileOperation.shared.saveMovieIcon(uuid: movie.uuid, image: icon!, location: location)
+    #if iPhoneOS || iPadOS
+    static func addMovie(movie: AKMovie, location: AKFileOperation.Location) {
+        if location == .iCloud {
+            AKFileOperation.shared.fileCoordinator.coordinate(writingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .forMoving, writingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .forReplacing, error: &AKFileOperation.shared.error) { (originURL, targetURL) in
+                AKDataBase.shared?.insertMovie(movie: movie)
+            }
+        } else {
+            AKDataBase.shared?.insertMovie(movie: movie)
         }
     }
     #endif
@@ -213,9 +223,30 @@ class AKManager {
     // MARK: - Delete movies.
     
     static func deleteMovies(movies: Array<AKMovie>, location: AKFileOperation.Location) {
-        for movie in movies {
-            AKFileOperation.shared.deleteMovieIcon(uuid: movie.uuid, location: location)
-            AKDataBase.shared?.deleteMovie(movie: movie)
+        if location == .iCloud {
+            AKFileOperation.shared.fileCoordinator.coordinate(writingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .forMoving, writingItemAt: AKConstant.iCloudDatabaseSaveURL!, options: .forReplacing, error: &AKFileOperation.shared.error) { (originURL, targetURL) in
+                for movie in movies {
+                    AKDataBase.shared?.deleteMovie(movie: movie)
+                    for playlistUUID in movie.playlists.keys {
+                        let playlist: AKPlaylist = AKPlaylist.init(uuid: playlistUUID, name: movie.playlists[playlistUUID]!)
+                        AKDataBase.shared?.deleteMovieFromPlaylist(movie: movie, playlist: playlist)
+                    }
+                }
+            }
+            for movie in movies {
+                AKManager.deleteMovieIcon(movie: movie, location: location)
+            }
+        } else {
+            for movie in movies {
+                AKDataBase.shared?.deleteMovie(movie: movie)
+                for playlistUUID in movie.playlists.keys {
+                    let playlist: AKPlaylist = AKPlaylist.init(uuid: playlistUUID, name: movie.playlists[playlistUUID]!)
+                    AKDataBase.shared?.deleteMovieFromPlaylist(movie: movie, playlist: playlist)
+                }
+            }
+            for movie in movies {
+                AKManager.deleteMovieIcon(movie: movie, location: location)
+            }
         }
     }
     

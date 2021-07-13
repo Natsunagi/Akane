@@ -19,6 +19,7 @@ class AKDetailViewController: AKUIViewController {
     // MARK: - Property.
     
     var files: Array<AKMovie>!
+    
     var playlist: AKPlaylist!
     var listType: AKDetailViewController.ListType = .iCloud
     
@@ -48,7 +49,6 @@ class AKDetailViewController: AKUIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleDetailViewControllerExitEditMode(notification:)), name: AKConstant.AKNotification.detailViewControlerExitEditMode, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleMovieDidRemoveFromPlaylist(notification:)), name: AKConstant.AKNotification.movieDidRemoveFromPlaylist, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleAppleCloudFileslistDidLoad(notification:)), name: AKConstant.AKNotification.iCloudFileslistDidLoad, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.handleMovieDidAdd(notification:)), name: AKConstant.AKNotification.movieDidAdd, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.handlePlaylistIconDidChange(notification:)), name: AKConstant.AKNotification.playlistIconImageDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleAppleCloudIconDidLoaded(notification:)), name: AKConstant.AKNotification.iCloudIconDidChange, object: nil)
         
@@ -92,7 +92,7 @@ class AKDetailViewController: AKUIViewController {
             self.moviesDisplayView = AKMoviesDisplayView.init()
             self.moviesDisplayView.moviesCollectionView.delegate = self
             self.moviesDisplayView.moviesCollectionView.dataSource = self
-            //self.moviesDisplayView.moviesCollectionView.prefetchDataSource = self
+            self.moviesDisplayView.moviesCollectionView.prefetchDataSource = self
             self.view.addSubview(self.moviesDisplayView)
             self.moviesDisplayView.mas_makeConstraints { (view) in
                 view!.left.equalTo()(self.view.mas_safeAreaLayoutGuideLeft)?.offset()
@@ -107,7 +107,7 @@ class AKDetailViewController: AKUIViewController {
             self.moviesDisplayView = AKMoviesDisplayView.init()
             self.moviesDisplayView.moviesCollectionView.delegate = self
             self.moviesDisplayView.moviesCollectionView.dataSource = self
-            //self.moviesDisplayView.moviesCollectionView.prefetchDataSource = self
+            self.moviesDisplayView.moviesCollectionView.prefetchDataSource = self
             self.view.addSubview(self.moviesDisplayView)
             self.moviesDisplayView.mas_makeConstraints { (view) in
                 view!.top.equalTo()(self.view.mas_safeAreaLayoutGuideTop)?.offset()
@@ -123,11 +123,24 @@ class AKDetailViewController: AKUIViewController {
             view!.top.equalTo()(self.moviesDisplayView.mas_top)?.offset()
             view!.bottom.equalTo()(self.moviesDisplayView.mas_bottom)?.offset()
         }
+        
+        // MARK: Data.
+        
         if self.files == nil {
             return
         }
+        
         for (index, movie) in self.files.enumerated() {
             self.filesDictionary[movie.name] = index
+        }
+        
+        for i in 0..<self.files.count {
+            guard let path = self.files[i].iconURL?.path else {
+                return
+            }
+            if i < 10 && !FileManager.default.fileExists(atPath: path) {
+                self.placeholderImages[self.files[i].uuid] = getMovieIconFromURL(name: self.files[i].name, fileURL: self.files[i].fileURL)
+            }
         }
     }
     
@@ -143,19 +156,19 @@ class AKDetailViewController: AKUIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
     }
 
     // MARK: - Notification handle.
     
     @objc private func handleMovieIconImageDidChange(notification: Notification) {
+        let movie: AKMovie = notification.userInfo!["movie"] as! AKMovie
         let image: UIImage = notification.object as! UIImage
-        let name: String = notification.userInfo!["name"] as! String
-        let uuid: String = notification.userInfo!["uuid"] as! String
-        let index: Int? = self.filesDictionary[name]
+        let index: Int? = self.filesDictionary[movie.name]
         if index != nil {
             DispatchQueue.global().async {
-                AKManager.saveMovieIcon(uuid: uuid, icon: image, location: AKManager.location)
+                AKManager.deleteMovieIcon(movie: movie, location: AKManager.location)
+                movie.iconUUID = AKUUID()
+                AKManager.saveMovieIcon(movie: movie, icon: image, location: AKManager.location)
                 DispatchQueue.main.async {
                     self.moviesDisplayView.moviesCollectionView.reloadItems(at: [IndexPath.init(row: index!, section: 0)])
                 }
@@ -166,7 +179,6 @@ class AKDetailViewController: AKUIViewController {
     @objc private func handleMovieDidDelete(notification: Notification) {
         let index: Int = notification.object as! Int
         let removeModel: AKMovie = self.files.remove(at: index)
-        self.files.remove(at: index)
         DispatchQueue.global().async {
             AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
             AKManager.fileOperationQueue.addOperation {
@@ -181,52 +193,14 @@ class AKDetailViewController: AKUIViewController {
             self.moviesDisplayView.moviesCollectionView.deleteItems(at: [IndexPath.init(row: index, section: 0)])
         }
     }
-    
-    @objc private func handleMovieDidAdd(notification: Notification) {
-//        DispatchQueue.global().async {
-//            AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
-//            AKManager.fileOperationQueue.addOperation {
-//                let newMovies: Array<AKMovie>? = notification.object as? Array<AKMovie>
-//                if newMovies == nil {
-//                    return
-//                }
-//                var movies: Array<AKMovie> = newMovies! + self.files
-//                var theFilesDictionary: Dictionary<String, Int> = Dictionary<String, Int>.init()
-//                var theImages: Array<(image: UIImage, prefetch: Bool)> = Array<(image: UIImage, prefetch: Bool)>.init()
-//                for movie in movies {
-//                    if let icon = AKManager.getMovieIcon(name: movie.name, location: .iCloud) {
-//                        theImages.append((icon, false))
-//                    } else {
-//                        theImages.append((getMovieIconFromURL(name: movie.name, fileURL: movie.fileURL), false))
-//                    }
-//                }
-//                theImages += self.images
-//                movies.sort { (model1, model2) -> Bool in
-//                    return model1.name < model2.name
-//                }
-//                theImages.sort { (model1, model2) -> Bool in
-//                    return model1.image.name < model2.image.name
-//                }
-//                for (index, movie) in movies.enumerated() {
-//                    theFilesDictionary[movie.name] = index
-//                }
-//                DispatchQueue.main.async {
-//                    self.files = movies
-//                    self.images = theImages
-//                    self.filesDictionary = theFilesDictionary
-//                    self.moviesDisplayView.moviesCollectionView.reloadData()
-//                }
-//            }
-//        }
-    }
 
     @objc private func handleMovieDidRemoveFromPlaylist(notification: Notification) {
         let index: Int = notification.object as! Int
         DispatchQueue.global().async {
             AKManager.fileOperationQueue.waitUntilAllOperationsAreFinished()
-            self.files.remove(at: index)
+            let movie: AKMovie = self.files.remove(at: index)
             AKManager.fileOperationQueue.addOperation {
-                AKManager.deleteMovieFromPlaylist(movies: [self.files[index]], playlist: self.playlist, location: AKManager.location)
+                AKManager.deleteMovieFromPlaylist(movies: [movie], playlist: self.playlist, location: AKManager.location)
             }
             self.filesDictionary.removeAll()
             for (index, movie) in self.files.enumerated() {
@@ -243,9 +217,9 @@ class AKDetailViewController: AKUIViewController {
     }
     
     @objc private func handlePlaylistIconDidChange(notification: Notification) {
-        let name: String = notification.userInfo!["name"] as! String
+        let playlist: AKPlaylist = notification.userInfo!["playlist"] as! AKPlaylist
         let image: UIImage = notification.object as! UIImage
-        if self.playlist.name == name {
+        if self.playlist.uuid == playlist.uuid {
             DispatchQueue.main.async {
                 self.playlistMessageView.setIcon(icon: image)
             }
@@ -384,7 +358,7 @@ class AKDetailViewController: AKUIViewController {
                 })
                 alertController.addAction(cancelAction)
                 
-                #if iOS
+                #if iPhoneOS
                 self.present(alertController, animated: true, completion: nil)
                 #elseif iPadOS
                 alertController.modalPresentationStyle = .popover
@@ -414,9 +388,9 @@ class AKDetailViewController: AKUIViewController {
 
 extension AKDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image: UIImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        let image: UIImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
         if self.listType == .playList {
-            NotificationCenter.default.post(name: AKConstant.AKNotification.playlistIconImageDidChange, object: image, userInfo: ["uuid": self.playlist.uuid!, "name": self.playlist.name, "index": self.playlistIndex])
+            NotificationCenter.default.post(name: AKConstant.AKNotification.playlistIconImageDidChange, object: image, userInfo: ["playlist": self.playlist!, "index": self.playlistIndex])
         } else {
             NotificationCenter.default.post(name: AKConstant.AKNotification.playlistIconImageDidChange, object: image, userInfo: ["name": "iCloud"])
         }
@@ -485,10 +459,10 @@ extension AKDetailViewController: UICollectionViewDataSource {
         let cell: AKMovieCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! AKMovieCollectionViewCell
         let name: String = self.files[indexPath.row].name
         cell.setTitle(title: name)
-        let iconURL: URL? = self.files[indexPath.row].iconURL
-        var placeholderImage: UIImage? = self.placeholderImages[name]
-        placeholderImage = placeholderImage == nil ? UIImage.init(named: AKConstant.defaultMovieIconName)! : placeholderImage
-        cell.setIcon(iconURL: iconURL, placeholderImage: placeholderImage)
+        
+        let searchImage: UIImage? = self.placeholderImages[self.files[indexPath.row].uuid]
+        let placeholderImage: UIImage = searchImage == nil ? UIImage.init(named: AKConstant.defaultMovieIconName)! : searchImage!
+        cell.setIcon(iconURL: self.files[indexPath.row].iconURL, placeholderImage: placeholderImage)
         
         if self.isEditMode {
             if cell.isSelected == true {
@@ -526,6 +500,7 @@ extension AKDetailViewController: UICollectionViewDelegate {
             let movieDetailMessageViewController: AKMovieDetailViewController = AKMovieDetailViewController.init()
             movieDetailMessageViewController.movie = self.files[indexPath.row]
             movieDetailMessageViewController.movieIndex = indexPath.row
+            movieDetailMessageViewController.placeholderImage = self.placeholderImages[self.files[indexPath.row].uuid]
             if self.listType == .playList {
                 movieDetailMessageViewController.playlist = self.playlist
             }
@@ -558,13 +533,19 @@ extension AKDetailViewController: UICollectionViewDelegate {
 extension AKDetailViewController: UICollectionViewDataSourcePrefetching {
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        var reloadItems: Array<IndexPath> = Array<IndexPath>.init()
         DispatchQueue.global().async {
             for indexPath in indexPaths {
-                let name: String = self.files[indexPath.row].name
-                let image: UIImage = getMovieIconFromURL(name: name, fileURL: self.files[indexPath.row].fileURL)
-                let imageData: Data = image.pngData()!
-                let placeholderImage: UIImage = decordImage(data: imageData, scale: AKConstant.imageScale)!
-                self.placeholderImages[name] = placeholderImage
+                if self.placeholderImages[self.files[indexPath.row].uuid] == nil && !FileManager.default.fileExists(atPath: self.files[indexPath.row].iconURL!.path) {
+                    let image: UIImage = getMovieIconFromURL(name: self.files[indexPath.row].name, fileURL: self.files[indexPath.row].fileURL)
+                    self.placeholderImages[self.files[indexPath.row].uuid] = image
+                    reloadItems.append(indexPath)
+                }
+            }
+            DispatchQueue.main.async {
+                if reloadItems.count != 0 {
+                    self.moviesDisplayView.moviesCollectionView.reloadItems(at: reloadItems)
+                }
             }
         }
     }

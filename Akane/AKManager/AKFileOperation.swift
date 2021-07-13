@@ -8,7 +8,6 @@
 
 import Foundation
 import AVKit
-import SQLite
 
 class AKFileOperation: NSObject, NSFilePresenter {
     
@@ -55,39 +54,6 @@ class AKFileOperation: NSObject, NSFilePresenter {
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleAppleCloudMoviesDidUpdate(notification:)), name: AKConstant.AKNotification.iCloudMoviesDidUpdate, object: nil)
         
         self.fileQuery.start()
-    }
-    
-    // MARK: - Get local documents movies.
-    
-    func getLocalDocumetMovies(path: String) -> Array<AKMovie> {
-        var movies: Array<AKMovie> = Array<AKMovie>.init()
-        var isDirectory: ObjCBool = false
-        if FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory) {
-            if isDirectory.boolValue {
-                do {
-                    let subPaths: Array<String> = try FileManager.default.contentsOfDirectory(atPath: path)
-                    for pathTmp in subPaths {
-                        let subPath: String = path.appending("/\(pathTmp)")
-                        movies.append(contentsOf: self.getLocalDocumetMovies(path: subPath))
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            } else {
-                if (path.contains(".mp4") || path.contains(".mov") || path.contains(".MP4") || path.contains(".MOV")) && !movies.contains(where: { (model) -> Bool in
-                    let urlTmp: URL = URL.init(fileURLWithPath: path)
-                    if urlTmp.lastPathComponent.components(separatedBy: ".").first! == model.name {
-                        return true
-                    } else {
-                        return false
-                    }
-                }) {
-                    let url: URL = URL.init(fileURLWithPath: path)
-                    movies.append(AKMovie.init(uuid: "", name: url.lastPathComponent.components(separatedBy: ".").first!, fileURL: url, fileLocation: .localDocument))
-                }
-            }
-        }
-        return movies
     }
     
     // MARK: - Delete movies.
@@ -147,7 +113,7 @@ class AKFileOperation: NSObject, NSFilePresenter {
     
     // MARK: - Get movie icon.
     
-    #if iOS || iPadOS
+    #if iPhoneOS || iPadOS
     func getMovieIcon(movie: AKMovie, location: AKFileOperation.Location) -> UIImage? {
         var returnImage: UIImage?
         if location == .iCloud {
@@ -185,26 +151,25 @@ class AKFileOperation: NSObject, NSFilePresenter {
     
     // MARK: - Save movie icon.
     
-    #if iOS || iPadOS
-    func saveMovieIcon(uuid: String, image: UIImage, location: AKFileOperation.Location) {
+    #if iPhoneOS || iPadOS
+    func saveMovieIcon(movie: AKMovie, image: UIImage, location: AKFileOperation.Location) {
         let imageData: Data = image.pngData()!
         let data: NSData = NSData.init(data: imageData)
         let byAccessor: ((URL) -> Void) = { url in
             data.write(to: url, atomically: true)
         }
-        
         if location == .iCloud {
             guard let saveURL = AKConstant.iCloudMoviesIconImageSaveURL else {
                 return
             }
-            self.fileCoordinator.coordinate(writingItemAt: saveURL.appendingPathComponent(uuid), options: .forMoving, writingItemAt: saveURL.appendingPathComponent(uuid), options: .forReplacing, error: &self.error) { (originURL, targetURL) in
+            self.fileCoordinator.coordinate(writingItemAt: saveURL.appendingPathComponent(movie.iconUUID), options: .forMoving, writingItemAt: saveURL.appendingPathComponent(movie.iconUUID), options: .forReplacing, error: &self.error) { (originURL, targetURL) in
                 byAccessor(targetURL)
             }
         } else {
             guard let saveURL = AKConstant.localMoviesIconImageSaveURL else {
                 return
             }
-            let url: URL = saveURL.appendingPathComponent(uuid)
+            let url: URL = saveURL.appendingPathComponent(movie.iconUUID)
             byAccessor(url)
         }
     }
@@ -212,32 +177,31 @@ class AKFileOperation: NSObject, NSFilePresenter {
     
     // MARK: - Delete movie icon.
     
-    func deleteMovieIcon(uuid: String, location: AKFileOperation.Location) {
-        var url: URL? = nil
+    #if iPhoneOS || iPadOS
+    func deleteMovieIcon(movie: AKMovie, location: AKFileOperation.Location) {
+        let byAccessor: ((URL) -> Void) = { url in
+            try? FileManager.default.removeItem(at: url)
+        }
         if location == .iCloud {
-            guard let savePath = AKConstant.iCloudMoviesIconImageSaveURL else {
+            guard let saveURL = AKConstant.iCloudMoviesIconImageSaveURL else {
                 return
             }
-            url = savePath.appendingPathComponent(uuid)
+            self.fileCoordinator.coordinate(writingItemAt: saveURL.appendingPathComponent(movie.iconUUID), options: .forMoving, writingItemAt: saveURL.appendingPathComponent(movie.iconUUID), options: .forReplacing, error: &self.error) { (originURL, targetURL) in
+                byAccessor(targetURL)
+            }
         } else {
-            guard let savePath = AKConstant.localMoviesIconImageSaveURL else {
+            guard let saveURL = AKConstant.localMoviesIconImageSaveURL else {
                 return
             }
-            url = savePath.appendingPathComponent(uuid)
-        }
-        if !FileManager.default.fileExists(atPath: url!.path) {
-            return
-        }
-        do {
-            try FileManager.default.removeItem(at: url!)
-        } catch {
-            print(error.localizedDescription)
+            let url: URL = saveURL.appendingPathComponent(movie.iconUUID)
+            byAccessor(url)
         }
     }
+    #endif
     
     // MARK: - Get playlist icon.
     
-    #if iOS || iPadOS
+    #if iPhoneOS || iPadOS
     func getPlaylistIcon(playlist: AKPlaylist, location: AKFileOperation.Location) -> UIImage? {
         var returnImage: UIImage?
         if location == .iCloud {
@@ -275,7 +239,7 @@ class AKFileOperation: NSObject, NSFilePresenter {
     
     // MARK: - Save playlist icon.
     
-    #if iOS || iPadOS
+    #if iPhoneOS || iPadOS
     func savePlaylistIcon(playlist: AKPlaylist, image: UIImage, location: AKFileOperation.Location) {
         let imageData: Data = UIImage.pngData(image)()!
         let data: NSData = NSData.init(data: imageData)
@@ -286,14 +250,14 @@ class AKFileOperation: NSObject, NSFilePresenter {
             guard let saveURL = AKConstant.iCloudPlaylistIconImageSaveURL else {
                 return
             }
-            self.fileCoordinator.coordinate(writingItemAt: saveURL.appendingPathComponent(playlist.uuid), options: .forMoving, writingItemAt: saveURL.appendingPathComponent(playlist.uuid), options: .forReplacing, error: &self.error) { (originURL, targetURL) in
+            self.fileCoordinator.coordinate(writingItemAt: saveURL.appendingPathComponent(playlist.iconUUID), options: .forMoving, writingItemAt: saveURL.appendingPathComponent(playlist.iconUUID), options: .forReplacing, error: &self.error) { (originURL, targetURL) in
                 byAccessor(targetURL)
             }
         } else {
             guard let saveURL = AKConstant.localPlaylistIconImageSaveURL else {
                 return
             }
-            let url: URL = saveURL.appendingPathComponent(playlist.uuid)
+            let url: URL = saveURL.appendingPathComponent(playlist.iconUUID)
             byAccessor(url)
         }
     }
@@ -307,13 +271,12 @@ class AKFileOperation: NSObject, NSFilePresenter {
             guard let savePath = AKConstant.iCloudPlaylistIconImageSaveURL else {
                 return
             }
-            url = savePath.appendingPathComponent(playlist.uuid)
-            
+            url = savePath.appendingPathComponent(playlist.iconUUID)
         } else {
             guard let savePath = AKConstant.localPlaylistIconImageSaveURL else {
                 return
             }
-            url = savePath.appendingPathComponent(playlist.uuid)
+            url = savePath.appendingPathComponent(playlist.iconUUID)
         }
         
         if !FileManager.default.fileExists(atPath: url!.path) {
@@ -358,7 +321,7 @@ class AKFileOperation: NSObject, NSFilePresenter {
     
     // MARK: - Get iCloud icon.
     
-    #if iOS || iPadOS
+    #if iPhoneOS || iPadOS
     func getAppleCloudIcon() -> UIImage {
         var icon: UIImage = UIImage.init()
         let url: URL = AKConstant.iCloudPlaylistIconImageSaveURL!.appendingPathComponent("iCloud")

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import AVKit
 
 class AKMovie {
@@ -79,14 +80,15 @@ class AKMovie {
     var name: String = ""
     var fileURL: URL!
     var fileLocation: AKMovie.Location!
-    var playlists: Array<String> = Array<String>.init()
+    var playlists: Dictionary<String, String> = Dictionary<String, String>.init()  // [UUID : Name]
     
+    var iconUUID: String = ""
     var iconURL: URL? {
         if let iCloudMoviesIconImageSaveURL = AKConstant.iCloudMoviesIconImageSaveURL {
-            if self.fileLocation == .iCloud {
-                return iCloudMoviesIconImageSaveURL.appendingPathComponent(self.name)
+            if AKManager.location == .iCloud {
+                return iCloudMoviesIconImageSaveURL.appendingPathComponent(self.iconUUID)
             } else {
-                return iCloudMoviesIconImageSaveURL.appendingPathComponent(self.uuid)
+                return AKConstant.localMoviesIconImageSaveURL!.appendingPathComponent(self.iconUUID)
             }
         } else {
             return nil

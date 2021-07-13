@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AKPlaylist {
     
@@ -16,9 +17,10 @@ class AKPlaylist {
     var name: String = ""
     var movies: Array<AKMovie> = Array<AKMovie>.init()
     
+    var iconUUID: String = ""
     var iconURL: URL? {
         if let iCloudPlaylistIconImageSavePath = AKConstant.iCloudPlaylistIconImageSaveURL {
-            return iCloudPlaylistIconImageSavePath.appendingPathComponent(self.uuid)
+            return iCloudPlaylistIconImageSavePath.appendingPathComponent(self.iconUUID)
         } else {
             return nil
         }

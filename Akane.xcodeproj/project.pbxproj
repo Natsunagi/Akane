@@ -96,7 +96,7 @@
 		22C3F62525F0A2190090A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F55925F09F7B0090A739 /* Main.storyboard */; };
 		22C3F63B25F0A24B0090A739 /* Main_iPadOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F63A25F0A24B0090A739 /* Main_iPadOS.storyboard */; };
 		6EA034B838F7EFA230A65702 /* Pods_Akane_iPadOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BE363FB3E4E6A6ED674E5E /* Pods_Akane_iPadOS.framework */; };
-		80682DAB3531687944B5D380 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		80682DAB3531687944B5D380 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8FDBE78DCD74C97B533E9C9C /* Pods_Akane_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2730C28D933F2293011DC0D /* Pods_Akane_macOS.framework */; };
 		AD2F638CE99AEAA529E6357E /* Pods_Akane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F233401BC4E131BF7E675FC /* Pods_Akane.framework */; };
 /* End PBXBuildFile section */
@@ -188,7 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80682DAB3531687944B5D380 /* BuildFile in Frameworks */,
+				80682DAB3531687944B5D380 /* (null) in Frameworks */,
 				AD2F638CE99AEAA529E6357E /* Pods_Akane.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -956,7 +956,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Development Profile";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane iOS Development Profile";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Debug iOS";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Debug iPhoneOS";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -985,7 +985,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Distribution Profile";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane iOS Distribution Profile";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Release iOS";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Release iPhoneOS";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

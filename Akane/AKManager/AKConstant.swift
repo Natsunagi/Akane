@@ -8,7 +8,7 @@
 
 import Foundation
 
-#if iOS || iPadOS
+#if iPhoneOS || iPadOS
 import UIKit
 #elseif masOS
 import Cocoa
@@ -35,20 +35,26 @@ class AKConstant {
         }
     }
     
-    #if iOS || iPadOS
+    #if iPhoneOS || iPadOS
     static var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
     #endif
     
-    #if iOS || iPadOS
+    #if iPhoneOS || iPadOS
     static var screenHeight: CGFloat {
         return UIScreen.main.bounds.height
     }
     #endif
     
-    #if iOS || iPadOS
+    #if iPhoneOS || iPadOS
     static let imageScale: CGFloat = 0.3
+    #endif
+    
+    #if iPhoneOS || iPadOS
+    static var movieThumbSize: CGSize {
+        return CGSize.init(width: AKConstant.MovieDisplayView.itemSizeWidth * 2, height: AKConstant.MovieDisplayView.itemSizeHeight * 2)
+    }
     #endif
     
     // MARK: - Notification name.
@@ -63,7 +69,6 @@ class AKConstant {
         static let iCloudIconDidChange: Notification.Name = Notification.Name.init("iCloudIconDidChange")
         static let iCloudFileslistDidLoad: Notification.Name = Notification.Name.init("iCloudFileslistDidUpdate")
         static let playlistsDidUpdate: Notification.Name = Notification.Name.init("playlistDidUpdate")
-        static let movieDidAdd: Notification.Name = Notification.Name.init("movieDidAdd")
         static let iCloudMoviesDidUpdate: Notification.Name = Notification.Name.init("iCloudMoviesDidUpdate")
     }
     
@@ -184,7 +189,7 @@ class AKConstant {
     struct MovieDisplayView {
         
         static var itemSizeWidth: CGFloat {
-            #if iOS
+            #if iPhoneOS
             return 150
             #elseif iPadOS
             return 225
@@ -194,7 +199,7 @@ class AKConstant {
         }
         
         static var itemSizeImageHeight: CGFloat {
-            #if iOS
+            #if iPhoneOS
             return 84
             #elseif iPadOS
             return 126
@@ -204,7 +209,7 @@ class AKConstant {
         }
         
         static var itemSizeLabelHeight: CGFloat {
-            #if iOS
+            #if iPhoneOS
             return 20 * 2
             #elseif iPadOS
             return 25 * 2
@@ -220,7 +225,7 @@ class AKConstant {
         static let itemSizeHeight: CGFloat = AKConstant.MovieDisplayView.itemSizeImageHeight + AKConstant.MovieDisplayView.itemSizeLabelHeight + AKConstant.MovieDisplayView.itemSizeEdgeForLabelAndImage
         
         static var minLineSpace: CGFloat {
-            #if iOS
+            #if iPhoneOS
             return 20
             #elseif iPadOS
             return 35

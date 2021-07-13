@@ -74,6 +74,10 @@ class AKMovieCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI.
     
+    func setIcon(icon: UIImage) {
+        self.iconImageView.image = icon
+    }
+    
     func setIcon(iconURL: URL?, placeholderImage: UIImage?) {
         self.iconImageView.sd_setImage(with: iconURL, placeholderImage: placeholderImage, options: [.refreshCached, .queryMemoryData], completed: nil)
     }

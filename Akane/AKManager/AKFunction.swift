@@ -8,7 +8,7 @@
 
 import Foundation
 
-#if iOS || iPadOS
+#if iPhoneOS || iPadOS
 import UIKit
 #elseif masOS
 import Cocoa
@@ -54,7 +54,7 @@ func getFileModifDate(filrUrl: URL) -> String {
 
 // MARK: - 图片解码。
 
-#if iOS || iPadOS
+#if iPhoneOS || iPadOS
 func decordImage(data: Data, scale: CGFloat) -> UIImage? {
     var imageRef: CGImage? = nil
     let dataProvider: CGDataProvider = CGDataProvider.init(data: data as CFData)!
@@ -108,7 +108,7 @@ func decordImage(data: Data, scale: CGFloat) -> UIImage? {
 
 // MARK: - 根据影片创建缩略图。
 
-#if iOS || iPadOS
+#if iPhoneOS || iPadOS
 func getMovieIconFromURL(name: String, fileURL: URL) -> UIImage {
     let asset: AVURLAsset = AVURLAsset.init(url: fileURL)
     let generator: AVAssetImageGenerator = AVAssetImageGenerator.init(asset: asset)
@@ -128,7 +128,7 @@ func getMovieIconFromURL(name: String, fileURL: URL) -> UIImage {
 
 // MARK: - 降采样。
 
-#if iOS || iPadOS
+#if iPhoneOS || iPadOS
 func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat, location: AKFileOperation.Location) -> UIImage {
     
     var returnImage: UIImage = UIImage.init()
@@ -179,7 +179,7 @@ func iconFileExistsAtAppleCloudButDidNotDownload(movieOrPlaylist: String, iCloud
 
 // MARK: - UUID.
 
-func uuid() -> String {
+func AKUUID() -> String {
     return UUID.init().uuidString
 }
 

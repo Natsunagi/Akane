@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class AKRootViewController: AKUITableViewController {
+class AKRootViewController: AKUITableViewController, UITableViewDataSourcePrefetching {
     
     // MARK: - Property.
     
@@ -48,6 +48,17 @@ class AKRootViewController: AKUITableViewController {
             self.playlistsDictionary[playlist.name] = index
         }
         
+        for i in 0..<AKManager.playlists.count {
+            guard let path = AKManager.playlists[i].iconURL?.path else {
+                return
+            }
+            if i < 10 && FileManager.default.fileExists(atPath: path) {
+                AKManager.playlistImages.append((UIImage.init(contentsOfFile: path)!, true))
+            } else {
+                AKManager.playlistImages.append((UIImage.init(named: AKConstant.defaultPlaylistIconName)!, false))
+            }
+        }
+        
         // MARK: UI.
         
         // Uncomment the following line to preserve selection between presentations
@@ -60,6 +71,7 @@ class AKRootViewController: AKUITableViewController {
         
         self.tableView.register(AKScanTableViewCell.self, forCellReuseIdentifier: "ScanCell")
         self.tableView.separatorStyle = .none
+        //self.tableView.prefetchDataSource = self
             
         // - 活动指示器 ui 创建。
         
@@ -85,7 +97,6 @@ class AKRootViewController: AKUITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     // MARK: - Update data.
@@ -156,14 +167,13 @@ class AKRootViewController: AKUITableViewController {
     // MARK: - Notification handle.
     
     @objc private func handlePlaylistIconImageDidChange(notification: Notification) {
-        let image: UIImage = notification.object as! UIImage
-        let name: String = notification.userInfo!["name"] as! String
-        let index: Int = notification.userInfo!["index"] as! Int
+        let playlist: AKPlaylist = notification.userInfo!["playlist"] as! AKPlaylist
+        let icon: UIImage = notification.object as! UIImage
         DispatchQueue.global().async {
-            if index != -1 {  // -1 是 iCloud 播放列表。
-                AKManager.savePlaylistIcon(playlist: AKManager.playlists[index], icon: image, location: AKManager.location)
-            }
-            if let index = self.playlistsDictionary[name] {
+            AKManager.deletePlaylistIcon(playlist: playlist, location: AKManager.location)
+            playlist.iconUUID = AKUUID()
+            AKManager.savePlaylistIcon(playlist: playlist, icon: icon, location: AKManager.location)
+            if let index = self.playlistsDictionary[playlist.name] {
                 DispatchQueue.main.async {
                     self.tableView.reloadRows(at: [IndexPath.init(row: index, section: 2)], with: .none)
                 }
@@ -366,7 +376,8 @@ class AKRootViewController: AKUITableViewController {
                     errorAlertController.addAction(cancelAction)
                     self.present(errorAlertController, animated: true, completion: nil)
                 } else {
-                    let model: AKPlaylist = AKPlaylist.init(uuid: uuid(), name: name)
+                    let model: AKPlaylist = AKPlaylist.init(uuid: AKUUID(), name: name)
+                    model.iconUUID = AKUUID()
                     AKManager.playlists.append(model)
                     self.tableView.reloadData()
                     DispatchQueue.global().async {
@@ -514,6 +525,36 @@ class AKRootViewController: AKUITableViewController {
         swipeActionConfiguration.performsFirstActionWithFullSwipe = true
         return swipeActionConfiguration
     }
+    
+    // MARK: - UITableViewPrefetch.
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        DispatchQueue.global().async {
+            for indexPath in indexPaths {
+                if AKManager.playlistImages[indexPath.row].prefetch == false {
+                    let url: URL = AKManager.playlists[indexPath.row].iconURL!
+                    if FileManager.default.fileExists(atPath: url.path) {
+                        let image: UIImage = downsample(imageAt: url, to: AKConstant.movieThumbSize, scale: 1.0, location: AKManager.location)
+                        AKManager.playlistImages[indexPath.row].image = image
+                    } else {
+                        AKManager.playlistImages[indexPath.row].image = UIImage.init(named: AKConstant.defaultPlaylistIconName)!
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                var reloadItems: Array<IndexPath> = Array<IndexPath>.init()
+                for indexPath in indexPaths {
+                    if AKManager.playlistImages[indexPath.row].prefetch == false {
+                        reloadItems.append(indexPath)
+                        AKManager.playlistImages[indexPath.row].prefetch = true
+                    }
+                }
+                if reloadItems.count != 0 {
+                    self.tableView.reloadRows(at: reloadItems, with: .none)
+                }
+            }
+        }
+    }
 }
 
 // MARK: - UIDocumentPickerDelegate.
@@ -534,8 +575,9 @@ extension AKRootViewController: UIDocumentPickerDelegate {
                 }
             }) {
                 let name: String = urls.first!.lastPathComponent.components(separatedBy: ".").first!
-                let model: AKMovie = AKMovie.init(uuid: uuid(), name: name, fileURL: urls.first!, fileLocation: .localDocument)
-                AKManager.addMovie(movie: model, icon: nil, location: AKManager.location)
+                let model: AKMovie = AKMovie.init(uuid: AKUUID(), name: name, fileURL: urls.first!, fileLocation: .localDocument)
+                model.iconUUID = AKUUID()
+                AKManager.addMovie(movie: model, location: AKManager.location)
             }
         }
         urls.first?.stopAccessingSecurityScopedResource()
@@ -562,6 +604,4 @@ extension AKRootViewController {
             SDImageCache.shared.clearMemory()
         }
     }
-    
-    
 }

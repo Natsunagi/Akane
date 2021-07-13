@@ -106,6 +106,7 @@ class AKPlaylistViewController: AKUITableViewController {
                 AKManager.fileOperationQueue.addOperation {
                     let model: AKPlaylist = AKPlaylist.init(uuid: AKManager.playlists[indexPath.row].uuid, name: AKManager.playlists[indexPath.row].name)
                     model.movies = AKManager.getPlaylistMovies(playlist: AKManager.playlists[indexPath.row], location: .iCloud) + self.movieForPrepareToAddToThePlaylist
+                    model.iconUUID = AKManager.playlists[indexPath.row].iconUUID
                     AKManager.insertMoviesToPlaylist(movies: model.movies, playlist: model, location: AKManager.location)
                 }
             }
