@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AKPlaylist {
+final class AKPlaylist: Identifiable {
     
     // MARK: - Property.
     

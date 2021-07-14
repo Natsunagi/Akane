@@ -464,7 +464,7 @@ class AKRootViewController: AKUITableViewController, UITableViewDataSourcePrefet
             // - 文件。
                 
             case 0:
-                let documentPickerViewController: UIDocumentPickerViewController = UIDocumentPickerViewController.init(documentTypes: ["public.movie"], in: .open)
+                let documentPickerViewController: UIDocumentPickerViewController = UIDocumentPickerViewController(forOpeningContentTypes: [.movie])
                 documentPickerViewController.delegate = self
                 self.present(documentPickerViewController, animated: true, completion: nil)
             

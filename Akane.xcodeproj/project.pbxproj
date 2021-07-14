@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2225510D25E2487000B801E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225510C25E2487000B801E6 /* AppDelegate.swift */; };
-		2225510F25E2487000B801E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225510E25E2487000B801E6 /* ViewController.swift */; };
-		2225511125E2488900B801E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2225511025E2488900B801E6 /* Assets.xcassets */; };
 		224EC1842464F7AB002D72B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1832464F7AB002D72B6 /* AppDelegate.swift */; };
 		224EC1862464F7AB002D72B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1852464F7AB002D72B6 /* SceneDelegate.swift */; };
 		224EC18E2464F7AB002D72B6 /* Akane.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 224EC18C2464F7AB002D72B6 /* Akane.xcdatamodeld */; };
@@ -47,70 +44,43 @@
 		22C3F5AD25F0A07B0090A739 /* AKUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A125F0A07B0090A739 /* AKUITableView.swift */; };
 		22C3F5AE25F0A07B0090A739 /* AKUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A225F0A07B0090A739 /* AKUIColor.swift */; };
 		22C3F5AF25F0A07B0090A739 /* AKUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A325F0A07B0090A739 /* AKUIFont.swift */; };
-		22C3F5B525F0A0940090A739 /* AKRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5B325F0A0940090A739 /* AKRootViewController.swift */; };
-		22C3F5B625F0A0940090A739 /* AKDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5B425F0A0940090A739 /* AKDetailViewController.swift */; };
-		22C3F5BB25F0A09B0090A739 /* AKScanTableHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5BA25F0A09B0090A739 /* AKScanTableHeaderCell.swift */; };
-		22C3F5C325F0A0A30090A739 /* AKNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5BD25F0A0A30090A739 /* AKNSViewController.swift */; };
-		22C3F5C425F0A0A30090A739 /* AKNSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5BE25F0A0A30090A739 /* AKNSTableView.swift */; };
-		22C3F5C525F0A0A30090A739 /* AKNSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5BF25F0A0A30090A739 /* AKNSTextField.swift */; };
-		22C3F5C625F0A0A30090A739 /* AKNSOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5C025F0A0A30090A739 /* AKNSOutlineView.swift */; };
-		22C3F5C725F0A0A30090A739 /* AKNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5C125F0A0A30090A739 /* AKNSView.swift */; };
-		22C3F5C825F0A0A30090A739 /* AKNSTableHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5C225F0A0A30090A739 /* AKNSTableHeaderCell.swift */; };
-		22C3F5CE25F0A0C50090A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F5CD25F0A0C50090A739 /* Main.storyboard */; };
-		22C3F5FE25F0A2190090A739 /* AKMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F57625F0A0380090A739 /* AKMovieCollectionViewCell.swift */; };
-		22C3F5FF25F0A2190090A739 /* AKDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F56425F0A01A0090A739 /* AKDetailViewController.swift */; };
-		22C3F60025F0A2190090A739 /* AKUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A225F0A07B0090A739 /* AKUIColor.swift */; };
-		22C3F60125F0A2190090A739 /* AKMovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F56A25F0A02B0090A739 /* AKMovieDetailViewController.swift */; };
-		22C3F60225F0A2190090A739 /* AKConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58B25F0A06D0090A739 /* AKConstant.swift */; };
-		22C3F60325F0A2190090A739 /* AKUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59925F0A07B0090A739 /* AKUIButton.swift */; };
-		22C3F60425F0A2190090A739 /* AKFileOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58D25F0A06D0090A739 /* AKFileOperation.swift */; };
-		22C3F60525F0A2190090A739 /* AKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58C25F0A06D0090A739 /* AKManager.swift */; };
-		22C3F60625F0A2190090A739 /* AKUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59D25F0A07B0090A739 /* AKUILabel.swift */; };
-		22C3F60725F0A2190090A739 /* AKWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F57725F0A0380090A739 /* AKWaitingView.swift */; };
-		22C3F60825F0A2190090A739 /* AKDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58925F0A06D0090A739 /* AKDataBase.swift */; };
-		22C3F60925F0A2190090A739 /* AKPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58225F0A04B0090A739 /* AKPlaylist.swift */; };
-		22C3F60A25F0A2190090A739 /* AKUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59F25F0A07B0090A739 /* AKUIView.swift */; };
-		22C3F60B25F0A2190090A739 /* AKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58E25F0A06D0090A739 /* AKError.swift */; };
-		22C3F60C25F0A2190090A739 /* AKUIDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59B25F0A07B0090A739 /* AKUIDocument.swift */; };
-		22C3F60D25F0A2190090A739 /* AKUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A125F0A07B0090A739 /* AKUITableView.swift */; };
-		22C3F60E25F0A2190090A739 /* AKPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F57325F0A0380090A739 /* AKPlayerView.swift */; };
-		22C3F60F25F0A2190090A739 /* AKScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F57825F0A0380090A739 /* AKScanTableViewCell.swift */; };
-		22C3F61025F0A2190090A739 /* AKMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58325F0A04B0090A739 /* AKMovie.swift */; };
-		22C3F61125F0A2190090A739 /* AKPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F56C25F0A02B0090A739 /* AKPlayerViewController.swift */; };
-		22C3F61225F0A2190090A739 /* AKUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59825F0A07B0090A739 /* AKUINavigationController.swift */; };
-		22C3F61325F0A2190090A739 /* AKFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58A25F0A06D0090A739 /* AKFunction.swift */; };
-		22C3F61425F0A2190090A739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1832464F7AB002D72B6 /* AppDelegate.swift */; };
-		22C3F61525F0A2190090A739 /* AKUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A325F0A07B0090A739 /* AKUIFont.swift */; };
-		22C3F61625F0A2190090A739 /* AKUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59C25F0A07B0090A739 /* AKUICollectionView.swift */; };
-		22C3F61725F0A2190090A739 /* AKMoviesDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F57425F0A0380090A739 /* AKMoviesDisplayView.swift */; };
-		22C3F61825F0A2190090A739 /* Akane.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 224EC18C2464F7AB002D72B6 /* Akane.xcdatamodeld */; };
-		22C3F61925F0A2190090A739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1852464F7AB002D72B6 /* SceneDelegate.swift */; };
-		22C3F61A25F0A2190090A739 /* AKUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59E25F0A07B0090A739 /* AKUIViewController.swift */; };
-		22C3F61B25F0A2190090A739 /* AKUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A025F0A07B0090A739 /* AKUITableViewController.swift */; };
-		22C3F61C25F0A2190090A739 /* AKUIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59A25F0A07B0090A739 /* AKUIActivityIndicatorView.swift */; };
-		22C3F61D25F0A2190090A739 /* AKPlaylistMessageVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F57525F0A0380090A739 /* AKPlaylistMessageVIew.swift */; };
-		22C3F61E25F0A2190090A739 /* AKPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F56B25F0A02B0090A739 /* AKPlaylistViewController.swift */; };
-		22C3F61F25F0A2190090A739 /* AKRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F56325F0A01A0090A739 /* AKRootViewController.swift */; };
-		22C3F62325F0A2190090A739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224EC1912464F7D7002D72B6 /* LaunchScreen.storyboard */; };
-		22C3F62425F0A2190090A739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224EC18F2464F7D7002D72B6 /* Assets.xcassets */; };
-		22C3F62525F0A2190090A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F55925F09F7B0090A739 /* Main.storyboard */; };
-		22C3F63B25F0A24B0090A739 /* Main_iPadOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F63A25F0A24B0090A739 /* Main_iPadOS.storyboard */; };
-		6EA034B838F7EFA230A65702 /* Pods_Akane_iPadOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BE363FB3E4E6A6ED674E5E /* Pods_Akane_iPadOS.framework */; };
 		80682DAB3531687944B5D380 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		8FDBE78DCD74C97B533E9C9C /* Pods_Akane_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2730C28D933F2293011DC0D /* Pods_Akane_macOS.framework */; };
-		AD2F638CE99AEAA529E6357E /* Pods_Akane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F233401BC4E131BF7E675FC /* Pods_Akane.framework */; };
+		9A6585C1112D9A192DE18E2C /* Pods_Akane_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEF926EF40747EB3F2F6469 /* Pods_Akane_SwiftUI.framework */; };
+		C4DCA573B275F7BA520071D1 /* Pods_Akane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4EB8E5AD845CEC863CA031 /* Pods_Akane.framework */; };
+		CA4F25E9269ED4D4002EB66C /* AKRootSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F25E8269ED4D4002EB66C /* AKRootSection.swift */; };
+		CA6B079D269E73110073B61B /* AKPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B079C269E73110073B61B /* AKPlaylist.swift */; };
+		CA6B079F269E73490073B61B /* AKMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B079E269E73490073B61B /* AKMovie.swift */; };
+		CA6B07A2269E73E40073B61B /* AKFileOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58D25F0A06D0090A739 /* AKFileOperation.swift */; };
+		CA6B07A4269E74230073B61B /* AKConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B07A3269E74230073B61B /* AKConstant.swift */; };
+		CA6B07A5269E762F0073B61B /* AKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58C25F0A06D0090A739 /* AKManager.swift */; };
+		CA6B07A6269E76370073B61B /* AKDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58925F0A06D0090A739 /* AKDataBase.swift */; };
+		CA6B07A7269E7B2D0073B61B /* AKFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58A25F0A06D0090A739 /* AKFunction.swift */; };
+		CA6B1D81269D81B6005BA5ED /* AKDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B1D80269D81B6005BA5ED /* AKDetailView.swift */; };
+		CA6B1D82269D81B6005BA5ED /* AKDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B1D80269D81B6005BA5ED /* AKDetailView.swift */; };
+		CACEE8F1269D552E00CF23A8 /* AKUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59E25F0A07B0090A739 /* AKUIViewController.swift */; };
+		CACEE8F2269D553100CF23A8 /* AKUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A025F0A07B0090A739 /* AKUITableViewController.swift */; };
+		CACEE8F3269D553400CF23A8 /* AKUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59F25F0A07B0090A739 /* AKUIView.swift */; };
+		CACEE8F4269D553600CF23A8 /* AKUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A225F0A07B0090A739 /* AKUIColor.swift */; };
+		CACEE8F5269D553B00CF23A8 /* AKUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A325F0A07B0090A739 /* AKUIFont.swift */; };
+		CACEE8F6269D553D00CF23A8 /* AKUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F5A125F0A07B0090A739 /* AKUITableView.swift */; };
+		CACEE8F7269D553F00CF23A8 /* AKUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59D25F0A07B0090A739 /* AKUILabel.swift */; };
+		CACEE8F8269D554200CF23A8 /* AKUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59925F0A07B0090A739 /* AKUIButton.swift */; };
+		CACEE8F9269D554500CF23A8 /* AKUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59C25F0A07B0090A739 /* AKUICollectionView.swift */; };
+		CACEE8FA269D554800CF23A8 /* AKUIDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59B25F0A07B0090A739 /* AKUIDocument.swift */; };
+		CACEE8FB269D554A00CF23A8 /* AKUIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59A25F0A07B0090A739 /* AKUIActivityIndicatorView.swift */; };
+		CACEE8FC269D554D00CF23A8 /* AKUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F59825F0A07B0090A739 /* AKUINavigationController.swift */; };
+		CAD7C297269D1BDF00BD2DD0 /* AKScanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD7C296269D1BDF00BD2DD0 /* AKScanRow.swift */; };
+		CAD7C29F269D255900BD2DD0 /* Akane_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD7C29E269D255900BD2DD0 /* Akane_SwiftUIApp.swift */; };
+		CAD7C2A1269D255900BD2DD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD7C2A0269D255900BD2DD0 /* ContentView.swift */; };
+		CAD7C2A3269D255B00BD2DD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAD7C2A2269D255B00BD2DD0 /* Assets.xcassets */; };
+		CAD7C2A6269D255B00BD2DD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAD7C2A5269D255B00BD2DD0 /* Preview Assets.xcassets */; };
+		CAD7C2AB269D256A00BD2DD0 /* AKRootList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD7C294269D13CB00BD2DD0 /* AKRootList.swift */; };
+		CAD7C2AC269D256D00BD2DD0 /* AKScanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD7C296269D1BDF00BD2DD0 /* AKScanRow.swift */; };
+		CAD7C2B4269D26EA00BD2DD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224EC18F2464F7D7002D72B6 /* Assets.xcassets */; };
+		CAD7C2BE269D47AA00BD2DD0 /* AKModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD7C2BD269D47AA00BD2DD0 /* AKModelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0FDFC5D0B2B2736232DA8BCC /* Pods-Akane_iPadOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_iPadOS.release.xcconfig"; path = "Target Support Files/Pods-Akane_iPadOS/Pods-Akane_iPadOS.release.xcconfig"; sourceTree = "<group>"; };
-		1F233401BC4E131BF7E675FC /* Pods_Akane.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		20BE363FB3E4E6A6ED674E5E /* Pods_Akane_iPadOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_iPadOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2225510A25E2487000B801E6 /* Akane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2225510C25E2487000B801E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2225510E25E2487000B801E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2225511025E2488900B801E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2225511525E2488900B801E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2225511625E2488900B801E6 /* Akane_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Akane_macOS.entitlements; sourceTree = "<group>"; };
 		224EC1802464F7AB002D72B6 /* Akane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224EC1832464F7AB002D72B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		224EC1852464F7AB002D72B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,83 +121,67 @@
 		22C3F5A125F0A07B0090A739 /* AKUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKUITableView.swift; sourceTree = "<group>"; };
 		22C3F5A225F0A07B0090A739 /* AKUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKUIColor.swift; sourceTree = "<group>"; };
 		22C3F5A325F0A07B0090A739 /* AKUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKUIFont.swift; sourceTree = "<group>"; };
-		22C3F5B325F0A0940090A739 /* AKRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKRootViewController.swift; sourceTree = "<group>"; };
-		22C3F5B425F0A0940090A739 /* AKDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKDetailViewController.swift; sourceTree = "<group>"; };
-		22C3F5BA25F0A09B0090A739 /* AKScanTableHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKScanTableHeaderCell.swift; sourceTree = "<group>"; };
-		22C3F5BD25F0A0A30090A739 /* AKNSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKNSViewController.swift; sourceTree = "<group>"; };
-		22C3F5BE25F0A0A30090A739 /* AKNSTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKNSTableView.swift; sourceTree = "<group>"; };
-		22C3F5BF25F0A0A30090A739 /* AKNSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKNSTextField.swift; sourceTree = "<group>"; };
-		22C3F5C025F0A0A30090A739 /* AKNSOutlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKNSOutlineView.swift; sourceTree = "<group>"; };
-		22C3F5C125F0A0A30090A739 /* AKNSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKNSView.swift; sourceTree = "<group>"; };
-		22C3F5C225F0A0A30090A739 /* AKNSTableHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKNSTableHeaderCell.swift; sourceTree = "<group>"; };
-		22C3F5CD25F0A0C50090A739 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		22C3F62A25F0A2190090A739 /* Akane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		22C3F63525F0A23D0090A739 /* Info_iPadOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info_iPadOS.plist; sourceTree = "<group>"; };
-		22C3F63A25F0A24B0090A739 /* Main_iPadOS.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPadOS.storyboard; sourceTree = "<group>"; };
-		2390911308C112DBC967B86C /* Pods-Akane_module.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_module.debug.xcconfig"; path = "Target Support Files/Pods-Akane_module/Pods-Akane_module.debug.xcconfig"; sourceTree = "<group>"; };
-		57C814E3DB2EC64FFDDE9DDE /* Pods_Akane_module.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_module.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FBC0D467DB58E284BA3EDE3 /* Pods-Akane.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane.debug.xcconfig"; path = "Target Support Files/Pods-Akane/Pods-Akane.debug.xcconfig"; sourceTree = "<group>"; };
-		8DEFAC896C2CFB5290E263F9 /* Pods-Akane.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane.release.xcconfig"; path = "Target Support Files/Pods-Akane/Pods-Akane.release.xcconfig"; sourceTree = "<group>"; };
-		92F39DE16DBB900560BA4E2F /* Pods-Akane_iPadOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_iPadOS.debug.xcconfig"; path = "Target Support Files/Pods-Akane_iPadOS/Pods-Akane_iPadOS.debug.xcconfig"; sourceTree = "<group>"; };
-		B2730C28D933F2293011DC0D /* Pods_Akane_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2DDB58F390A46955C1138CF /* Pods-Akane_macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_macOS.debug.xcconfig"; path = "Target Support Files/Pods-Akane_macOS/Pods-Akane_macOS.debug.xcconfig"; sourceTree = "<group>"; };
-		E5D46C1296A8E50693F4437D /* Pods-Akane_macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_macOS.release.xcconfig"; path = "Target Support Files/Pods-Akane_macOS/Pods-Akane_macOS.release.xcconfig"; sourceTree = "<group>"; };
-		FA367669399E823D380A2034 /* Pods-Akane_module.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_module.release.xcconfig"; path = "Target Support Files/Pods-Akane_module/Pods-Akane_module.release.xcconfig"; sourceTree = "<group>"; };
+		40ED24BC404A3A24B7EDE83B /* Pods-Akane.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane.debug.xcconfig"; path = "Target Support Files/Pods-Akane/Pods-Akane.debug.xcconfig"; sourceTree = "<group>"; };
+		5EEF926EF40747EB3F2F6469 /* Pods_Akane_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B7E1B31BD59E082F6B56D3 /* Pods-Akane.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane.release.xcconfig"; path = "Target Support Files/Pods-Akane/Pods-Akane.release.xcconfig"; sourceTree = "<group>"; };
+		9B02045EC74EF6E503E85996 /* Pods-Akane_SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Akane_SwiftUI/Pods-Akane_SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		CA4F25E8269ED4D4002EB66C /* AKRootSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKRootSection.swift; sourceTree = "<group>"; };
+		CA6B079C269E73110073B61B /* AKPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKPlaylist.swift; sourceTree = "<group>"; };
+		CA6B079E269E73490073B61B /* AKMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKMovie.swift; sourceTree = "<group>"; };
+		CA6B07A3269E74230073B61B /* AKConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKConstant.swift; sourceTree = "<group>"; };
+		CA6B1D80269D81B6005BA5ED /* AKDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKDetailView.swift; sourceTree = "<group>"; };
+		CACEE8EF269D4F1F00CF23A8 /* Akane_SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Akane_SwiftUI.entitlements; sourceTree = "<group>"; };
+		CAD7C294269D13CB00BD2DD0 /* AKRootList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKRootList.swift; sourceTree = "<group>"; };
+		CAD7C296269D1BDF00BD2DD0 /* AKScanRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKScanRow.swift; sourceTree = "<group>"; };
+		CAD7C29C269D255900BD2DD0 /* Akane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akane.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAD7C29E269D255900BD2DD0 /* Akane_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Akane_SwiftUIApp.swift; sourceTree = "<group>"; };
+		CAD7C2A0269D255900BD2DD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CAD7C2A2269D255B00BD2DD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CAD7C2A5269D255B00BD2DD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CAD7C2A7269D255B00BD2DD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAD7C2BD269D47AA00BD2DD0 /* AKModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKModelData.swift; sourceTree = "<group>"; };
+		D261D5A4DAC78ED6817C71EA /* Pods-Akane_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Akane_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Akane_SwiftUI/Pods-Akane_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		FF4EB8E5AD845CEC863CA031 /* Pods_Akane.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Akane.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2225510725E2487000B801E6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8FDBE78DCD74C97B533E9C9C /* Pods_Akane_macOS.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		224EC17D2464F7AB002D72B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				80682DAB3531687944B5D380 /* (null) in Frameworks */,
-				AD2F638CE99AEAA529E6357E /* Pods_Akane.framework in Frameworks */,
+				C4DCA573B275F7BA520071D1 /* Pods_Akane.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22C3F62025F0A2190090A739 /* Frameworks */ = {
+		CAD7C299269D255900BD2DD0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EA034B838F7EFA230A65702 /* Pods_Akane_iPadOS.framework in Frameworks */,
+				9A6585C1112D9A192DE18E2C /* Pods_Akane_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2225510B25E2487000B801E6 /* Akane_macOS */ = {
+		2057CAD6339C167A185687E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				22C3F5B225F0A0940090A739 /* Main */,
-				22C3F5B925F0A09B0090A739 /* AKCustomView */,
-				22C3F5BC25F0A0A30090A739 /* AKAppKit */,
-				2225510C25E2487000B801E6 /* AppDelegate.swift */,
-				2225510E25E2487000B801E6 /* ViewController.swift */,
-				2225511025E2488900B801E6 /* Assets.xcassets */,
-				22C3F5CD25F0A0C50090A739 /* Main.storyboard */,
-				2225511525E2488900B801E6 /* Info.plist */,
-				2225511625E2488900B801E6 /* Akane_macOS.entitlements */,
+				FF4EB8E5AD845CEC863CA031 /* Pods_Akane.framework */,
+				5EEF926EF40747EB3F2F6469 /* Pods_Akane_SwiftUI.framework */,
 			);
-			path = Akane_macOS;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		224EC1772464F7AA002D72B6 = {
 			isa = PBXGroup;
 			children = (
 				224EC1822464F7AB002D72B6 /* Akane */,
-				2225510B25E2487000B801E6 /* Akane_macOS */,
+				CAD7C29D269D255900BD2DD0 /* Akane_SwiftUI */,
 				224EC1812464F7AB002D72B6 /* Products */,
-				4061B54523CA5B843CE55838 /* Pods */,
-				A9C958CEF0FBCD5608BBFBFA /* Frameworks */,
+				F158FAA13BD5315FDDCB8E74 /* Pods */,
+				2057CAD6339C167A185687E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,8 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				224EC1802464F7AB002D72B6 /* Akane.app */,
-				2225510A25E2487000B801E6 /* Akane.app */,
-				22C3F62A25F0A2190090A739 /* Akane.app */,
+				CAD7C29C269D255900BD2DD0 /* Akane.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,11 +206,9 @@
 				224EC1832464F7AB002D72B6 /* AppDelegate.swift */,
 				224EC1852464F7AB002D72B6 /* SceneDelegate.swift */,
 				22C3F55925F09F7B0090A739 /* Main.storyboard */,
-				22C3F63A25F0A24B0090A739 /* Main_iPadOS.storyboard */,
 				224EC18F2464F7D7002D72B6 /* Assets.xcassets */,
 				224EC1912464F7D7002D72B6 /* LaunchScreen.storyboard */,
 				224EC1942464F7D7002D72B6 /* Info.plist */,
-				22C3F63525F0A23D0090A739 /* Info_iPadOS.plist */,
 				224EC18C2464F7AB002D72B6 /* Akane.xcdatamodeld */,
 				224EC1B62464FAF1002D72B6 /* Akane.entitlements */,
 			);
@@ -337,93 +288,74 @@
 			path = AKUIKit;
 			sourceTree = "<group>";
 		};
-		22C3F5B225F0A0940090A739 /* Main */ = {
+		CA6B079B269E6F470073B61B /* AKModel */ = {
 			isa = PBXGroup;
 			children = (
-				22C3F5B325F0A0940090A739 /* AKRootViewController.swift */,
-				22C3F5B425F0A0940090A739 /* AKDetailViewController.swift */,
+				CAD7C2BD269D47AA00BD2DD0 /* AKModelData.swift */,
+				CA6B079C269E73110073B61B /* AKPlaylist.swift */,
+				CA6B079E269E73490073B61B /* AKMovie.swift */,
+				CA6B07A3269E74230073B61B /* AKConstant.swift */,
 			);
-			path = Main;
+			path = AKModel;
 			sourceTree = "<group>";
 		};
-		22C3F5B925F0A09B0090A739 /* AKCustomView */ = {
+		CAD7C293269D139D00BD2DD0 /* AKViews */ = {
 			isa = PBXGroup;
 			children = (
-				22C3F5BA25F0A09B0090A739 /* AKScanTableHeaderCell.swift */,
+				CAD7C2A0269D255900BD2DD0 /* ContentView.swift */,
+				CAD7C294269D13CB00BD2DD0 /* AKRootList.swift */,
+				CAD7C296269D1BDF00BD2DD0 /* AKScanRow.swift */,
+				CA6B1D80269D81B6005BA5ED /* AKDetailView.swift */,
+				CA4F25E8269ED4D4002EB66C /* AKRootSection.swift */,
 			);
-			path = AKCustomView;
+			path = AKViews;
 			sourceTree = "<group>";
 		};
-		22C3F5BC25F0A0A30090A739 /* AKAppKit */ = {
+		CAD7C29D269D255900BD2DD0 /* Akane_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				22C3F5BD25F0A0A30090A739 /* AKNSViewController.swift */,
-				22C3F5BE25F0A0A30090A739 /* AKNSTableView.swift */,
-				22C3F5BF25F0A0A30090A739 /* AKNSTextField.swift */,
-				22C3F5C025F0A0A30090A739 /* AKNSOutlineView.swift */,
-				22C3F5C125F0A0A30090A739 /* AKNSView.swift */,
-				22C3F5C225F0A0A30090A739 /* AKNSTableHeaderCell.swift */,
+				CAD7C29E269D255900BD2DD0 /* Akane_SwiftUIApp.swift */,
+				CAD7C293269D139D00BD2DD0 /* AKViews */,
+				CA6B079B269E6F470073B61B /* AKModel */,
+				CAD7C2A2269D255B00BD2DD0 /* Assets.xcassets */,
+				CAD7C2A7269D255B00BD2DD0 /* Info.plist */,
+				CACEE8EF269D4F1F00CF23A8 /* Akane_SwiftUI.entitlements */,
+				CAD7C2A4269D255B00BD2DD0 /* Preview Content */,
 			);
-			path = AKAppKit;
+			path = Akane_SwiftUI;
 			sourceTree = "<group>";
 		};
-		4061B54523CA5B843CE55838 /* Pods */ = {
+		CAD7C2A4269D255B00BD2DD0 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				5FBC0D467DB58E284BA3EDE3 /* Pods-Akane.debug.xcconfig */,
-				8DEFAC896C2CFB5290E263F9 /* Pods-Akane.release.xcconfig */,
-				2390911308C112DBC967B86C /* Pods-Akane_module.debug.xcconfig */,
-				FA367669399E823D380A2034 /* Pods-Akane_module.release.xcconfig */,
-				92F39DE16DBB900560BA4E2F /* Pods-Akane_iPadOS.debug.xcconfig */,
-				0FDFC5D0B2B2736232DA8BCC /* Pods-Akane_iPadOS.release.xcconfig */,
-				D2DDB58F390A46955C1138CF /* Pods-Akane_macOS.debug.xcconfig */,
-				E5D46C1296A8E50693F4437D /* Pods-Akane_macOS.release.xcconfig */,
+				CAD7C2A5269D255B00BD2DD0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F158FAA13BD5315FDDCB8E74 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40ED24BC404A3A24B7EDE83B /* Pods-Akane.debug.xcconfig */,
+				84B7E1B31BD59E082F6B56D3 /* Pods-Akane.release.xcconfig */,
+				9B02045EC74EF6E503E85996 /* Pods-Akane_SwiftUI.debug.xcconfig */,
+				D261D5A4DAC78ED6817C71EA /* Pods-Akane_SwiftUI.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		A9C958CEF0FBCD5608BBFBFA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				57C814E3DB2EC64FFDDE9DDE /* Pods_Akane_module.framework */,
-				20BE363FB3E4E6A6ED674E5E /* Pods_Akane_iPadOS.framework */,
-				B2730C28D933F2293011DC0D /* Pods_Akane_macOS.framework */,
-				1F233401BC4E131BF7E675FC /* Pods_Akane.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2225510925E2487000B801E6 /* Akane_macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2225511725E2488A00B801E6 /* Build configuration list for PBXNativeTarget "Akane_macOS" */;
-			buildPhases = (
-				6F4C5822FF4DB77550147CBB /* [CP] Check Pods Manifest.lock */,
-				2225510625E2487000B801E6 /* Sources */,
-				2225510725E2487000B801E6 /* Frameworks */,
-				2225510825E2487000B801E6 /* Resources */,
-				0F8C7E672DD524F92DECEAB8 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Akane_macOS;
-			productName = Akane_macOS;
-			productReference = 2225510A25E2487000B801E6 /* Akane.app */;
-			productType = "com.apple.product-type.application";
-		};
 		224EC17F2464F7AB002D72B6 /* Akane */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 224EC1AD2464F7D7002D72B6 /* Build configuration list for PBXNativeTarget "Akane" */;
 			buildPhases = (
-				64ACAC2A9483FEF8B4E720F5 /* [CP] Check Pods Manifest.lock */,
+				857EF36754FD1537C11B760B /* [CP] Check Pods Manifest.lock */,
 				224EC17C2464F7AB002D72B6 /* Sources */,
 				224EC17D2464F7AB002D72B6 /* Frameworks */,
 				224EC17E2464F7AB002D72B6 /* Resources */,
-				EB64245DEFC02F207F7F9664 /* [CP] Embed Pods Frameworks */,
+				21816FEAB95B724C40EF79C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -434,23 +366,23 @@
 			productReference = 224EC1802464F7AB002D72B6 /* Akane.app */;
 			productType = "com.apple.product-type.application";
 		};
-		22C3F5FB25F0A2190090A739 /* Akane_iPadOS */ = {
+		CAD7C29B269D255900BD2DD0 /* Akane_SwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 22C3F62725F0A2190090A739 /* Build configuration list for PBXNativeTarget "Akane_iPadOS" */;
+			buildConfigurationList = CAD7C2A8269D255B00BD2DD0 /* Build configuration list for PBXNativeTarget "Akane_SwiftUI" */;
 			buildPhases = (
-				22C3F5FC25F0A2190090A739 /* [CP] Check Pods Manifest.lock */,
-				22C3F5FD25F0A2190090A739 /* Sources */,
-				22C3F62025F0A2190090A739 /* Frameworks */,
-				22C3F62225F0A2190090A739 /* Resources */,
-				22C3F62625F0A2190090A739 /* [CP] Embed Pods Frameworks */,
+				DB72830C696E01A9D8B24320 /* [CP] Check Pods Manifest.lock */,
+				CAD7C298269D255900BD2DD0 /* Sources */,
+				CAD7C299269D255900BD2DD0 /* Frameworks */,
+				CAD7C29A269D255900BD2DD0 /* Resources */,
+				C47C4C5E3E9342E0AFEF45C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Akane_iPadOS;
-			productName = Akane;
-			productReference = 22C3F62A25F0A2190090A739 /* Akane.app */;
+			name = Akane_SwiftUI;
+			productName = "Akane-SwiftUI";
+			productReference = CAD7C29C269D255900BD2DD0 /* Akane.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -459,15 +391,15 @@
 		224EC1782464F7AA002D72B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Grass Plainson";
 				TargetAttributes = {
-					2225510925E2487000B801E6 = {
-						CreatedOnToolsVersion = 12.2;
-					};
 					224EC17F2464F7AB002D72B6 = {
 						CreatedOnToolsVersion = 11.4.1;
+					};
+					CAD7C29B269D255900BD2DD0 = {
+						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
 			};
@@ -485,22 +417,12 @@
 			projectRoot = "";
 			targets = (
 				224EC17F2464F7AB002D72B6 /* Akane */,
-				22C3F5FB25F0A2190090A739 /* Akane_iPadOS */,
-				2225510925E2487000B801E6 /* Akane_macOS */,
+				CAD7C29B269D255900BD2DD0 /* Akane_SwiftUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2225510825E2487000B801E6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2225511125E2488900B801E6 /* Assets.xcassets in Resources */,
-				22C3F5CE25F0A0C50090A739 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		224EC17E2464F7AB002D72B6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -511,77 +433,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22C3F62225F0A2190090A739 /* Resources */ = {
+		CAD7C29A269D255900BD2DD0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22C3F63B25F0A24B0090A739 /* Main_iPadOS.storyboard in Resources */,
-				22C3F62325F0A2190090A739 /* LaunchScreen.storyboard in Resources */,
-				22C3F62425F0A2190090A739 /* Assets.xcassets in Resources */,
-				22C3F62525F0A2190090A739 /* Main.storyboard in Resources */,
+				CAD7C2A6269D255B00BD2DD0 /* Preview Assets.xcassets in Resources */,
+				CAD7C2B4269D26EA00BD2DD0 /* Assets.xcassets in Resources */,
+				CAD7C2A3269D255B00BD2DD0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F8C7E672DD524F92DECEAB8 /* [CP] Embed Pods Frameworks */ = {
+		21816FEAB95B724C40EF79C5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane_macOS/Pods-Akane_macOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane_macOS/Pods-Akane_macOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane_macOS/Pods-Akane_macOS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		22C3F5FC25F0A2190090A739 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Akane_iPadOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		22C3F62625F0A2190090A739 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane_iPadOS/Pods-Akane_iPadOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane_iPadOS/Pods-Akane_iPadOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane_iPadOS/Pods-Akane_iPadOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		64ACAC2A9483FEF8B4E720F5 /* [CP] Check Pods Manifest.lock */ = {
+		857EF36754FD1537C11B760B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -603,7 +485,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6F4C5822FF4DB77550147CBB /* [CP] Check Pods Manifest.lock */ = {
+		C47C4C5E3E9342E0AFEF45C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Akane_SwiftUI/Pods-Akane_SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Akane_SwiftUI/Pods-Akane_SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane_SwiftUI/Pods-Akane_SwiftUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB72830C696E01A9D8B24320 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -618,51 +517,16 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Akane_macOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Akane_SwiftUI-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB64245DEFC02F207F7F9664 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2225510625E2487000B801E6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22C3F5B625F0A0940090A739 /* AKDetailViewController.swift in Sources */,
-				2225510F25E2487000B801E6 /* ViewController.swift in Sources */,
-				22C3F5C725F0A0A30090A739 /* AKNSView.swift in Sources */,
-				2225510D25E2487000B801E6 /* AppDelegate.swift in Sources */,
-				22C3F5C625F0A0A30090A739 /* AKNSOutlineView.swift in Sources */,
-				22C3F5C825F0A0A30090A739 /* AKNSTableHeaderCell.swift in Sources */,
-				22C3F5B525F0A0940090A739 /* AKRootViewController.swift in Sources */,
-				22C3F5C325F0A0A30090A739 /* AKNSViewController.swift in Sources */,
-				22C3F5BB25F0A09B0090A739 /* AKScanTableHeaderCell.swift in Sources */,
-				22C3F5C425F0A0A30090A739 /* AKNSTableView.swift in Sources */,
-				22C3F5C525F0A0A30090A739 /* AKNSTextField.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		224EC17C2464F7AB002D72B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -678,9 +542,11 @@
 				22C3F5A925F0A07B0090A739 /* AKUILabel.swift in Sources */,
 				22C3F57D25F0A0380090A739 /* AKWaitingView.swift in Sources */,
 				22C3F58F25F0A06D0090A739 /* AKDataBase.swift in Sources */,
+				CA6B1D81269D81B6005BA5ED /* AKDetailView.swift in Sources */,
 				22C3F58425F0A04B0090A739 /* AKPlaylist.swift in Sources */,
 				22C3F5AB25F0A07B0090A739 /* AKUIView.swift in Sources */,
 				22C3F59425F0A06D0090A739 /* AKError.swift in Sources */,
+				CAD7C297269D1BDF00BD2DD0 /* AKScanRow.swift in Sources */,
 				22C3F5A725F0A07B0090A739 /* AKUIDocument.swift in Sources */,
 				22C3F5AD25F0A07B0090A739 /* AKUITableView.swift in Sources */,
 				22C3F57925F0A0380090A739 /* AKPlayerView.swift in Sources */,
@@ -704,44 +570,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22C3F5FD25F0A2190090A739 /* Sources */ = {
+		CAD7C298269D255900BD2DD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22C3F5FE25F0A2190090A739 /* AKMovieCollectionViewCell.swift in Sources */,
-				22C3F5FF25F0A2190090A739 /* AKDetailViewController.swift in Sources */,
-				22C3F60025F0A2190090A739 /* AKUIColor.swift in Sources */,
-				22C3F60125F0A2190090A739 /* AKMovieDetailViewController.swift in Sources */,
-				22C3F60225F0A2190090A739 /* AKConstant.swift in Sources */,
-				22C3F60325F0A2190090A739 /* AKUIButton.swift in Sources */,
-				22C3F60425F0A2190090A739 /* AKFileOperation.swift in Sources */,
-				22C3F60525F0A2190090A739 /* AKManager.swift in Sources */,
-				22C3F60625F0A2190090A739 /* AKUILabel.swift in Sources */,
-				22C3F60725F0A2190090A739 /* AKWaitingView.swift in Sources */,
-				22C3F60825F0A2190090A739 /* AKDataBase.swift in Sources */,
-				22C3F60925F0A2190090A739 /* AKPlaylist.swift in Sources */,
-				22C3F60A25F0A2190090A739 /* AKUIView.swift in Sources */,
-				22C3F60B25F0A2190090A739 /* AKError.swift in Sources */,
-				22C3F60C25F0A2190090A739 /* AKUIDocument.swift in Sources */,
-				22C3F60D25F0A2190090A739 /* AKUITableView.swift in Sources */,
-				22C3F60E25F0A2190090A739 /* AKPlayerView.swift in Sources */,
-				22C3F60F25F0A2190090A739 /* AKScanTableViewCell.swift in Sources */,
-				22C3F61025F0A2190090A739 /* AKMovie.swift in Sources */,
-				22C3F61125F0A2190090A739 /* AKPlayerViewController.swift in Sources */,
-				22C3F61225F0A2190090A739 /* AKUINavigationController.swift in Sources */,
-				22C3F61325F0A2190090A739 /* AKFunction.swift in Sources */,
-				22C3F61425F0A2190090A739 /* AppDelegate.swift in Sources */,
-				22C3F61525F0A2190090A739 /* AKUIFont.swift in Sources */,
-				22C3F61625F0A2190090A739 /* AKUICollectionView.swift in Sources */,
-				22C3F61725F0A2190090A739 /* AKMoviesDisplayView.swift in Sources */,
-				22C3F61825F0A2190090A739 /* Akane.xcdatamodeld in Sources */,
-				22C3F61925F0A2190090A739 /* SceneDelegate.swift in Sources */,
-				22C3F61A25F0A2190090A739 /* AKUIViewController.swift in Sources */,
-				22C3F61B25F0A2190090A739 /* AKUITableViewController.swift in Sources */,
-				22C3F61C25F0A2190090A739 /* AKUIActivityIndicatorView.swift in Sources */,
-				22C3F61D25F0A2190090A739 /* AKPlaylistMessageVIew.swift in Sources */,
-				22C3F61E25F0A2190090A739 /* AKPlaylistViewController.swift in Sources */,
-				22C3F61F25F0A2190090A739 /* AKRootViewController.swift in Sources */,
+				CA6B07A6269E76370073B61B /* AKDataBase.swift in Sources */,
+				CA6B07A5269E762F0073B61B /* AKManager.swift in Sources */,
+				CACEE8F3269D553400CF23A8 /* AKUIView.swift in Sources */,
+				CAD7C2BE269D47AA00BD2DD0 /* AKModelData.swift in Sources */,
+				CAD7C2A1269D255900BD2DD0 /* ContentView.swift in Sources */,
+				CA6B079F269E73490073B61B /* AKMovie.swift in Sources */,
+				CACEE8F4269D553600CF23A8 /* AKUIColor.swift in Sources */,
+				CAD7C29F269D255900BD2DD0 /* Akane_SwiftUIApp.swift in Sources */,
+				CACEE8FC269D554D00CF23A8 /* AKUINavigationController.swift in Sources */,
+				CA4F25E9269ED4D4002EB66C /* AKRootSection.swift in Sources */,
+				CACEE8F2269D553100CF23A8 /* AKUITableViewController.swift in Sources */,
+				CA6B07A4269E74230073B61B /* AKConstant.swift in Sources */,
+				CAD7C2AB269D256A00BD2DD0 /* AKRootList.swift in Sources */,
+				CACEE8F9269D554500CF23A8 /* AKUICollectionView.swift in Sources */,
+				CACEE8F5269D553B00CF23A8 /* AKUIFont.swift in Sources */,
+				CACEE8F8269D554200CF23A8 /* AKUIButton.swift in Sources */,
+				CA6B1D82269D81B6005BA5ED /* AKDetailView.swift in Sources */,
+				CA6B07A7269E7B2D0073B61B /* AKFunction.swift in Sources */,
+				CACEE8F7269D553F00CF23A8 /* AKUILabel.swift in Sources */,
+				CACEE8F6269D553D00CF23A8 /* AKUITableView.swift in Sources */,
+				CACEE8F1269D552E00CF23A8 /* AKUIViewController.swift in Sources */,
+				CACEE8FA269D554800CF23A8 /* AKUIDocument.swift in Sources */,
+				CA6B079D269E73110073B61B /* AKPlaylist.swift in Sources */,
+				CA6B07A2269E73E40073B61B /* AKFileOperation.swift in Sources */,
+				CAD7C2AC269D256D00BD2DD0 /* AKScanRow.swift in Sources */,
+				CACEE8FB269D554A00CF23A8 /* AKUIActivityIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,64 +617,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2225511825E2488A00B801E6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2DDB58F390A46955C1138CF /* Pods-Akane_macOS.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: Xiaoling Wang (358YVC7LH8)";
-				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = YK6G2Z3K97;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = Akane_macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.grass.shizuku.Akane-macOS";
-				PRODUCT_NAME = Akane;
-				PROVISIONING_PROFILE_SPECIFIER = "Akane macOS Development Profile";
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG macOS Debug";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		2225511925E2488A00B801E6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5D46C1296A8E50693F4437D /* Pods-Akane_macOS.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Akane_macOS/Akane_macOS.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Xiaoling Wang (YK6G2Z3K97)";
-				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = YK6G2Z3K97;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = Akane_macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.grass.shizuku.Akane-macOS";
-				PRODUCT_NAME = Akane;
-				PROVISIONING_PROFILE_SPECIFIER = "Akane macOS Distribution Profile";
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "macOS Release";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		224EC1AB2464F7D7002D72B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -935,7 +735,7 @@
 		};
 		224EC1AE2464F7D7002D72B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FBC0D467DB58E284BA3EDE3 /* Pods-Akane.debug.xcconfig */;
+			baseConfigurationReference = 40ED24BC404A3A24B7EDE83B /* Pods-Akane.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Akane/Akane.entitlements;
@@ -945,7 +745,7 @@
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = YK6G2Z3K97;
 				INFOPLIST_FILE = Akane/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -956,15 +756,15 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Development Profile";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane iOS Development Profile";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Debug iPhoneOS";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Debug iPhoneOS iOS Akane";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		224EC1AF2464F7D7002D72B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DEFAC896C2CFB5290E263F9 /* Pods-Akane.release.xcconfig */;
+			baseConfigurationReference = 84B7E1B31BD59E082F6B56D3 /* Pods-Akane.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Akane/Akane.entitlements;
@@ -974,7 +774,7 @@
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = YK6G2Z3K97;
 				INFOPLIST_FILE = Akane/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -985,82 +785,69 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Distribution Profile";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane iOS Distribution Profile";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Release iPhoneOS";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Release iPhoneOS iOS Akane";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		22C3F62825F0A2190090A739 /* Debug */ = {
+		CAD7C2A9269D255B00BD2DD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92F39DE16DBB900560BA4E2F /* Pods-Akane_iPadOS.debug.xcconfig */;
+			baseConfigurationReference = 9B02045EC74EF6E503E85996 /* Pods-Akane_SwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Akane/Akane.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: Xiaoling Wang (358YVC7LH8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Xiaoling Wang (358YVC7LH8)";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Akane_SwiftUI/Akane_SwiftUI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_ASSET_PATHS = "\"Akane_SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = YK6G2Z3K97;
-				INFOPLIST_FILE = Akane/Info_iPadOS.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Akane_SwiftUI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.grass.shizuku.Akane;
 				PRODUCT_NAME = Akane;
 				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Development Profile";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane iOS Development Profile";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG Debug iPadOS";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG iPhoneOS iPadOS iOS Akane_SwiftUI";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		22C3F62925F0A2190090A739 /* Release */ = {
+		CAD7C2AA269D255B00BD2DD0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FDFC5D0B2B2736232DA8BCC /* Pods-Akane_iPadOS.release.xcconfig */;
+			baseConfigurationReference = D261D5A4DAC78ED6817C71EA /* Pods-Akane_SwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Akane/Akane.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution: Xiaoling Wang (YK6G2Z3K97)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Xiaoling Wang (YK6G2Z3K97)";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Akane_SwiftUI/Akane_SwiftUI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_ASSET_PATHS = "\"Akane_SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = YK6G2Z3K97;
-				INFOPLIST_FILE = Akane/Info_iPadOS.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Akane_SwiftUI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.grass.shizuku.Akane;
 				PRODUCT_NAME = Akane;
-				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Distribution Profile";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Akane iOS Distribution Profile";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Release iPadOS";
+				PROVISIONING_PROFILE_SPECIFIER = "Akane iOS Development Profile";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "iPhoneOS iPadOS iOS Akane_SwiftUI";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2225511725E2488A00B801E6 /* Build configuration list for PBXNativeTarget "Akane_macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2225511825E2488A00B801E6 /* Debug */,
-				2225511925E2488A00B801E6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		224EC17B2464F7AA002D72B6 /* Build configuration list for PBXProject "Akane" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1079,11 +866,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		22C3F62725F0A2190090A739 /* Build configuration list for PBXNativeTarget "Akane_iPadOS" */ = {
+		CAD7C2A8269D255B00BD2DD0 /* Build configuration list for PBXNativeTarget "Akane_SwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				22C3F62825F0A2190090A739 /* Debug */,
-				22C3F62925F0A2190090A739 /* Release */,
+				CAD7C2A9269D255B00BD2DD0 /* Debug */,
+				CAD7C2AA269D255B00BD2DD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

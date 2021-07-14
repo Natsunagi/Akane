@@ -10,8 +10,6 @@ import Foundation
 
 #if iPhoneOS || iPadOS
 import UIKit
-#elseif masOS
-import Cocoa
 #endif
 
 import AVFoundation

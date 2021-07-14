@@ -356,12 +356,6 @@ class AKFileOperation: NSObject, NSFilePresenter {
         }
     }
     
-    // MARK: - Check if iCloud is updated.
-    
-    @objc private func checkAppleCloudUpdate() {
-        AKConstant.enableUpdate = true
-    }
-    
     // MARK: - Handle notification.
     
     @objc private func handleMetadataQueryDidFinishGathering(notification: Notification) {

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import AVKit
 
-class AKMovie {
+final class AKMovie {
     
     enum Location {
         case localDocument

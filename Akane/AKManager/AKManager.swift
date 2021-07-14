@@ -10,18 +10,20 @@ import Foundation
 
 #if iPhoneOS || iPadOS
 import UIKit
-#elseif masOS
-import Cocoa
 #endif
 
 class AKManager {
         
+    #if Akane
     static var playlists: Array<AKPlaylist> = Array<AKPlaylist>.init()
+    #endif
     
     static var fileOperationQueue: OperationQueue = AKFileOperation.shared.presentedItemOperationQueue
     
+    #if Akane
     // 这里 prefetch 标记缩略图是否已经完成预加载。
     static var playlistImages: Array<(image: UIImage, prefetch: Bool)> = Array<(image: UIImage, prefetch: Bool)>.init()
+    #endif
     
     // - Settings.
     
