@@ -1,6 +1,0 @@
-framework module Pods_Akane_iPadOS {
-  umbrella header "Pods-Akane_iPadOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
