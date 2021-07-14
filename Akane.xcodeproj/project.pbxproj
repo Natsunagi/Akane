@@ -10,7 +10,6 @@
 		224EC1842464F7AB002D72B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1832464F7AB002D72B6 /* AppDelegate.swift */; };
 		224EC1862464F7AB002D72B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224EC1852464F7AB002D72B6 /* SceneDelegate.swift */; };
 		224EC18E2464F7AB002D72B6 /* Akane.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 224EC18C2464F7AB002D72B6 /* Akane.xcdatamodeld */; };
-		224EC1902464F7D7002D72B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224EC18F2464F7D7002D72B6 /* Assets.xcassets */; };
 		224EC1932464F7D7002D72B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224EC1912464F7D7002D72B6 /* LaunchScreen.storyboard */; };
 		22C3F55A25F09F7C0090A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3F55925F09F7B0090A739 /* Main.storyboard */; };
 		22C3F56525F0A01A0090A739 /* AKRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F56325F0A01A0090A739 /* AKRootViewController.swift */; };
@@ -48,6 +47,7 @@
 		9A6585C1112D9A192DE18E2C /* Pods_Akane_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEF926EF40747EB3F2F6469 /* Pods_Akane_SwiftUI.framework */; };
 		C4DCA573B275F7BA520071D1 /* Pods_Akane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4EB8E5AD845CEC863CA031 /* Pods_Akane.framework */; };
 		CA4F25E9269ED4D4002EB66C /* AKRootSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F25E8269ED4D4002EB66C /* AKRootSection.swift */; };
+		CA53E55F269F10F800A88788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224EC18F2464F7D7002D72B6 /* Assets.xcassets */; };
 		CA6B079D269E73110073B61B /* AKPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B079C269E73110073B61B /* AKPlaylist.swift */; };
 		CA6B079F269E73490073B61B /* AKMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B079E269E73490073B61B /* AKMovie.swift */; };
 		CA6B07A2269E73E40073B61B /* AKFileOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C3F58D25F0A06D0090A739 /* AKFileOperation.swift */; };
@@ -76,7 +76,6 @@
 		CAD7C2A6269D255B00BD2DD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAD7C2A5269D255B00BD2DD0 /* Preview Assets.xcassets */; };
 		CAD7C2AB269D256A00BD2DD0 /* AKRootList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD7C294269D13CB00BD2DD0 /* AKRootList.swift */; };
 		CAD7C2AC269D256D00BD2DD0 /* AKScanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD7C296269D1BDF00BD2DD0 /* AKScanRow.swift */; };
-		CAD7C2B4269D26EA00BD2DD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224EC18F2464F7D7002D72B6 /* Assets.xcassets */; };
 		CAD7C2BE269D47AA00BD2DD0 /* AKModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD7C2BD269D47AA00BD2DD0 /* AKModelData.swift */; };
 /* End PBXBuildFile section */
 
@@ -428,7 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				224EC1932464F7D7002D72B6 /* LaunchScreen.storyboard in Resources */,
-				224EC1902464F7D7002D72B6 /* Assets.xcassets in Resources */,
+				CA53E55F269F10F800A88788 /* Assets.xcassets in Resources */,
 				22C3F55A25F09F7C0090A739 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,7 +437,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAD7C2A6269D255B00BD2DD0 /* Preview Assets.xcassets in Resources */,
-				CAD7C2B4269D26EA00BD2DD0 /* Assets.xcassets in Resources */,
 				CAD7C2A3269D255B00BD2DD0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
