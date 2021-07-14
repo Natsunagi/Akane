@@ -14,9 +14,5 @@
 	<array>
 		<string>iCloud.cn.com.grass.shizuku.Akane</string>
 	</array>
-	<key>com.apple.security.app-sandbox</key>
-	<true/>
-	<key>com.apple.security.files.user-selected.read-only</key>
-	<true/>
 </dict>
 </plist>
