@@ -358,13 +358,9 @@ class AKDetailViewController: AKUIViewController {
                 })
                 alertController.addAction(cancelAction)
                 
-                #if iPhoneOS
-                self.present(alertController, animated: true, completion: nil)
-                #elseif iPadOS
                 alertController.modalPresentationStyle = .popover
                 alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
                 self.present(alertController, animated: true, completion: nil)
-                #endif
                 
             } else {
                 self.exitEditMode(sender: sender)

@@ -31,11 +31,11 @@ class AKManager {
     
     // - iPad controllers.
     
-    #if iPadOS
+    //#if iPadOS
     static var splitViewController: UISplitViewController?
     static var leftNavigationController: AKUINavigationController?
     static var rightNavigationController: AKUINavigationController?
-    #endif
+    //#endif
     
     // MARK: - Get playlists.
     

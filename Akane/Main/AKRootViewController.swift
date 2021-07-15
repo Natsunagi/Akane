@@ -415,7 +415,6 @@ class AKRootViewController: AKUITableViewController, UITableViewDataSourcePrefet
                     detailViewController.listType = .all
                     detailViewController.playlist = AKPlaylist.init(uuid: "all", name: "all")
                     DispatchQueue.main.async {
-                        #if iPadOS
                         let viewController: AKDetailViewController = AKManager.rightNavigationController!.viewControllers[0] as! AKDetailViewController
                         if viewController.listType == .all && AKManager.rightNavigationController!.viewControllers.count > 1 {
                             AKManager.rightNavigationController?.popToRootViewController(animated: true)
@@ -423,9 +422,6 @@ class AKRootViewController: AKUITableViewController, UITableViewDataSourcePrefet
                             AKManager.rightNavigationController = AKUINavigationController.init(rootViewController: detailViewController)
                             self.showDetailViewController(AKManager.rightNavigationController!, sender: self)
                         }
-                        #else
-                        self.navigationController?.pushViewController(detailViewController, animated: true)
-                        #endif
                     }
                 }
                 
@@ -438,7 +434,6 @@ class AKRootViewController: AKUITableViewController, UITableViewDataSourcePrefet
                     detailViewController.playlistIndex = -1
                     detailViewController.playlist = AKPlaylist.init(uuid: "iCloud", name: "iCloud")
                     DispatchQueue.main.async {
-                        #if iPadOS
                         let viewController: AKDetailViewController = AKManager.rightNavigationController!.viewControllers[0] as! AKDetailViewController
                         if viewController.listType == .iCloud && AKManager.rightNavigationController!.viewControllers.count > 1 {
                             AKManager.rightNavigationController?.popToRootViewController(animated: true)
@@ -446,9 +441,6 @@ class AKRootViewController: AKUITableViewController, UITableViewDataSourcePrefet
                             AKManager.rightNavigationController = AKUINavigationController.init(rootViewController: detailViewController)
                             self.showDetailViewController(AKManager.rightNavigationController!, sender: self)
                         }
-                        #else
-                        self.navigationController?.pushViewController(detailViewController, animated: true)
-                        #endif
                     }
                 }
                 
@@ -485,7 +477,6 @@ class AKRootViewController: AKUITableViewController, UITableViewDataSourcePrefet
                 detailViewController.files = AKManager.getPlaylistMovies(playlist: AKManager.playlists[indexPath.row], location: AKManager.location)
                 detailViewController.playlistIndex = indexPath.row
                 DispatchQueue.main.async {
-                    #if iPadOS
                     let viewController: AKDetailViewController = AKManager.rightNavigationController!.viewControllers[0] as! AKDetailViewController
                     if viewController.listType == .playList && AKManager.rightNavigationController!.viewControllers.count > 1 {
                         AKManager.rightNavigationController?.popToRootViewController(animated: true)
@@ -493,9 +484,6 @@ class AKRootViewController: AKUITableViewController, UITableViewDataSourcePrefet
                         AKManager.rightNavigationController = AKUINavigationController.init(rootViewController: detailViewController)
                         self.showDetailViewController(AKManager.rightNavigationController!, sender: self)
                     }
-                    #else
-                    self.navigationController?.pushViewController(detailViewController, animated: true)
-                    #endif
                 }
             }
             

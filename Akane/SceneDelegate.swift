@@ -19,26 +19,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        #if iPadOS
         let splitViewController: UISplitViewController = self.window?.rootViewController as! UISplitViewController
-        splitViewController.preferredDisplayMode = .allVisible
+        splitViewController.preferredDisplayMode = .automatic
         splitViewController.preferredPrimaryColumnWidthFraction = 0.3
+        //splitViewController.delegate = self
         AKManager.splitViewController = splitViewController
         let leftNavigationController: AKUINavigationController = splitViewController.viewControllers[0] as! AKUINavigationController
         AKManager.leftNavigationController = leftNavigationController
         let rightNavigationController: AKUINavigationController = splitViewController.viewControllers[1] as! AKUINavigationController
         AKManager.rightNavigationController = rightNavigationController
         let detailViewController: AKDetailViewController = rightNavigationController.viewControllers[0] as! AKDetailViewController
-        detailViewController.files = AKManager.getAppleCloudMovies()
-        detailViewController.listType = .iCloud
+        detailViewController.files = AKManager.getAllMovies(location: AKManager.location)
+        detailViewController.listType = .all
         detailViewController.playlistIndex = -1
-        detailViewController.playlist = AKPlaylist.init(uuid: "iCloud", name: "iCloud")
-        #endif
-        
-        #if iPhoneOS
-        let navigationController: AKUINavigationController = self.window?.rootViewController as! AKUINavigationController
-        navigationController.navigationBar.shadowImage = UIImage.init()
-        #endif
+        detailViewController.playlist = AKPlaylist.init(uuid: "All", name: "All")
         
         if AKManager.location == .iCloud {
             guard let _ = AKConstant.iCloudURL else {
@@ -95,4 +89,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 }
-
