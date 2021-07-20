@@ -2,8 +2,8 @@
 //  AKScanTableViewCell.swift
 //  Akane
 //
-//  Created by Grass Plainson on 2020/5/13.
-//  Copyright © 2020 Grass Plainson. All rights reserved.
+//  Created by 御前崎悠羽 on 2020/5/13.
+//  Copyright © 2020 御前崎悠羽. All rights reserved.
 //
 
 import UIKit
@@ -76,7 +76,7 @@ class AKScanTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    // MARK: UI.
+    // MARK: - UI.
     
     func setIcon(icon: UIImage) {
         self.iconImageView.image = icon

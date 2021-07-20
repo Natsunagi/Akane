@@ -2,8 +2,8 @@
 //  AKPlaylistViewController.swift
 //  Akane
 //
-//  Created by Grass Plainson on 2020/5/22.
-//  Copyright © 2020 Grass Plainson. All rights reserved.
+//  Created by 御前崎悠羽 on 2020/5/22.
+//  Copyright © 2020 御前崎悠羽. All rights reserved.
 //
 
 import UIKit

@@ -3,7 +3,7 @@
 //  Akane_SwiftUI
 //
 //  Created by 御前崎悠羽 on 2021/7/14.
-//  Copyright © 2021 Grass Plainson. All rights reserved.
+//  Copyright © 2021 御前崎悠羽. All rights reserved.
 //
 
 import SwiftUI

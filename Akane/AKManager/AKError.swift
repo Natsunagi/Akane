@@ -2,8 +2,8 @@
 //  AKError.swift
 //  Akane
 //
-//  Created by Grass Plainson on 2021/1/23.
-//  Copyright © 2021 Grass Plainson. All rights reserved.
+//  Created by 御前崎悠羽 on 2021/1/23.
+//  Copyright © 2021 御前崎悠羽. All rights reserved.
 //
 
 import Foundation
