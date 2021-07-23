@@ -95,7 +95,7 @@ class AKPlaylistViewController: AKUITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return AKConstant.AKCell.scanCellHeigt
+        return AKSidebarCollectionViewCell.cellHeight
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

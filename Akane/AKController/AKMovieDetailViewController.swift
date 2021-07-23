@@ -2,8 +2,8 @@
 //  AKMovieDetailViewController.swift
 //  Akane
 //
-//  Created by Grass Plainson on 2020/5/14.
-//  Copyright © 2020 Grass Plainson. All rights reserved.
+//  Created by 御前崎悠羽 on 2020/5/14.
+//  Copyright © 2020 御前崎悠羽. All rights reserved.
 //
 
 import UIKit
@@ -101,7 +101,7 @@ class AKMovieDetailViewController: AKUIViewController {
         cell.addSubview(self.line1)
         self.line1.mas_remakeConstraints { (view) in
             view!.top.equalTo()(self.titleLabel.mas_bottom)?.offset()(10)
-            view!.left.equalTo()(cell.mas_safeAreaLayoutGuideLeft)?.offset()(AKConstant.PlaylistMessageView.leftEdge)
+            //view!.left.equalTo()(cell.mas_safeAreaLayoutGuideLeft)?.offset()(AKConstant.PlaylistMessageView.leftEdge)
             view!.right.equalTo()(cell.mas_safeAreaLayoutGuideRight)?.offset()
             view!.height.equalTo()(1)
         }
@@ -176,7 +176,7 @@ class AKMovieDetailViewController: AKUIViewController {
         cell.addSubview(self.line2)
         self.line2.mas_remakeConstraints { (view) in
             view!.top.equalTo()(self.playButton.mas_bottom)?.offset()(15)
-            view!.left.equalTo()(cell.mas_safeAreaLayoutGuideLeft)?.offset()(AKConstant.PlaylistMessageView.leftEdge)
+            //view!.left.equalTo()(cell.mas_safeAreaLayoutGuideLeft)?.offset()(AKConstant.PlaylistMessageView.leftEdge)
             view!.right.equalTo()(cell.mas_safeAreaLayoutGuideRight)?.offset()
             view!.height.equalTo()(1)
         }

@@ -2,8 +2,8 @@
 //  SceneDelegate.swift
 //  Akane
 //
-//  Created by Grass Plainson on 2020/5/11.
-//  Copyright © 2020 Grass Plainson. All rights reserved.
+//  Created by 御前崎悠羽 on 2020/5/11.
+//  Copyright © 2020 御前崎悠羽. All rights reserved.
 //
 
 import UIKit
@@ -19,20 +19,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let splitViewController: UISplitViewController = self.window?.rootViewController as! UISplitViewController
+        #if iPadOS
+        let rootViewController: AKRootSidebarViewController = AKRootSidebarViewController()
+        let detailViewController: AKDetailViewController = AKDetailViewController()
+        let leftNavigationController: AKUINavigationController = AKUINavigationController(rootViewController: rootViewController)
+        leftNavigationController.navigationBar.prefersLargeTitles = true
+        leftNavigationController.navigationBar.isTranslucent = true  // 毛玻璃效果如果弄成 false 的话，在 large title 的情况下上下滑动导航栏会卡。
+        let rightNavigationController: AKUINavigationController = AKUINavigationController(rootViewController: detailViewController)
+        let splitViewController: UISplitViewController = UISplitViewController(style: .doubleColumn)
+        self.window?.rootViewController = splitViewController
         splitViewController.preferredDisplayMode = .automatic
         splitViewController.preferredPrimaryColumnWidthFraction = 0.3
-        //splitViewController.delegate = self
-        AKManager.splitViewController = splitViewController
-        let leftNavigationController: AKUINavigationController = splitViewController.viewControllers[0] as! AKUINavigationController
-        AKManager.leftNavigationController = leftNavigationController
-        let rightNavigationController: AKUINavigationController = splitViewController.viewControllers[1] as! AKUINavigationController
-        AKManager.rightNavigationController = rightNavigationController
-        let detailViewController: AKDetailViewController = rightNavigationController.viewControllers[0] as! AKDetailViewController
+        splitViewController.setViewController(leftNavigationController, for: .primary)
+        splitViewController.setViewController(rightNavigationController, for: .secondary)
         detailViewController.files = AKManager.getAllMovies(location: AKManager.location)
         detailViewController.listType = .all
         detailViewController.playlistIndex = -1
         detailViewController.playlist = AKPlaylist.init(uuid: "All", name: "All")
+        AKManager.splitViewController = splitViewController
+        AKManager.leftNavigationController = leftNavigationController
+        AKManager.rightNavigationController = rightNavigationController
+        #endif
+        
+        #if iPhoneOS
+        let rootViewController: AKRootSidebarViewController = AKRootSidebarViewController()
+        let navigationController: AKUINavigationController = AKUINavigationController(rootViewController: rootViewController)
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.isTranslucent = true  // 毛玻璃效果如果弄成 false 的话，在 large title 的情况下上下滑动导航栏会卡。
+        self.window?.rootViewController = navigationController
+        #endif
         
         if AKManager.location == .iCloud {
             guard let _ = AKConstant.iCloudURL else {
