@@ -2,8 +2,8 @@
 //  AKDetailViewController.swift
 //  Akane
 //
-//  Created by Grass Plainson on 2020/5/13.
-//  Copyright © 2020 Grass Plainson. All rights reserved.
+//  Created by 御前崎悠羽 on 2020/5/13.
+//  Copyright © 2020 御前崎悠羽. All rights reserved.
 //
 
 import UIKit
@@ -42,6 +42,8 @@ class AKDetailViewController: AKUIViewController {
 
         // Do any additional setup after loading the view.
         
+        self.title = playlist.name
+        
         // MARK: Notification.
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleMovieIconImageDidChange(notification:)), name: AKConstant.AKNotification.movieIconImageDidChange, object: nil)
@@ -58,38 +60,39 @@ class AKDetailViewController: AKUIViewController {
         self.navigationItem.title = ""
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: internationalization(text: "编辑"), style: .plain, target: self, action: #selector(self.enterEditMode(sender:)))
         self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: internationalization(text: "返回"), style: .plain, target: self, action: nil)
-        
+        self.navigationItem.largeTitleDisplayMode = .never
+                
         // - 如果是播放列表或者 iCloud。
         
         if self.listType == .playList || self.listType == .iCloud {
-            self.playlistMessageView = AKPlaylistMessageView.init()
-            self.playlistMessageView.delegate = self
-            self.view.addSubview(self.playlistMessageView)
-            self.playlistMessageView.mas_makeConstraints { (view) in
-                view!.left.equalTo()(self.view.mas_safeAreaLayoutGuideLeft)?.offset()
-                view!.right.equalTo()(self.view.mas_safeAreaLayoutGuideRight)?.offset()
-                view!.top.equalTo()(self.view.mas_safeAreaLayoutGuideTop)?.offset()
-                view!.height.equalTo()(AKConstant.PlaylistMessageView.viewHeight)
-            }
-            if self.listType == .playList {
-                self.playlistMessageView.setTitle(title: self.playlist.name)
-                self.playlistMessageView.setIcon(iconURL: self.playlist.iconURL)
-            } else {
-                self.playlistMessageView.setTitle(title: AKManager.getAppleCloudName())
-                self.playlistMessageView.setIcon(iconURL: AKConstant.iCloudPlaylistIconImageSaveURL!.appendingPathComponent("iCloud"))
-            }
+//            self.playlistMessageView = AKPlaylistMessageView.init()
+//            self.playlistMessageView.delegate = self
+//            self.view.addSubview(self.playlistMessageView)
+//            self.playlistMessageView.mas_makeConstraints { (view) in
+//                view!.left.equalTo()(self.view.mas_safeAreaLayoutGuideLeft)?.offset()
+//                view!.right.equalTo()(self.view.mas_safeAreaLayoutGuideRight)?.offset()
+//                view!.top.equalTo()(self.view.mas_safeAreaLayoutGuideTop)?.offset()
+//                view!.height.equalTo()(AKPlaylistMessageView.viewHeight)
+//            }
+//            if self.listType == .playList {
+//                self.playlistMessageView.setTitle(title: self.playlist.name)
+//                self.playlistMessageView.setIcon(iconURL: self.playlist.iconURL)
+//            } else {
+//                self.playlistMessageView.setTitle(title: AKManager.getAppleCloudName())
+//                self.playlistMessageView.setIcon(iconURL: AKConstant.iCloudPlaylistIconImageSaveURL!.appendingPathComponent("iCloud"))
+//            }
 
-            let line: AKUIView = AKUIView.init()
-            line.backgroundColor = .separator
-            self.view.addSubview(line)
-            line.mas_makeConstraints { (view) in
-                view!.top.equalTo()(self.playlistMessageView.mas_bottom)?.offset()(5)
-                view!.left.equalTo()(self.view.mas_safeAreaLayoutGuideLeft)?.offset()(AKConstant.PlaylistMessageView.leftEdge)
-                view!.right.equalTo()(self.view.mas_safeAreaLayoutGuideRight)?.offset()
-                view!.height.equalTo()(1)
-            }
-
+//            let line: AKUIView = AKUIView.init()
+//            line.backgroundColor = .separator
+//            self.view.addSubview(line)
+//            line.mas_makeConstraints { (view) in
+//                view!.top.equalTo()(self.playlistMessageView.mas_bottom)?.offset()(5)
+//                view!.left.equalTo()(self.view.mas_safeAreaLayoutGuideLeft)?.offset()(5)
+//                view!.right.equalTo()(self.view.mas_safeAreaLayoutGuideRight)?.offset()
+//                view!.height.equalTo()(1)
+//            }
             self.moviesDisplayView = AKMoviesDisplayView.init()
+            self.moviesDisplayView.moviesCollectionView.contentInset = UIEdgeInsets(top: AKPlaylistMessageView.viewHeight, left: 0, bottom: 0, right: 0)
             self.moviesDisplayView.moviesCollectionView.delegate = self
             self.moviesDisplayView.moviesCollectionView.dataSource = self
             self.moviesDisplayView.moviesCollectionView.prefetchDataSource = self
@@ -97,8 +100,26 @@ class AKDetailViewController: AKUIViewController {
             self.moviesDisplayView.mas_makeConstraints { (view) in
                 view!.left.equalTo()(self.view.mas_safeAreaLayoutGuideLeft)?.offset()
                 view!.right.equalTo()(self.view.mas_safeAreaLayoutGuideRight)?.offset()
-                view!.top.equalTo()(line.mas_bottom)?.offset()(5)
+                view!.top.equalTo()(self.view.mas_safeAreaLayoutGuideTop)?.offset()
                 view!.bottom.equalTo()(self.view.mas_safeAreaLayoutGuideBottom)?.offset()
+            }
+            
+            self.playlistMessageView = AKPlaylistMessageView()
+            self.playlistMessageView.frame = CGRect(x: 0, y: -AKPlaylistMessageView.viewHeight, width: self.view.frame.width, height: AKPlaylistMessageView.viewHeight)
+            self.playlistMessageView.delegate = self
+            self.moviesDisplayView.moviesCollectionView.addSubview(self.playlistMessageView)
+//            self.playlistMessageView.mas_makeConstraints { (view) in
+//                view!.left.equalTo()(self.view.mas_safeAreaLayoutGuideLeft)?.offset()
+//                view!.right.equalTo()(self.view.mas_safeAreaLayoutGuideRight)?.offset()
+//                view!.top.equalTo()(self.view.mas_safeAreaLayoutGuideTop)?.offset()
+//                view!.height.equalTo()(AKPlaylistMessageView.viewHeight)
+//            }
+            if self.listType == .playList {
+                self.playlistMessageView.setTitle(title: self.playlist.name)
+                self.playlistMessageView.setIcon(iconURL: self.playlist.iconURL)
+            } else {
+                self.playlistMessageView.setTitle(title: AKManager.getAppleCloudName())
+                self.playlistMessageView.setIcon(iconURL: AKConstant.iCloudPlaylistIconImageSaveURL!.appendingPathComponent("iCloud"))
             }
 
         // - 全部视图。
@@ -146,7 +167,7 @@ class AKDetailViewController: AKUIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         AKWaitingView.dismiss()
     }
     

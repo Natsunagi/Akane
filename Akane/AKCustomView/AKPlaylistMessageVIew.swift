@@ -2,12 +2,13 @@
 //  AKPlaylistMessageView.swift
 //  Akane
 //
-//  Created by Grass Plainson on 2020/5/13.
-//  Copyright © 2020 Grass Plainson. All rights reserved.
+//  Created by 御前崎悠羽 on 2020/5/13.
+//  Copyright © 2020 御前崎悠羽. All rights reserved.
 //
 
 import UIKit
 import SDWebImage
+import Masonry
 
 class AKPlaylistMessageView: AKUIView {
     
@@ -18,42 +19,72 @@ class AKPlaylistMessageView: AKUIView {
     
     weak var delegate: AKPlaylistMessageViewDelegate?
     
+    static var viewHeight: CGFloat {
+        #if iPhoneOS
+        return 342
+        #else
+        return 230
+        #endif
+    }
+    
     // MARK: - Init.
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.iconImageView = UIImageView.init()
-        self.iconImageView.image = UIImage.init(named: "PlaylistIconTest")
+        self.iconImageView = UIImageView()
+        self.iconImageView.image = UIImage(named: "PlaylistIconTest")
         self.iconImageView.contentMode = .scaleToFill
         self.iconImageView.layer.cornerRadius = 25
         self.iconImageView.layer.masksToBounds = true
         self.iconImageView.isUserInteractionEnabled = true
-        let iconTapGesture: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(self.iconHandleTap))
+        let iconTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.iconHandleTap))
         self.iconImageView.addGestureRecognizer(iconTapGesture)
         self.addSubview(self.iconImageView)
-        self.iconImageView.mas_makeConstraints { (view) in
-            view!.left.equalTo()(self.mas_left)?.offset()(AKConstant.PlaylistMessageView.leftEdge)
-            view!.top.equalTo()(self.mas_top)?.offset()(AKConstant.PlaylistMessageView.topEdge)
-            view!.width.equalTo()(AKConstant.PlaylistMessageView.iconWidth)
-            view!.height.equalTo()(AKConstant.PlaylistMessageView.iconHeight)
+        #if iPhoneOS
+        self.iconImageView.mas_remakeConstraints { view in
+            view!.centerX.equalTo()(self.mas_centerX)?.offset()
+            view!.width.equalTo()(281)
+            view!.height.equalTo()(281)
+            view!.top.equalTo()(self.mas_safeAreaLayoutGuideTop)?.offset()(10)
         }
+        #else
+        self.iconImageView.mas_remakeConstraints { view in
+            view!.left.equalTo()(self.mas_safeAreaLayoutGuideLeft)?.offset()(20)
+            view!.top.equalTo()(self.mas_safeAreaLayoutGuideTop)?.offset()(10)
+            view!.width.equalTo()(200)
+            view!.height.equalTo()(200)
+        }
+        #endif
         
         self.titleLabel = AKUILabel.init()
         self.titleLabel.text = "title"
+        #if iPhoneOS
+        self.titleLabel.textAlignment = .center
+        #else
         self.titleLabel.textAlignment = .left
+        #endif
         self.titleLabel.isUserInteractionEnabled = true
         self.titleLabel.font = AKUIFont.playlistMessageTitle
-        self.titleLabel.numberOfLines = 2
+        self.titleLabel.lineBreakMode = .byTruncatingMiddle
         let titleTapGesture: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(self.titleHandleTap))
         self.titleLabel.addGestureRecognizer(titleTapGesture)
         self.addSubview(self.titleLabel)
-        self.titleLabel.mas_makeConstraints { (view) in
-            view!.left.equalTo()(self.iconImageView.mas_right)?.offset()(AKConstant.PlaylistMessageView.edgeBetweenIconAndTitleLabel)
-            view!.top.equalTo()(self.iconImageView.mas_top)?.offset()(3)
-            view!.right.equalTo()(self.mas_right)?.offset()(-AKConstant.PlaylistMessageView.rightEdge)
-            view!.height.equalTo()(AKUIFont.playlistMessageTitle.pointSize * 2 + 10)
+        #if iPhoneOS
+        self.titleLabel.mas_remakeConstraints { view in
+            view!.left.equalTo()(self.mas_safeAreaLayoutGuideLeft)?.offset()
+            view!.right.equalTo()(self.mas_safeAreaLayoutGuideRight)?.offset()
+            view!.top.equalTo()(self.iconImageView.mas_bottom)?.offset()(10)
+            view!.height.equalTo()(30)
         }
+        #else
+        self.titleLabel.mas_remakeConstraints { view in
+            view!.left.equalTo()(self.iconImageView.mas_right)?.offset()(20)
+            view!.centerY.equalTo()(self.iconImageView.mas_centerY)?.offset()
+            view!.right.equalTo()(self.mas_safeAreaLayoutGuideRight)?.offset()
+            view!.height.equalTo()(30)
+        }
+        #endif
     }
     
     required init?(coder: NSCoder) {
