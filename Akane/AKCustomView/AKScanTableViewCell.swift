@@ -33,7 +33,7 @@ class AKScanTableViewCell: UITableViewCell {
             view!.left.equalTo()(self.contentView.mas_safeAreaLayoutGuideLeft)?.offset()(10)
             view!.top.equalTo()(self.contentView.mas_top)?.offset()(5)
             view!.bottom.equalTo()(self.contentView.mas_bottom)?.offset()(-5)
-            view!.width.equalTo()(AKConstant.AKCell.scanCellHeigt - 5 * 2)
+            view!.width.equalTo()(AKSidebarCollectionViewCell.cellHeight - 5 * 2)
         }
         
         self.titleLabel = AKUILabel.init()

@@ -55,7 +55,7 @@ struct AKRootList: View {
                     }
                 }
             }
-            .listStyle(InsetGroupedListStyle())
+            .listStyle(SidebarListStyle())
             .navigationTitle("浏览")
         }
     }

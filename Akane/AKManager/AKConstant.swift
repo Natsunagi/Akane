@@ -2,8 +2,8 @@
 //  AKConstant.swift
 //  Akane
 //
-//  Created by Grass Plainson on 2020/5/13.
-//  Copyright © 2020 Grass Plainson. All rights reserved.
+//  Created by 御前崎悠羽 on 2020/5/13.
+//  Copyright © 2020 御前崎悠羽. All rights reserved.
 //
 
 import Foundation
@@ -157,31 +157,10 @@ class AKConstant {
         static let duration: String = "duration"
     }
     
-    // MARK: - All cell.
-    
-    struct AKCell {
-        static let scanCellHeigt: CGFloat = 50
-    }
-    
     // MARK: - Table view.
     
     struct TableView {
         static let scanTableViewHeaderHeight: CGFloat = 60
-    }
-    
-    // MARK: - Play list message view.
-    
-    struct PlaylistMessageView {
-        
-        static let viewHeight: CGFloat = 150
-        
-        static let topEdge: CGFloat = 20
-        static let bottomEdge: CGFloat = 20
-        static let leftEdge: CGFloat = 20
-        static let rightEdge: CGFloat = 20
-        static let iconWidth: CGFloat = 120
-        static let iconHeight: CGFloat = 120
-        static let edgeBetweenIconAndTitleLabel: CGFloat = 10
     }
     
     // MARK: - Movie display view.
