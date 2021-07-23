@@ -14,6 +14,17 @@ target 'Akane' do
 
 end
 
+target 'Akane_iPadOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Akane
+  pod 'Masonry'
+  pod 'SDWebImage'
+  pod 'FMDB'
+
+end
+
 target 'Akane_SwiftUI' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
