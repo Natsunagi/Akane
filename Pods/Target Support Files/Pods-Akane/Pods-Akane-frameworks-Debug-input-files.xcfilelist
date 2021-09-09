@@ -1,4 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-Akane/Pods-Akane-frameworks.sh
-${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework
+${BUILT_PRODUCTS_DIR}/FMDB-iOS/FMDB.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
-${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage-iOS/SDWebImage.framework

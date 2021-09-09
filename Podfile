@@ -36,6 +36,16 @@ target 'Akane_SwiftUI' do
 
 end
 
+target 'Akane_macOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Akane_iPadOS
+  pod 'SDWebImage'
+  pod 'FMDB'
+
+end
+
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
