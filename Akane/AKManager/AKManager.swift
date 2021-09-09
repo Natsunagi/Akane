@@ -31,11 +31,11 @@ class AKManager {
     
     // - iPad controllers.
     
-    //#if iPadOS
+    #if iPadOS && Akane_SwiftUI
     static var splitViewController: UISplitViewController?
     static var leftNavigationController: AKUINavigationController?
     static var rightNavigationController: AKUINavigationController?
-    //#endif
+    #endif
     
     // MARK: - Get playlists.
     
@@ -202,11 +202,9 @@ class AKManager {
     
     // MARK: - Delete movie icon.
     
-    #if iPhoneOS || iPadOS
     static func deleteMovieIcon(movie: AKMovie, location: AKFileOperation.Location) {
         AKFileOperation.shared.deleteMovieIcon(movie: movie, location: location)
     }
-    #endif
     
     // MARK: - Add movie.
     

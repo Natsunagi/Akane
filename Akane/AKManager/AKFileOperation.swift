@@ -177,7 +177,6 @@ class AKFileOperation: NSObject, NSFilePresenter {
     
     // MARK: - Delete movie icon.
     
-    #if iPhoneOS || iPadOS
     func deleteMovieIcon(movie: AKMovie, location: AKFileOperation.Location) {
         let byAccessor: ((URL) -> Void) = { url in
             try? FileManager.default.removeItem(at: url)
@@ -197,7 +196,6 @@ class AKFileOperation: NSObject, NSFilePresenter {
             byAccessor(url)
         }
     }
-    #endif
     
     // MARK: - Get playlist icon.
     

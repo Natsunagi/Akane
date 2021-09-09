@@ -7,7 +7,9 @@
 //
 
 import Foundation
+#if iOS
 import UIKit
+#endif
 
 final class AKConstant {
     

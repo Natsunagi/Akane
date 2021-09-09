@@ -7,11 +7,15 @@
 //
 
 import SwiftUI
+#if iOS
 import UIKit
 import SDWebImage
+#endif
 
 struct AKScanRow: View {
+    #if iOS
     @State private var uiImage: UIImage = UIImage.init(named: AKConstant.defaultPlaylistIconName)!
+    #endif
     
     private var name: String
     private var imageName: String?
@@ -30,6 +34,7 @@ struct AKScanRow: View {
                     .frame(width: self.scanImageSide, height: self.scanImageSide)
                     .foregroundColor(.blue)
             } else {
+                #if iOS
                 Image(uiImage: self.uiImage)
                     .resizable()
                     .cornerRadius(5.0)
@@ -39,13 +44,15 @@ struct AKScanRow: View {
                     .onAppear(perform: {
                         self.load()
                     })
+                #endif
             }
             
             Text(self.name)
             
             Spacer()
         }
-        .padding()
+        .padding(.vertical, 4)
+        //.padding(.horizontal, 4)
     }
     
     init(name: String, imageName: String) {
@@ -59,12 +66,14 @@ struct AKScanRow: View {
     }
     
     func load() {
+        #if iOS
         let imageView: UIImageView = UIImageView.init()
         imageView.sd_setImage(with: self.iconURL, placeholderImage: UIImage.init(named: AKConstant.defaultPlaylistIconName), options: .refreshCached) { image, error, cacheType, url in
             if image != nil {
                 self.uiImage = image!
             }
         }
+        #endif
     }
 }
 
