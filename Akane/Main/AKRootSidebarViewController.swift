@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AKRootSidebarViewController: AKUIViewController {
     
@@ -17,7 +18,6 @@ class AKRootSidebarViewController: AKUIViewController {
     }
     
     private var dataSource: UICollectionViewDiffableDataSource<Int, Item>!
-    //private var snapshot: NSDiffableDataSourceSnapshot<Int, Item>!
     private var items: [Int: [Item]] = [Int: [Item]]()
     private var playlistsDictionary: [String: Int] = [String: Int]()
     
@@ -252,12 +252,7 @@ class AKRootSidebarViewController: AKUIViewController {
                 self.playlistsDictionary[playlist.name] = index
             }
             DispatchQueue.main.async {
-//                if let activityIndicatorView = self.refreshActivityIndicatorView {
-//                    if activityIndicatorView.isAnimating {
-//                        activityIndicatorView.stopAnimating()
-//                        self.tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
-//                    }
-//                }
+                self.collectionView.reloadData()
             }
         }
     }
@@ -445,10 +440,11 @@ extension AKRootSidebarViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func creatMenu() -> UIMenu {
+    private func creatMenu() -> UIMenu {
         let refreshAction: UIAction = UIAction(title: internationalization(text: "刷新"), image: UIImage(systemName: "arrow.clockwise.circle")) { action in
             AKDataBase.shared = AKDataBase.init(location: AKManager.location)
             AKManager.playlists = AKManager.getAllPlaylists(location: AKManager.location)
+            self.handlePlaylistsDidUpdate(notification: Notification.init(name: Notification.Name(rawValue: "")))
         }
         let creatPlaylistAction: UIAction = UIAction(title: internationalization(text: "新建播放列表"), image: UIImage(systemName: "folder.badge.plus")) { action in
             self.creatPlayList()

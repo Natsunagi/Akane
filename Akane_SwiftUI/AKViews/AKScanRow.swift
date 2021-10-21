@@ -35,15 +35,17 @@ struct AKScanRow: View {
                     .foregroundColor(.blue)
             } else {
                 #if iOS
-                Image(uiImage: self.uiImage)
-                    .resizable()
-                    .cornerRadius(5.0)
-                    .scaledToFit()
-                    .frame(width: self.playlistImageWidth, height: self.playlistImageWidth)
-                    .foregroundColor(.blue)
-                    .onAppear(perform: {
-                        self.load()
-                    })
+                
+                AsyncImage(url: self.iconURL) { image in
+                    image.resizable()
+                } placeholder: {
+                    Image(uiImage: UIImage(named: "PlaylistIconTest")!)
+                        .resizable()
+                }
+                .scaledToFit()
+                .frame(width: self.playlistImageWidth, height: self.playlistImageWidth)
+                .cornerRadius(5.0)
+                
                 #endif
             }
             
@@ -52,7 +54,6 @@ struct AKScanRow: View {
             Spacer()
         }
         .padding(.vertical, 4)
-        //.padding(.horizontal, 4)
     }
     
     init(name: String, imageName: String) {

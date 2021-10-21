@@ -20,7 +20,7 @@ struct AKDetailView: View {
                 .cornerRadius(10)
                 .padding(.leading, 50)
                 .padding(.trailing, 50)
-                .padding(.top, 20)
+                //.padding(.top, 20)
             
             Text("播放列表名称")
                 .font(.title2)

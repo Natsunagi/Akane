@@ -11,18 +11,23 @@ import Foundation
 final class AKModelData: ObservableObject {
     
     @Published
-    var playlists: [AKPlaylist] = AKManager.getAllPlaylists(location: AKManager.location)
+    var playlists: [AKPlaylist] = []
     
-    var iCloudURL: URL? {
+    var iCloudURL: URL?
+    
+    init() {
         var url: URL?
         DispatchQueue.global().async {
             while url == nil {
                 if let iCloudURL = FileManager.default.url(forUbiquityContainerIdentifier: nil) {
                     url = iCloudURL
                     AKConstant.iCloudURL = url
+                    self.iCloudURL = url
+                    DispatchQueue.main.async {
+                        self.playlists = AKManager.getAllPlaylists(location: AKManager.location)
+                    }
                 }
             }
         }
-        return url
     }
 }
